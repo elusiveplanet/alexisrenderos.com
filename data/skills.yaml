@@ -1,0 +1,43 @@
+languages:
+  - item: TypeScript
+  - item: JavaScript (ES6)
+  - item: HTML
+  - item: CSS/Styled Components
+  - item: C++
+  - item: C
+  - item: Python
+  - item: Java
+  - item: Kotlin
+  - item: SQL
+
+libraries:
+  - item: React
+  - item: GraphQL
+  - item: Apollo
+  - item: Prisma
+  - item: NextJS
+  - item: Jest
+  - item: TensorFlow
+  - item: Keras
+  - item: OpenCV
+  - item: Node.JS
+  - item: ROS
+
+tools:
+  - item: Git
+  - item: CI/CD
+  - item: Jira
+  - item: Confluence
+  - item: Bitbucket
+  - item: Bamboo
+  - item: Coverity
+  - item: Android Studio
+  - item: LaTeX
+  - item: TCP/IP
+  - item: Linux
+  - item: Cloud Computing
+
+spokenLanguages:
+  - item: English
+  - item: Spanish
+  - item: German
