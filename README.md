@@ -1,6 +1,6 @@
 This is a monorepo housing:
 
-* **Website**: Public-facing service (Next.js) serving renderos.tech.
+* **Website**: Public-facing service (Next.js) serving alexisrenderos.com.
 * **Platform**: Core back-end service (Node.js) serving GraphQL APIs and interfacing as the database manager.
 
 It's a web app built using:
