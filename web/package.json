@@ -1,6 +1,6 @@
 {
-  "name": "with-typescript-eslint-jest",
-  "author": "@erikdstock",
+  "name": "alexisrenderos.com",
+  "author": "@elusiveplanet",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
@@ -22,7 +22,8 @@
   "dependencies": {
     "next": "latest",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.5",
