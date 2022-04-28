@@ -1,50 +1,66 @@
+- company: Bolt
+  url: https://www.bolt.com
+  time: Sept 2021 – Present
+  location: San Francisco, CA
+  position: Software Engineer
+
+- company: 88.5 KURE Ames Alternative
+  url: https://www.kure.stuorg.iastate.edu
+  time: Sept 2021 – Present
+  location: Remote
+  position: Technical Advisor
+
+- company: Full Measure Education
+  url: https://www.fullmeasure.io/
+  time: May 2021 – Sept 2021
+  location: Washington, D.C.
+  position: Software Engineering Intern
+
 - company: Dreambound
-  url: https://www.dreambound.com/
-  time: Jan 2021 – Present
+  url: https://www.dreambound.com
+  time: Jan 2021 – May 2021
   location: San Francisco, California
   position: Software Engineering Intern
-  responsibilities:
-    - item: Developed mission-critical, performant, and reliable customer facing products in addition to key internal tools using React, TypeScript, and GraphQL.
-    - item: Spearheaded development of Dreambound’s new internal credit reporting software, in addition to staff, customer, and training provider self-service portals.
-    - item: Migrated existing operations flows from 3rd party solutions to in-house solutions with a specific focus on reliability and robustness.
-    - item: Established, designed, and maintained over 100 unit, integration, and regression tests, using Jest, maximizing code coverage over a rapidly expanding codebase.
 
-- company: Slack Technologies, Inc.
-  url: https://www.slack.com/
+- company: Code 2040
+  url: https://www.code2040.org
+  time: May 2020 – Aug 2020
+  location: San Francisco, California
+  position: Code 2040 Fellow
+
+- company: Slack
+  url: https://www.slack.com
   time: May 2020 – Aug 2020
   location: San Francisco, California
   position: Software Engineering Intern
-  responsibilities:
-    - item: Spearheaded development of Slack’s new Android mobile video calling feature for use by over 10M Daily Active Users in over 150 countries.
-    - item: Acted as a product owner, translating key business needs into features, making critical design decisions for the product while ensuring top-notch quality and security.
-    - item: Developed key design documents from initial product development stages to production, specifically focusing on delivering an unparalleled user experience.
-    - item: Architected core front-end and back-end functionality leveraging Java and Kotlin.
-    - item: Refactored existing native calls code to utilize new AWS Chime endpoints, quadrupling the number of potential concurrent mobile video streams and decreasing latency by 25%.
-    - item: Refined and perfected Slack’s end to end automated testing suite using TypeScript.
 
 - company: Collins Aerospace
-  url: https://www.collinsaerospace.com/
+  url: https://www.collinsaerospace.com
   time: May 2019 – May 2020
   location: Cedar Rapids and Ames, Iowa
   position: Software Engineering Intern / Campus Ambassador
-  responsibilities:
-    - item: Spearheaded development of Slack’s new Android mobile video calling feature for use by over 10M Daily Active Users in over 150 countries.
-    - item: Acted as a product owner, translating key business needs into features, making critical design decisions for the product while ensuring top-notch quality and security.
-    - item: Developed key design documents from initial product development stages to production, specifically focusing on delivering an unparalleled user experience.
-    - item: Architected core front-end and back-end functionality leveraging Java and Kotlin.
-    - item: Refactored existing native calls code to utilize new AWS Chime endpoints, quadrupling the number of potential concurrent mobile video streams and decreasing latency by 25%.
-    - item: Refined and perfected Slack’s end to end automated testing suite using TypeScript.
   additional: Active Security Clearance":" Secret
 
 - company: 88.5 KURE Ames Alternative
-  url: https://www.collinsaerospace.com/
-  time: Sept 2018 – Present
+  url: https://www.kure.stuorg.iastate.edu
+  time: Sept 2018 – Sept 2021
   location: Ames, Iowa
   position: Assistant General Manager / Chief Operator
-  responsibilities:
-    - item: Oversaw all broadcast functions, ensuring the radio station met legal requirements while also maximizing on-air quality, community and staff engagement, and station listenership.
-    - item: Coordinated a team of 20 directors and interns in addition to 50 DJs and talk show hosts.
-    - item: Proposed and implemented a new high-impact internship program with a focus on career growth, increasing talent acquisition by 85% and reducing churn rate by over 200%.
-    - item: Expanded station listenership by 350% through the implementation of a comprehensive   5-year plan for aggressive station growth and development.
-    - item: Minted vital strategic partnerships with local business owners and prominent community members to foster the development of the radio station.
 
+- company: Iowa State University
+  url: https://www.iastate.edu
+  time: Feb 2019 — May 2019
+  location: Ames, Iowa
+  position: Systems Support Specialist
+
+- company: Ela Area Public Library
+  url: https://www.eapl.org
+  time: Aug 2016 – Aug 2018
+  location: Lake Zurich, Illinois
+  position: Makerspace Technologist
+
+- company: Engis
+  url: https://www.engis.com
+  time: June 2016 – July 2016
+  location: Wheeling, Illinois
+  position: Robotics Engineering Intern
