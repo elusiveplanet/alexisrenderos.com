@@ -15,6 +15,7 @@ export enum WorkExperienceCardPosition {
   First = 0,
   Body = 1,
   Last = 2,
+  Only = 3,
 }
 
 export type WorkExperienceTimeRange = {
@@ -43,9 +44,9 @@ export type WorkExperienceCardTimelineProps = {
 export const TimelineDot = styled.div`
   z-index: 2;
   background-color: rgba(244, 244, 244, 1);
-  border: 6px solid rgba(0, 0, 0, 1);
+  border: 5px solid rgba(0, 0, 0, 1);
   position: absolute;
-  top: calc(50% - 35px);
+  top: calc(50% - 25px);
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -77,6 +78,9 @@ export const TimeLineLast = styled.div`
   width: 15px;
   height: 50%;
 `;
+
+// Intentionally empty. For future use, if styling a single card is needed.
+export const TimeLineOnly = styled.div``;
 
 const WorkExperienceCardTimelineWrapper = styled.div`
   display: flex;
@@ -161,6 +165,7 @@ export const WorkExperienceCardTimeline = ({
     {position === 0 && <TimeLineFirst />}
     {position === 1 && <TimeLineBody />}
     {position === 2 && <TimeLineLast />}
+    {position === 3 && <TimeLineOnly />}
   </WorkExperienceCardTimelineWrapper>
 );
 
