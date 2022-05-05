@@ -3,12 +3,14 @@ This is a monorepo housing:
 * **Website**: Public-facing service (Next.js) serving alexisrenderos.com.
 * **Platform**: Core back-end service (Node.js) serving GraphQL APIs and interfacing as the database manager.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/63e386ee-88ff-4bd8-b5b3-9b17cc31e851/deploy-status)](https://app.netlify.com/sites/voluble-licorice-1eec99/deploys)
+
 It's a web app built using:
 
 - [Typescript](https://www.typescriptlang.org/)
 - Linting with [ESLint](https://eslint.org/)
 - Formatting with [Prettier](https://prettier.io/)
-- Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+- Testing with [Jest](https://jestjs.io/)
 
 ## Getting Started
 
@@ -16,8 +18,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 The website is hosted at [http://localhost:3000](http://localhost:3000).
