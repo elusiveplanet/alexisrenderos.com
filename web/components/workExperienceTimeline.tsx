@@ -18,5 +18,5 @@ export type WorkExperienceCardCollectionProps = {
 export const WorkExperienceTimeline = ({
   workExperienceList,
 }: WorkExperienceCardCollectionProps) => (
-  <WorkExperienceCardCollectionWrapper></WorkExperienceCardCollectionWrapper>
+  <WorkExperienceCardCollectionWrapper />
 );
