@@ -25,6 +25,15 @@ export const WorkExperienceTimeline = ({
     return {} as JSX.Element;
   }
 
+  if (experienceListLength === 1) {
+    return (
+      <WorkExperienceCard
+        workExperience={workExperienceList[0]}
+        cardPosition={WorkExperienceCardPosition.Only}
+      />
+    );
+  }
+
   return (
     <WorkExperienceCardCollectionWrapper>
       {workExperienceList.map((workExperience, index) => {
@@ -48,13 +57,4 @@ export const WorkExperienceTimeline = ({
       })}
     </WorkExperienceCardCollectionWrapper>
   );
-
-  if (experienceListLength === 1) {
-    return (
-      <WorkExperienceCard
-        workExperience={workExperienceList[0]}
-        cardPosition={WorkExperienceCardPosition.Only}
-      />
-    );
-  }
 };

@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import {
+  Black,
+  FullyTransparent,
+  NeutralOffWhite,
+  SaffronYellow,
+  White,
+} from "../utils/colors";
 
 // Work Experience Card
 // This component is used to display a single work experience entry.
@@ -43,8 +50,8 @@ export type WorkExperienceCardTimelineProps = {
 
 export const TimelineDot = styled.div`
   z-index: 2;
-  background-color: rgba(244, 244, 244, 1);
-  border: 5px solid rgba(0, 0, 0, 1);
+  background-color: ${NeutralOffWhite};
+  border: 5px solid ${Black};
   position: absolute;
   top: calc(50% - 25px);
   width: 35px;
@@ -52,30 +59,25 @@ export const TimelineDot = styled.div`
   border-radius: 50%;
 `;
 
-export const TimeLineFirst = styled.div`
+export const TimeLine = styled.div`
   z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
+  background-color: ${SaffronYellow};
   position: absolute;
-  top: calc(50%);
   width: 15px;
+`;
+
+export const TimeLineFirst = styled(TimeLine)`
+  top: calc(50%);
   height: 50%;
 `;
 
-export const TimeLineBody = styled.div`
-  z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
-  position: absolute;
+export const TimeLineBody = styled(TimeLine)`
   top: 0;
-  width: 15px;
   height: 100%;
 `;
 
-export const TimeLineLast = styled.div`
-  z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
-  position: absolute;
+export const TimeLineLast = styled(TimeLine)`
   top: 0;
-  width: 15px;
   height: 50%;
 `;
 
@@ -94,43 +96,40 @@ const WorkExperienceCardTimelineWrapper = styled.div`
 `;
 
 export const WorkExperienceCardHeading = styled.h2`
-  color: rgba(255, 255, 255, 1);
+  color: ${White};
   font-size: 48px;
   text-align: left;
   margin: 0;
   padding: 2px 0;
-  font-family: GT Walsheim Trial, sans-serif;
-  font-weight: bold;
+  font-weight: 700;
 `;
 
 export const WorkExperienceCardSubheadingOne = styled.h3`
-  color: rgba(243, 200, 27, 1);
+  color: ${SaffronYellow};
   font-size: 30px;
   text-align: left;
   margin: 0;
   padding: 0;
-  font-family: GT Walsheim Trial, sans-serif;
-  font-weight: bold;
+  font-weight: 500;
 `;
 
 export const WorkExperienceCardSubheadingTwo = styled.h4`
-  color: rgba(243, 243, 243, 1);
+  color: ${SaffronYellow};
   font-size: 20px;
   text-align: left;
   margin: 0;
   padding: 0;
-  font-family: GT Walsheim Trial, sans-serif;
-  font-weight: normal;
+  font-weight: 400;
 `;
 
 export const WorkExperienceCardBody = styled.p`
-  color: rgba(255, 255, 255, 1);
+  color: ${White};
   font-size: 40px;
   text-align: left;
   margin: 0;
   padding: 15px 0;
   max-width: 650px;
-  font-family: GT Walsheim Trial, sans-serif;
+  font-weight: 400;
 `;
 
 const WorkExperienceCardTextWrapper = styled.div`
@@ -148,13 +147,7 @@ const WorkExperienceCardWrapper = styled.div`
   align-items: stretch;
   flex-direction: row;
   justify-content: flex-start;
-  background-image: linear-gradient(
-    to right,
-    rgba(24, 48, 73, 1) 0%,
-    rgba(24, 51, 79, 1) 14.0625%,
-    rgba(24, 58, 91, 1) 27.08333432674408%,
-    rgba(24, 81, 135, 1) 100%
-  );
+  background: ${FullyTransparent};
 `;
 
 export const WorkExperienceCardTimeline = ({
