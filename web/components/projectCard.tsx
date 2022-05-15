@@ -4,6 +4,7 @@ import {
   ModeratelyDarken,
   QuarterShadow,
   SaffronYellow,
+  SlightShadow,
 } from "../utils/colors";
 // Project Card
 // This component is used to display a single project entry.
@@ -28,7 +29,7 @@ const ProjectCardWrapper = styled.div`
   margin: 20px;
   box-shadow: 25px 25px 25px 0 ${QuarterShadow};
   border-radius: 16px;
-  border: 20px transparent;
+  border: 5px ${SlightShadow} solid;
 `;
 
 export const ProjectCardHeading = styled.h2`
@@ -38,7 +39,7 @@ export const ProjectCardHeading = styled.h2`
   margin: 0;
   padding: 10px 0 5px 0;
   max-width: 500px;
-  font-weight: bold;
+  font-weight: 700;
 `;
 
 export const ProjectCardBody = styled.p`
@@ -48,6 +49,7 @@ export const ProjectCardBody = styled.p`
   margin: 0;
   padding: 5px 0 10px 0;
   max-width: 600px;
+  font-weight: 400;
 `;
 
 const ProjectCardTextWrapper = styled.div`
@@ -65,7 +67,7 @@ const ProjectCardAccentWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   flex: 0 0 5%;
-  background-color: ${SaffronYellow};
+  background: ${SaffronYellow};
 `;
 
 export const ProjectCard = ({ project }: ProjectCardProps) => (
