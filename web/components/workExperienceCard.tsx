@@ -52,30 +52,25 @@ export const TimelineDot = styled.div`
   border-radius: 50%;
 `;
 
-export const TimeLineFirst = styled.div`
+export const TimeLine = styled.div`
   z-index: 1;
   background-color: rgba(243, 200, 27, 1);
   position: absolute;
-  top: calc(50%);
   width: 15px;
+`;
+
+export const TimeLineFirst = styled(TimeLine)`
+  top: calc(50%);
   height: 50%;
 `;
 
-export const TimeLineBody = styled.div`
-  z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
-  position: absolute;
+export const TimeLineBody = styled(TimeLine)`
   top: 0;
-  width: 15px;
   height: 100%;
 `;
 
-export const TimeLineLast = styled.div`
-  z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
-  position: absolute;
+export const TimeLineLast = styled(TimeLine)`
   top: 0;
-  width: 15px;
   height: 50%;
 `;
 
