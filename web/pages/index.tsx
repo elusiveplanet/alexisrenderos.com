@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { ProjectCardCollection } from "../components/projectCardCollection";
-import { createGlobalStyle } from "styled-components";
-import { IndigoToAzureGradient } from "../utils/colors";
+import { GlobalStyle } from "../styles/styles";
 
-let tempProjects = [
+const tempProjects = [
   {
     title: "7Words",
     description:
@@ -12,17 +11,9 @@ let tempProjects = [
   {
     title: "Clark",
     description:
-      "Python-based tool used to check song lyrics for potentially explicit language using the Genius and Spotify APIs. Designed for radio stations.",
+      "60-pound autonomous custom designed and fabricated robot running on ROS.",
   },
 ];
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-image: ${IndigoToAzureGradient};
-    color: white;
-    font-family: GT Walsheim Trial, sans-serif;
-  }
-`;
 
 export const Home = (): JSX.Element => (
   <>
