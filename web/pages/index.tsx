@@ -1,8 +1,32 @@
 import Link from "next/link";
+import { ProjectCardCollection } from "../components/projectCardCollection";
+import { createGlobalStyle } from "styled-components";
+import { IndigoToAzureGradient } from "../utils/colors";
+
+let tempProjects = [
+  {
+    title: "7Words",
+    description:
+      "Python-based tool used to check song lyrics for potentially explicit language using the Genius and Spotify APIs. Designed for radio stations.",
+  },
+  {
+    title: "Clark",
+    description:
+      "Python-based tool used to check song lyrics for potentially explicit language using the Genius and Spotify APIs. Designed for radio stations.",
+  },
+];
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-image: ${IndigoToAzureGradient};
+    color: white;
+    font-family: GT Walsheim Trial, sans-serif;
+  }
+`;
 
 export const Home = (): JSX.Element => (
-  <div className="container">
-    <meta charSet="utf-8" />
+  <>
+    <GlobalStyle />
     <title>Alexis J. Renderos</title>
     <p>
       Hey! I&apos;m Alexis—my personal website is currently under construction,
@@ -21,7 +45,9 @@ export const Home = (): JSX.Element => (
       </Link>
       .
     </p>
-  </div>
+
+    <ProjectCardCollection projectList={tempProjects} />
+  </>
 );
 
 export default Home;
