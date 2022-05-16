@@ -1,8 +1,9 @@
 - name: Clark
+  displayOnPage: true
   url: https://github.com/renderos17/Clark
   code: https://github.com/renderos17/ClarkCode
   cad: https://github.com/renderos17/Clark
-  description: 60-pound autonomous custom designed and fabricated robot running on ROS.
+  description: 60-pound custom designed and fabricated autonomous robot utilizing sensor fusion and computer vision with a convolutional neural network.
   used:
     - C++
     - Python
@@ -16,6 +17,7 @@
     - 3D Printing
 
 - name: Lifedrinker
+  displayOnPage: false
   url: https://github.com/renderos17/Lifedrinker
   code: https://github.com/renderos17/Lifedrinker
   description: Convolutional Neural Network (CNN) taught to identify an object of interest at range using a live camera feed in conjunction with a Python-based OpenCV tracking algorithm to assist in the detecting, identifying, and tracking of a target.
@@ -28,9 +30,10 @@
     - Raspberry Pi
 
 - name: 7Words
+  displayOnPage: true
   url: https://github.com/renderos17/7Words
   code: https://github.com/renderos17/7Words
-  description: Python-based web tool launched on Heroku intended to mass lyric check a set of songs. It uses the Genius and Spotify APIs to search through a playlist of songs for language that could go against FCC broadcasting guidelines.
+  description: Python tool used to check song lyrics in playlists for potentially explicit language using the Genius and Spotify APIs. Designed for radio stations.
   used:
     - Python
     - Heroku
