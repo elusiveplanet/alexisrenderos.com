@@ -5,11 +5,27 @@ import {
   WorkExperienceEntry,
 } from "./workExperienceCard";
 import simpleHash from "../helpers/simpleHash";
+import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 
-export const WorkExperienceCardCollectionWrapper = styled.div`
-  display: flex;
+export const WorkExperienceTimelineWrapper = styled.div`
+  display: inline-flex;
   flex-direction: column;
   flex-wrap: wrap;
+  width: max-content;
+  max-width: 800px;
+  padding: 50px 50px;
+`;
+
+export const WorkExperienceTimelineTitle = styled.h2`
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0 auto;
+  text-align: center;
+  color: ${DarkText};
+  background: ${SaffronYellow};
+  border: solid ${SaffronYellow};
+  border-width: 0.175em 0.35em 0.175em 0.35em;
+  box-shadow: 15px 15px 2px 0 ${HalfShadow};
 `;
 
 export type WorkExperienceCardCollectionProps = {
@@ -25,8 +41,18 @@ export const WorkExperienceTimeline = ({
     return {} as JSX.Element;
   }
 
+  if (experienceListLength === 1) {
+    return (
+      <WorkExperienceCard
+        workExperience={workExperienceList[0]}
+        cardPosition={WorkExperienceCardPosition.Only}
+      />
+    );
+  }
+
   return (
-    <WorkExperienceCardCollectionWrapper>
+    <WorkExperienceTimelineWrapper>
+      <WorkExperienceTimelineTitle>Work Experience</WorkExperienceTimelineTitle>
       {workExperienceList.map((workExperience, index) => {
         let currentCardPosition: number;
         if (index === 0) {
@@ -46,15 +72,6 @@ export const WorkExperienceTimeline = ({
           />
         );
       })}
-    </WorkExperienceCardCollectionWrapper>
+    </WorkExperienceTimelineWrapper>
   );
-
-  if (experienceListLength === 1) {
-    return (
-      <WorkExperienceCard
-        workExperience={workExperienceList[0]}
-        cardPosition={WorkExperienceCardPosition.Only}
-      />
-    );
-  }
 };

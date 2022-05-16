@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import {
+  Black,
+  FullyTransparent,
+  LightText,
+  NeutralOffWhite,
+  SaffronYellow,
+} from "../utils/colors";
 
 // Work Experience Card
 // This component is used to display a single work experience entry.
@@ -20,16 +27,19 @@ export enum WorkExperienceCardPosition {
 
 export type WorkExperienceTimeRange = {
   startMonth: string;
-  endMonth: string;
   startYear: string;
+  endMonth: string;
   endYear: string;
 };
 
 export type WorkExperienceEntry = {
   company: string;
+  url?: string;
   title: string;
   dates: WorkExperienceTimeRange;
   description: string;
+  location?: string;
+  additionalInfo?: string;
 };
 
 export type WorkExperienceCardProps = {
@@ -43,8 +53,8 @@ export type WorkExperienceCardTimelineProps = {
 
 export const TimelineDot = styled.div`
   z-index: 2;
-  background-color: rgba(244, 244, 244, 1);
-  border: 5px solid rgba(0, 0, 0, 1);
+  background-color: ${NeutralOffWhite};
+  border: 5px solid ${Black};
   position: absolute;
   top: calc(50% - 25px);
   width: 35px;
@@ -52,30 +62,25 @@ export const TimelineDot = styled.div`
   border-radius: 50%;
 `;
 
-export const TimeLineFirst = styled.div`
+export const TimeLine = styled.div`
   z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
+  background-color: ${SaffronYellow};
   position: absolute;
-  top: calc(50%);
   width: 15px;
+`;
+
+export const TimeLineFirst = styled(TimeLine)`
+  top: calc(50%);
   height: 50%;
 `;
 
-export const TimeLineBody = styled.div`
-  z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
-  position: absolute;
+export const TimeLineBody = styled(TimeLine)`
   top: 0;
-  width: 15px;
   height: 100%;
 `;
 
-export const TimeLineLast = styled.div`
-  z-index: 1;
-  background-color: rgba(243, 200, 27, 1);
-  position: absolute;
+export const TimeLineLast = styled(TimeLine)`
   top: 0;
-  width: 15px;
   height: 50%;
 `;
 
@@ -83,54 +88,48 @@ export const TimeLineLast = styled.div`
 export const TimeLineOnly = styled.div``;
 
 const WorkExperienceCardTimelineWrapper = styled.div`
-  display: flex;
-  flex: 1 1 100%;
+  display: inline-flex;
+  flex: 0 1 auto;
   flex-direction: column;
   align-content: center;
   align-items: center;
   position: relative;
-  max-width: 75px;
-  min-height: 100px;
+  width: 75px;
 `;
 
 export const WorkExperienceCardHeading = styled.h2`
-  color: rgba(255, 255, 255, 1);
-  font-size: 48px;
+  color: ${LightText};
+  font-size: 2.5em;
+  letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
   padding: 2px 0;
-  font-family: GT Walsheim Trial, sans-serif;
-  font-weight: bold;
 `;
 
 export const WorkExperienceCardSubheadingOne = styled.h3`
-  color: rgba(243, 200, 27, 1);
-  font-size: 30px;
+  color: ${SaffronYellow};
+  font-size: 1.75em;
+  letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
   padding: 0;
-  font-family: GT Walsheim Trial, sans-serif;
-  font-weight: bold;
 `;
 
 export const WorkExperienceCardSubheadingTwo = styled.h4`
-  color: rgba(243, 243, 243, 1);
-  font-size: 20px;
+  color: ${LightText};
+  font-size: 1.25em;
   text-align: left;
   margin: 0;
-  padding: 0;
-  font-family: GT Walsheim Trial, sans-serif;
-  font-weight: normal;
+  padding: 5px 0 0 0;
 `;
 
 export const WorkExperienceCardBody = styled.p`
-  color: rgba(255, 255, 255, 1);
-  font-size: 40px;
+  color: ${LightText};
+  font-size: 1.75em;
   text-align: left;
   margin: 0;
-  padding: 15px 0;
-  max-width: 650px;
-  font-family: GT Walsheim Trial, sans-serif;
+  padding: 5px 0 0 0;
+  max-width: 600px;
 `;
 
 const WorkExperienceCardTextWrapper = styled.div`
@@ -140,7 +139,7 @@ const WorkExperienceCardTextWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: max-content;
-  padding: 20px;
+  padding: 60px 20px;
 `;
 
 const WorkExperienceCardWrapper = styled.div`
@@ -148,13 +147,7 @@ const WorkExperienceCardWrapper = styled.div`
   align-items: stretch;
   flex-direction: row;
   justify-content: flex-start;
-  background-image: linear-gradient(
-    to right,
-    rgba(24, 48, 73, 1) 0%,
-    rgba(24, 51, 79, 1) 14.0625%,
-    rgba(24, 58, 91, 1) 27.08333432674408%,
-    rgba(24, 81, 135, 1) 100%
-  );
+  background: ${FullyTransparent};
 `;
 
 export const WorkExperienceCardTimeline = ({
@@ -180,11 +173,14 @@ export const WorkExperienceCard = ({
         {workExperience.company}
       </WorkExperienceCardHeading>
       <WorkExperienceCardSubheadingOne>
-        {workExperience.title}
+        {!!workExperience.url && (
+          <a href={workExperience.url}>{workExperience.title}</a>
+        )}
+        {!workExperience.url && workExperience.title}
       </WorkExperienceCardSubheadingOne>
       <WorkExperienceCardSubheadingTwo>
-        {workExperience.dates.startMonth} {workExperience.dates.startYear} -{" "}
-        {workExperience.dates.endMonth}
+        {workExperience.dates.startMonth} {workExperience.dates.startYear}{" "}
+        &mdash; {workExperience.dates.endMonth}
         {!!workExperience.dates.endYear && ` ${workExperience.dates.endYear}`}
       </WorkExperienceCardSubheadingTwo>
       <WorkExperienceCardBody>
