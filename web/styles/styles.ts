@@ -1,5 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { IndigoToAzureGradient } from "../utils/colors";
+import {
+  Black,
+  IndigoToAzureGradient,
+  SaffronToNectarGradient,
+  SaffronYellow,
+} from "../utils/colors";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -63,9 +68,30 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: 200;
       font-style: normal;
     }
+    margin: 0;
     background: ${IndigoToAzureGradient};
     color: white;
     font-family: GT Walsheim Trial, sans-serif;
+
+    //CSS Reset
+    * {
+      all: unset;
+      display: revert;
+    }
+    
+    a {
+      outline: none;
+      text-decoration: none;
+      color: ${SaffronYellow};
+      background: ${SaffronToNectarGradient} no-repeat right bottom / 0 var(--bg-h);
+      transition: background-size 350ms ease-in-out, color 500ms ease-in-out;
+      --bg-h: 100%;
+    }
+    a:where(:hover, :focus-visible) {
+      color: ${Black};
+      background-size: 100% var(--bg-h);
+      background-position-x: left;
+    }
   }
 `;
 
