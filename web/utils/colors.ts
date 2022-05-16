@@ -1,7 +1,7 @@
 // Yellows
 export const SaffronYellow = "rgba(243, 200, 27, 1)";
 export const SaffronYellowSlightlyTransparent = "rgba(243, 200, 27, 0.75)";
-export const SaffronYellowTransparent = "rgba(243, 200, 27, 0.85)";
+export const SaffronYellowTransparent = "rgba(243, 200, 27, 0.5)";
 export const NectarYellow = "rgba(244, 184, 10, 1)";
 
 // Blues
@@ -12,17 +12,19 @@ export const AzureBlue = "rgba(24, 81, 135, 1)";
 
 // Other Colors
 export const White = "rgba(255, 255, 255, 1)";
-export const NeutralOffWhite = "rgba(244, 244, 244, 1)";
+export const NeutralOffWhite = "rgba(237, 237, 237, 1)";
+export const VeryDarkGrey = "rgba(26, 29, 31, 1)";
 export const Black = "rgba(0, 0, 0, 1)";
 
 // RGBA Shadows
 export const AlmostInsignificantShadow = "rgba(0, 0, 0, 0.075)";
 export const SlightShadow = "rgba(0, 0, 0, 0.15)";
 export const QuarterShadow = "rgba(0, 0, 0, 0.25)";
+export const HalfShadow = "rgba(0, 0, 0, 0.5)";
 
 // Text Colors
-export const LightText = "rgba(255, 255, 255, 1)";
-export const DarkText = "rgba(0, 0, 0, 1)";
+export const LightText = "rgba(237, 239, 241, 1)";
+export const DarkText = "rgba(23, 24, 28, 1)";
 
 // Background Colors
 export const FullyTransparent = "rgba(0, 0, 0, 0)";
