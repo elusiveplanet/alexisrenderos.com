@@ -2,9 +2,9 @@ import styled from "styled-components";
 import {
   Black,
   FullyTransparent,
+  LightText,
   NeutralOffWhite,
   SaffronYellow,
-  White,
 } from "../utils/colors";
 
 // Work Experience Card
@@ -88,53 +88,48 @@ export const TimeLineLast = styled(TimeLine)`
 export const TimeLineOnly = styled.div``;
 
 const WorkExperienceCardTimelineWrapper = styled.div`
-  display: flex;
-  flex: 1 1 100%;
+  display: inline-flex;
+  flex: 0 1 auto;
   flex-direction: column;
   align-content: center;
   align-items: center;
   position: relative;
-  max-width: 75px;
-  min-height: 100px;
+  width: 75px;
 `;
 
 export const WorkExperienceCardHeading = styled.h2`
-  color: ${White};
+  color: ${LightText};
   font-size: 2.5em;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
   padding: 2px 0;
-  font-weight: 700;
 `;
 
 export const WorkExperienceCardSubheadingOne = styled.h3`
   color: ${SaffronYellow};
   font-size: 1.75em;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
   padding: 0;
-  font-weight: 500;
 `;
 
 export const WorkExperienceCardSubheadingTwo = styled.h4`
-  color: ${White};
-  font-size: 1.2em;
+  color: ${LightText};
+  font-size: 1.25em;
   text-align: left;
   margin: 0;
   padding: 5px 0 0 0;
-  font-weight: 400;
 `;
 
 export const WorkExperienceCardBody = styled.p`
-  color: ${White};
+  color: ${LightText};
   font-size: 1.75em;
   text-align: left;
   margin: 0;
   padding: 5px 0 0 0;
-  max-width: 650px;
-  font-weight: 400;
+  max-width: 600px;
 `;
 
 const WorkExperienceCardTextWrapper = styled.div`
