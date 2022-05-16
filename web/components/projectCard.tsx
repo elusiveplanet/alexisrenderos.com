@@ -16,6 +16,7 @@ export type ProjectEntry = {
   code?: string;
   cad?: string;
   description: string;
+  used?: string[];
 };
 
 export type ProjectCardProps = {
@@ -37,7 +38,7 @@ const ProjectCardWrapper = styled.div`
 
 export const ProjectCardHeading = styled.h2`
   color: ${LightText};
-  font-size: 48px;
+  font-size: 2.5em;
   text-align: left;
   margin: 0;
   padding: 10px 0 5px 0;
@@ -47,7 +48,7 @@ export const ProjectCardHeading = styled.h2`
 
 export const ProjectCardBody = styled.p`
   color: ${LightText};
-  font-size: 32px;
+  font-size: 1.75em;
   text-align: left;
   margin: 0;
   padding: 5px 0 10px 0;
