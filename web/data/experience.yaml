@@ -79,7 +79,7 @@
     endMonth: May
     endYear: 2020
   location: Cedar Rapids and Ames, Iowa
-  title: Software Engineering Intern / Campus Ambassador
+  title: Software Engineering Intern
   description: So Marines can focus on relaying mission-critical information, not on trying to establish a radio link.
   additionalInfo: Active Security Clearance":" Secret
 
@@ -93,7 +93,7 @@
     endYear: 2021
   location: Ames, Iowa
   title: Assistant General Manager / Chief Operator
-  description: So KURE staff can focus on learning about and doing what they love, not on legal and administrative work.
+  description: So KURE staff can focus on doing what they love, not on legal and administrative work.
 
 - company: Iowa State University
   displayOnPage: false
