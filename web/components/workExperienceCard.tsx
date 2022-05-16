@@ -2,9 +2,9 @@ import styled from "styled-components";
 import {
   Black,
   FullyTransparent,
+  LightText,
   NeutralOffWhite,
   SaffronYellow,
-  White,
 } from "../utils/colors";
 
 // Work Experience Card
@@ -27,16 +27,19 @@ export enum WorkExperienceCardPosition {
 
 export type WorkExperienceTimeRange = {
   startMonth: string;
-  endMonth: string;
   startYear: string;
+  endMonth: string;
   endYear: string;
 };
 
 export type WorkExperienceEntry = {
   company: string;
+  url?: string;
   title: string;
   dates: WorkExperienceTimeRange;
   description: string;
+  location?: string;
+  additionalInfo?: string;
 };
 
 export type WorkExperienceCardProps = {
@@ -85,51 +88,48 @@ export const TimeLineLast = styled(TimeLine)`
 export const TimeLineOnly = styled.div``;
 
 const WorkExperienceCardTimelineWrapper = styled.div`
-  display: flex;
-  flex: 1 1 100%;
+  display: inline-flex;
+  flex: 0 1 auto;
   flex-direction: column;
   align-content: center;
   align-items: center;
   position: relative;
-  max-width: 75px;
-  min-height: 100px;
+  width: 75px;
 `;
 
 export const WorkExperienceCardHeading = styled.h2`
-  color: ${White};
-  font-size: 48px;
+  color: ${LightText};
+  font-size: 2.5em;
+  letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
   padding: 2px 0;
-  font-weight: 700;
 `;
 
 export const WorkExperienceCardSubheadingOne = styled.h3`
   color: ${SaffronYellow};
-  font-size: 30px;
+  font-size: 1.75em;
+  letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
   padding: 0;
-  font-weight: 500;
 `;
 
 export const WorkExperienceCardSubheadingTwo = styled.h4`
-  color: ${SaffronYellow};
-  font-size: 20px;
+  color: ${LightText};
+  font-size: 1.25em;
   text-align: left;
   margin: 0;
-  padding: 0;
-  font-weight: 400;
+  padding: 5px 0 0 0;
 `;
 
 export const WorkExperienceCardBody = styled.p`
-  color: ${White};
-  font-size: 40px;
+  color: ${LightText};
+  font-size: 1.75em;
   text-align: left;
   margin: 0;
-  padding: 15px 0;
-  max-width: 650px;
-  font-weight: 400;
+  padding: 5px 0 0 0;
+  max-width: 600px;
 `;
 
 const WorkExperienceCardTextWrapper = styled.div`
@@ -139,7 +139,7 @@ const WorkExperienceCardTextWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: max-content;
-  padding: 20px;
+  padding: 60px 20px;
 `;
 
 const WorkExperienceCardWrapper = styled.div`
@@ -176,8 +176,8 @@ export const WorkExperienceCard = ({
         {workExperience.title}
       </WorkExperienceCardSubheadingOne>
       <WorkExperienceCardSubheadingTwo>
-        {workExperience.dates.startMonth} {workExperience.dates.startYear} -{" "}
-        {workExperience.dates.endMonth}
+        {workExperience.dates.startMonth} {workExperience.dates.startYear}{" "}
+        &mdash; {workExperience.dates.endMonth}
         {!!workExperience.dates.endYear && ` ${workExperience.dates.endYear}`}
       </WorkExperienceCardSubheadingTwo>
       <WorkExperienceCardBody>

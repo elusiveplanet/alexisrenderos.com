@@ -1,18 +1,22 @@
 import styled from "styled-components";
 import {
+  HalfShadow,
   LightText,
   ModeratelyDarken,
-  QuarterShadow,
   SaffronYellow,
   SlightShadow,
 } from "../utils/colors";
+
 // Project Card
 // This component is used to display a single project entry.
 // It also renders a single vertical accent line on the left side of the card.
-
 export type ProjectEntry = {
-  title: string;
+  name: string;
+  url?: string;
+  code?: string;
+  cad?: string;
   description: string;
+  used?: string[];
 };
 
 export type ProjectCardProps = {
@@ -25,16 +29,16 @@ const ProjectCardWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   overflow: hidden;
-  max-width: 1000px;
+  max-width: 650px;
   margin: 20px;
-  box-shadow: 25px 25px 25px 0 ${QuarterShadow};
+  box-shadow: 25px 25px 5px 0 ${HalfShadow};
   border-radius: 16px;
   border: 5px ${SlightShadow} solid;
 `;
 
 export const ProjectCardHeading = styled.h2`
   color: ${LightText};
-  font-size: 48px;
+  font-size: 2.5em;
   text-align: left;
   margin: 0;
   padding: 10px 0 5px 0;
@@ -44,7 +48,7 @@ export const ProjectCardHeading = styled.h2`
 
 export const ProjectCardBody = styled.p`
   color: ${LightText};
-  font-size: 32px;
+  font-size: 1.75em;
   text-align: left;
   margin: 0;
   padding: 5px 0 10px 0;
@@ -74,7 +78,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
   <ProjectCardWrapper>
     <ProjectCardAccentWrapper />
     <ProjectCardTextWrapper>
-      <ProjectCardHeading>{project.title}</ProjectCardHeading>
+      <ProjectCardHeading>{project.name}</ProjectCardHeading>
       <ProjectCardBody>{project.description}</ProjectCardBody>
     </ProjectCardTextWrapper>
   </ProjectCardWrapper>

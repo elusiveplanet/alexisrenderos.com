@@ -1,0 +1,3 @@
+[functions]
+  # Includes all yaml files inside the "data/" directory.
+  included_files = ["data/*.yaml"]
