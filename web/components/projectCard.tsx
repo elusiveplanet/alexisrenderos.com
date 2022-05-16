@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import {
+  Black,
+  FullyTransparent,
   HalfShadow,
   LightText,
   ModeratelyDarken,
@@ -44,6 +46,14 @@ export const ProjectCardHeading = styled.h2`
   padding: 10px 0 5px 0;
   max-width: 500px;
   font-weight: 700;
+  a {
+    color: ${LightText};
+    text-decoration-color: ${LightText};
+  }
+  a:where(:hover, :focus-visible) {
+    color: ${Black};
+    text-decoration-color: ${FullyTransparent};
+  }
 `;
 
 export const ProjectCardBody = styled.p`
@@ -78,7 +88,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
   <ProjectCardWrapper>
     <ProjectCardAccentWrapper />
     <ProjectCardTextWrapper>
-      <ProjectCardHeading>{project.name}</ProjectCardHeading>
+      <ProjectCardHeading>
+        {!!project.url && <a href={project.url}>{project.name}</a>}
+        {!project.url && project.name}
+      </ProjectCardHeading>
       <ProjectCardBody>{project.description}</ProjectCardBody>
     </ProjectCardTextWrapper>
   </ProjectCardWrapper>

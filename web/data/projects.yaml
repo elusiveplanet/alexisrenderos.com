@@ -1,6 +1,6 @@
 - name: Clark
   displayOnPage: true
-  url: https://github.com/renderos17/Clark
+  url: https://github.com/renderos17/Clark#clark-cad
   code: https://github.com/renderos17/ClarkCode
   cad: https://github.com/renderos17/Clark
   description: 60-pound custom designed and fabricated autonomous robot utilizing sensor fusion and computer vision with a convolutional neural network.
@@ -31,7 +31,7 @@
 
 - name: 7Words
   displayOnPage: true
-  url: https://github.com/renderos17/7Words
+  url: https://github.com/renderos17/7Words#7words
   code: https://github.com/renderos17/7Words
   description: Python tool used to check song lyrics in playlists for potentially explicit language using the Genius and Spotify APIs. Designed for radio stations.
   used:
