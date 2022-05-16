@@ -11,7 +11,10 @@ import {
 // It also renders a single vertical accent line on the left side of the card.
 
 export type ProjectEntry = {
-  title: string;
+  name: string;
+  url?: string;
+  code?: string;
+  cad?: string;
   description: string;
 };
 
@@ -74,7 +77,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
   <ProjectCardWrapper>
     <ProjectCardAccentWrapper />
     <ProjectCardTextWrapper>
-      <ProjectCardHeading>{project.title}</ProjectCardHeading>
+      <ProjectCardHeading>{project.name}</ProjectCardHeading>
       <ProjectCardBody>{project.description}</ProjectCardBody>
     </ProjectCardTextWrapper>
   </ProjectCardWrapper>

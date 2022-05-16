@@ -29,9 +29,7 @@ export const ProjectCardCollection = ({
       {projectList.map((projectEntry, index) => (
         <ProjectCard
           project={projectEntry}
-          key={simpleHash(
-            projectEntry.title + projectEntry.description + index
-          )}
+          key={simpleHash(projectEntry.name + projectEntry.description + index)}
         />
       ))}
     </ProjectCardCollectionWrapper>
