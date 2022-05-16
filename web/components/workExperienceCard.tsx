@@ -173,7 +173,10 @@ export const WorkExperienceCard = ({
         {workExperience.company}
       </WorkExperienceCardHeading>
       <WorkExperienceCardSubheadingOne>
-        {workExperience.title}
+        {!!workExperience.url && (
+          <a href={workExperience.url}>{workExperience.title}</a>
+        )}
+        {!workExperience.url && workExperience.title}
       </WorkExperienceCardSubheadingOne>
       <WorkExperienceCardSubheadingTwo>
         {workExperience.dates.startMonth} {workExperience.dates.startYear}{" "}

@@ -12,7 +12,8 @@
 
 - company: Bolt
   displayOnPage: true
-  url: https://www.bolt.com
+  url: https://www.bolt.com/businesses
+  url2: https://help.bolt.com/merchants/guides/merchant-setup/dashboard/manage-users/
   dates:
     startMonth: September
     startYear: 2021
@@ -20,11 +21,11 @@
     endYear: 2022
   location: San Francisco, California
   title: Software Engineer
-  description: So merchants can focus on selling product, not wondering who has access to the admin dashboard.
+  description: So merchants can focus on selling product, not wondering what permissions staff have to the admin dashboard.
 
 - company: Full Measure Education
   displayOnPage: true
-  url: https://www.fullmeasure.io/
+  url: https://fullmeasure.io/campus-visit-experience
   dates:
     startMonth: June
     startYear: 2021
@@ -48,7 +49,7 @@
 
 - company: Code 2040
   displayOnPage: false
-  url: https://www.code2040.org
+  url: https://www.code2040.org/fellows-program
   dates:
     startMonth: May
     startYear: 2020
@@ -60,7 +61,7 @@
 
 - company: Slack
   displayOnPage: true
-  url: https://www.slack.com
+  url: https://slack.com/digital-hq
   dates:
     startMonth: May
     startYear: 2020
@@ -72,7 +73,7 @@
 
 - company: Collins Aerospace
   displayOnPage: true
-  url: https://www.collinsaerospace.com
+  url: https://www.collinsaerospace.com/what-we-do/Military-And-Defense/Communications/Airborne-Communications/Vhf-Uhf-L-Band
   dates:
     startMonth: May
     startYear: 2019
@@ -97,7 +98,7 @@
 
 - company: Iowa State University
   displayOnPage: false
-  url: https://www.iastate.edu
+  url: https://www.biology-it.iastate.edu/
   dates:
     startMonth: February
     startYear: 2019
@@ -109,7 +110,7 @@
 
 - company: Ela Area Public Library
   displayOnPage: true
-  url: https://www.eapl.org
+  url: https://www.eapl.org/forge
   dates:
     startMonth: August
     startYear: 2016
