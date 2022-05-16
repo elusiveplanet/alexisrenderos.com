@@ -1,20 +1,8 @@
 import Link from "next/link";
+import useSWR from "swr";
 import { GlobalStyle } from "../styles/styles";
 import { WorkExperienceTimeline } from "../components/workExperienceTimeline";
-import useSWR from "swr";
-
-const tempProjects = [
-  {
-    name: "7Words",
-    description:
-      "Python-based tool used to check song lyrics for potentially explicit language using the Genius and Spotify APIs. Designed for radio stations.",
-  },
-  {
-    name: "Clark",
-    description:
-      "60-pound autonomous custom designed and fabricated robot running on ROS.",
-  },
-];
+import { ProjectCardCollection } from "../components/projectCardCollection";
 
 const fetcher = async (
   input: RequestInfo,
@@ -30,6 +18,11 @@ export const Home = (): JSX.Element => {
     "/api/getAllVisibleWorkExperience",
     fetcher
   );
+  const { data: projectData, error: projectDataError } = useSWR(
+    "/api/getAllVisibleProjects",
+    fetcher
+  );
+
   return (
     <>
       <GlobalStyle />
@@ -59,6 +52,9 @@ export const Home = (): JSX.Element => {
       {!!workExperienceDataError && (
         <p>Error fetching work experience data...</p>
       )}
+
+      {!!projectData && <ProjectCardCollection projectList={projectData} />}
+      {!!projectDataError && <p>Error fetching work experience data...</p>}
     </>
   );
 };
