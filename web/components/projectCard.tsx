@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import {
+  HalfShadow,
   LightText,
   ModeratelyDarken,
-  QuarterShadow,
   SaffronYellow,
   SlightShadow,
 } from "../utils/colors";
+
 // Project Card
 // This component is used to display a single project entry.
 // It also renders a single vertical accent line on the left side of the card.
-
 export type ProjectEntry = {
   name: string;
   url?: string;
@@ -29,9 +29,9 @@ const ProjectCardWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   overflow: hidden;
-  max-width: 1000px;
+  max-width: 650px;
   margin: 20px;
-  box-shadow: 25px 25px 25px 0 ${QuarterShadow};
+  box-shadow: 25px 25px 5px 0 ${HalfShadow};
   border-radius: 16px;
   border: 5px ${SlightShadow} solid;
 `;
