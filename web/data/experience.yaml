@@ -1,66 +1,132 @@
-- company: Bolt
-  url: https://www.bolt.com
-  time: Sept 2021 – Present
-  location: San Francisco, CA
-  position: Software Engineer
+- company: Mercury Evenings
+  displayOnPage: true
+  url: https://www.mercuryevenings.com
+  dates:
+    startMonth: January
+    startYear: 2022
+    endMonth: Present
+    endYear:
+  location: San Francisco, California
+  title: Freelance Content Creator
+  description: So anyone can find great music from underrepresented artists, not spending hours searching for new releases.
 
-- company: 88.5 KURE Ames Alternative
-  url: https://www.kure.stuorg.iastate.edu
-  time: Sept 2021 – Present
-  location: Remote
-  position: Technical Advisor
+- company: Bolt
+  displayOnPage: true
+  url: https://www.bolt.com
+  dates:
+    startMonth: September
+    startYear: 2021
+    endMonth: January
+    endYear: 2022
+  location: San Francisco, California
+  title: Software Engineer
+  description: So merchants can focus on selling product, not wondering who has access to the admin dashboard.
 
 - company: Full Measure Education
+  displayOnPage: true
   url: https://www.fullmeasure.io/
-  time: May 2021 – Sept 2021
+  dates:
+    startMonth: June
+    startYear: 2021
+    endMonth: September
+    endYear: 2021
   location: Washington, D.C.
-  position: Software Engineering Intern
+  title: Software Engineering Intern
+  description: So prospective students can focus on visiting their dream university, not on trying to find the quad for the third time.
 
 - company: Dreambound
+  displayOnPage: true
   url: https://www.dreambound.com
-  time: Jan 2021 – May 2021
+  dates:
+    startMonth: January
+    startYear: 2021
+    endMonth: May
+    endYear: 2021
   location: San Francisco, California
-  position: Software Engineering Intern
+  title: Software Engineering Intern
+  description: So Dreambound's operations and data teams can focus on helping people start a new career, not manual data entry.
 
 - company: Code 2040
+  displayOnPage: false
   url: https://www.code2040.org
-  time: May 2020 – Aug 2020
+  dates:
+    startMonth: May
+    startYear: 2020
+    endMonth: August
+    endYear: 2020
   location: San Francisco, California
-  position: Code 2040 Fellow
+  title: Code 2040 Fellow
+  description: Lorem Ipsum
 
 - company: Slack
+  displayOnPage: true
   url: https://www.slack.com
-  time: May 2020 – Aug 2020
+  dates:
+    startMonth: May
+    startYear: 2020
+    endMonth: August
+    endYear: 2020
   location: San Francisco, California
-  position: Software Engineering Intern
+  title: Software Engineering Intern
+  description: So Slack users can focus on taking video calls with their teammates, not on fiddling with meeting invite links.
 
 - company: Collins Aerospace
+  displayOnPage: true
   url: https://www.collinsaerospace.com
-  time: May 2019 – May 2020
+  dates:
+    startMonth: May
+    startYear: 2019
+    endMonth: May
+    endYear: 2020
   location: Cedar Rapids and Ames, Iowa
-  position: Software Engineering Intern / Campus Ambassador
-  additional: Active Security Clearance":" Secret
+  title: Software Engineering Intern / Campus Ambassador
+  description: So Marines can focus on relaying mission-critical information, not on trying to establish a radio link.
+  additionalInfo: Active Security Clearance":" Secret
 
 - company: 88.5 KURE Ames Alternative
+  displayOnPage: true
   url: https://www.kure.stuorg.iastate.edu
-  time: Sept 2018 – Sept 2021
+  dates:
+    startMonth: September
+    startYear: 2018
+    endMonth: September
+    endYear: 2021
   location: Ames, Iowa
-  position: Assistant General Manager / Chief Operator
+  title: Assistant General Manager / Chief Operator
+  description: So KURE staff can focus on learning about and doing what they love, not on legal and administrative work.
 
 - company: Iowa State University
+  displayOnPage: false
   url: https://www.iastate.edu
-  time: Feb 2019 — May 2019
+  dates:
+    startMonth: February
+    startYear: 2019
+    endMonth: May
+    endYear: 2019
   location: Ames, Iowa
-  position: Systems Support Specialist
+  title: Systems Support Specialist
+  description: Lorem Ipsum
 
 - company: Ela Area Public Library
+  displayOnPage: true
   url: https://www.eapl.org
-  time: Aug 2016 – Aug 2018
+  dates:
+    startMonth: August
+    startYear: 2016
+    endMonth: August
+    endYear: 2018
   location: Lake Zurich, Illinois
-  position: Makerspace Technologist
+  title: Makerspace Technologist
+  description: So library patrons can focus on creating awesome projects, not on deciphering instruction manuals.
 
 - company: Engis
+  displayOnPage: false
   url: https://www.engis.com
-  time: June 2016 – July 2016
+  dates:
+    startMonth: June
+    startYear: 2016
+    endMonth: July
+    endYear: 2016
   location: Wheeling, Illinois
-  position: Robotics Engineering Intern
+  title: Robotics Engineering Intern
+  description: Lorem Ipsum

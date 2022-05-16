@@ -2,37 +2,37 @@
   url: https://github.com/renderos17/Clark
   code: https://github.com/renderos17/ClarkCode
   cad: https://github.com/renderos17/Clark
-  description: 60-pound semi-autonomous custom designed and fabricated robot running on ROS. It uses sensor fusion techniques, computer vision algorithms, and a convolutional neural network to navigate its surroundings.
+  description: 60-pound autonomous custom designed and fabricated robot running on ROS.
   used:
-    - thing: C++
-    - thing: Python
-    - thing: ROS
-    - thing: OpenCV
-    - thing: TensorFlow
-    - thing: Keras
-    - thing: Raspberry Pi
-    - thing: Arduino
-    - thing: Autodesk Inventor
-    - thing: 3D Printing
+    - C++
+    - Python
+    - ROS
+    - OpenCV
+    - TensorFlow
+    - Keras
+    - Raspberry Pi
+    - Arduino
+    - Autodesk Inventor
+    - 3D Printing
 
 - name: Lifedrinker
   url: https://github.com/renderos17/Lifedrinker
   code: https://github.com/renderos17/Lifedrinker
   description: Convolutional Neural Network (CNN) taught to identify an object of interest at range using a live camera feed in conjunction with a Python-based OpenCV tracking algorithm to assist in the detecting, identifying, and tracking of a target.
   used:
-    - thing: Python
-    - thing: TensorFlow
-    - thing: Keras
-    - thing: OpenCV
-    - thing: AWS EC2
-    - thing: Raspberry Pi
+    - Python
+    - TensorFlow
+    - Keras
+    - OpenCV
+    - AWS EC2
+    - Raspberry Pi
 
 - name: 7Words
   url: https://github.com/renderos17/7Words
   code: https://github.com/renderos17/7Words
   description: Python-based web tool launched on Heroku intended to mass lyric check a set of songs. It uses the Genius and Spotify APIs to search through a playlist of songs for language that could go against FCC broadcasting guidelines.
   used:
-    - thing: Python
-    - thing: Heroku
-    - thing: Spotify API
-    - thing: Genius API
+    - Python
+    - Heroku
+    - Spotify API
+    - Genius API
