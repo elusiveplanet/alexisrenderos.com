@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import {
   Black,
+  FullyTransparent,
   IndigoToAzureGradient,
   SaffronToNectarGradient,
   SaffronYellow,
@@ -8,6 +9,12 @@ import {
 
 export const GlobalStyle = createGlobalStyle`
   body {
+    //CSS Reset
+    * {
+      all: unset;
+      display: revert;
+    }
+    
     @font-face {
       font-family: "GT Walsheim Trial";
       src: url("/fonts/GT-Walsheim-Bold-Oblique-Trial.otf");
@@ -72,25 +79,57 @@ export const GlobalStyle = createGlobalStyle`
     background: ${IndigoToAzureGradient};
     color: white;
     font-family: GT Walsheim Trial, sans-serif;
-
-    //CSS Reset
-    * {
-      all: unset;
-      display: revert;
-    }
     
     a {
       outline: none;
-      text-decoration: none;
+      text-decoration: underline;
+      text-decoration-color: ${SaffronYellow};
       color: ${SaffronYellow};
       background: ${SaffronToNectarGradient} no-repeat right bottom / 0 var(--bg-h);
-      transition: background-size 350ms ease-in-out, color 500ms ease-in-out;
+      transition: background-size 350ms ease-in-out, color 500ms ease-in-out, text-decoration-color 500ms ease-in-out;
       --bg-h: 100%;
     }
     a:where(:hover, :focus-visible) {
       color: ${Black};
+      text-decoration-color: ${FullyTransparent};
       background-size: 100% var(--bg-h);
       background-position-x: left;
+    }
+    
+    
+    h1 {
+      font-size: 2.25em;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.75em;
+      font-weight: 500;
+    }
+    
+    h4 {
+      font-size: 1.5em;
+      font-weight: 500;
+    }
+
+    h5 {
+      font-size: 1.25em;
+      font-weight: 500;
+    }
+
+    h6 {
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
     }
   }
 `;
