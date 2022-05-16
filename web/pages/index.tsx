@@ -12,13 +12,14 @@ const IndexBody = styled.div`
 export const IndexTitle = styled.h2`
   font-size: 3em;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: 0.5em auto;
   text-align: center;
   color: ${DarkText};
   background: ${SaffronYellow};
   border: solid ${SaffronYellow};
   border-width: 0.175em 0.35em 0.175em 0.35em;
   box-shadow: 15px 15px 2px 0 ${HalfShadow};
+  width: max-content;
 `;
 
 export const IndexSubtitle = styled.div`
