@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
+import Head from "next/head";
 
 const IndexBody = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const IndexTitle = styled.h2`
   border: solid ${SaffronYellow};
   border-width: 0.175em 0.35em 0.175em 0.35em;
   box-shadow: 15px 15px 2px 0 ${HalfShadow};
-  width: max-content;
+  width: fit-content;
 `;
 
 export const IndexSubtitle = styled.div`
@@ -61,8 +62,12 @@ export const Home = (): JSX.Element => {
   return (
     <>
       <GlobalStyle />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <Head>
+        <title>Alexis Renderos 🪐</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <title>Alexis Renderos</title>
+      </Head>
       <IndexBody>
         <HeroContent>
           <IndexTitle>Alexis Renderos</IndexTitle>
