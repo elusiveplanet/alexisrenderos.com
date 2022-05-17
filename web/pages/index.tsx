@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
+import Head from "next/head";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
-import Head from "next/head";
 
 const IndexBody = styled.div`
   display: flex;
