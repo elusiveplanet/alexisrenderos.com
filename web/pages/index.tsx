@@ -4,16 +4,10 @@ import Head from "next/head";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 
-// For now defining screen sizes as
-// Desktop: Width > 1280px
-// Tablet: Width > 768px
-// Mobile: Width < Tablet
-
 const IndexBody = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
 `;
 
 export const IndexTitle = styled.h2`
@@ -150,7 +144,6 @@ export const Home = (): JSX.Element => {
           </IndexSubtitle>
         </HeroContent>
 
-        {/*<AboutMeSectionLarge />*/}
         {/*{!!workExperienceData && (*/}
         {/*  <WorkExperienceTimeline workExperienceList={workExperienceData} />*/}
         {/*)}*/}

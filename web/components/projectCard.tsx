@@ -40,7 +40,7 @@ const ProjectCardWrapper = styled.div`
 
 export const ProjectCardHeading = styled.h2`
   color: ${LightText};
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: left;
   margin: 0;
   padding: 10px 0 5px 0;
