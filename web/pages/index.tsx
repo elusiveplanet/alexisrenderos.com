@@ -3,11 +3,21 @@ import styled from "styled-components";
 import Head from "next/head";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
+import AboutMeSectionLarge from "../components/aboutMeLarge";
+import useSWR from "swr";
+import { WorkExperienceTimeline } from "../components/workExperienceTimeline";
+import { ProjectCardCollection } from "../components/projectCardCollection";
+
+// For now defining screen sizes as
+// Desktop: Width > 1280px
+// Tablet: Width > 768px
+// Mobile: Width < Tablet
 
 const IndexBody = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-items: center;
 `;
 
 export const IndexTitle = styled.h2`
@@ -38,24 +48,24 @@ const HeroContent = styled.div`
   max-width: 500px;
 `;
 
-// const fetcher = async (
-//   input: RequestInfo,
-//   init: RequestInit,
-//   ...args: any[]
-// ) => {
-//   const res = await fetch(input, init);
-//   return res.json();
-// };
+const fetcher = async (
+  input: RequestInfo,
+  init: RequestInit,
+  ...args: any[]
+) => {
+  const res = await fetch(input, init);
+  return res.json();
+};
 
 export const Home = (): JSX.Element => {
-  // const { data: workExperienceData, error: workExperienceDataError } = useSWR(
-  //   "/api/getAllVisibleWorkExperience",
-  //   fetcher
-  // );
-  // const { data: projectData, error: projectDataError } = useSWR(
-  //   "/api/getAllVisibleProjects",
-  //   fetcher
-  // );
+  const { data: workExperienceData, error: workExperienceDataError } = useSWR(
+    "/api/getAllVisibleWorkExperience",
+    fetcher
+  );
+  const { data: projectData, error: projectDataError } = useSWR(
+    "/api/getAllVisibleProjects",
+    fetcher
+  );
 
   const temp = 1;
 
@@ -143,16 +153,17 @@ export const Home = (): JSX.Element => {
             </h5>
           </IndexSubtitle>
         </HeroContent>
+        <AboutMeSectionLarge />
 
-        {/*{!!workExperienceData && (*/}
-        {/*  <WorkExperienceTimeline workExperienceList={workExperienceData} />*/}
-        {/*)}*/}
-        {/*{!!workExperienceDataError && (*/}
-        {/*  <p>Error fetching work experience data...</p>*/}
-        {/*)}*/}
+        {!!workExperienceData && (
+          <WorkExperienceTimeline workExperienceList={workExperienceData} />
+        )}
+        {!!workExperienceDataError && (
+          <p>Error fetching work experience data...</p>
+        )}
 
-        {/*{!!projectData && <ProjectCardCollection projectList={projectData} />}*/}
-        {/*{!!projectDataError && <p>Error fetching project data...</p>}*/}
+        {!!projectData && <ProjectCardCollection projectList={projectData} />}
+        {!!projectDataError && <p>Error fetching project data...</p>}
       </IndexBody>
     </>
   );
