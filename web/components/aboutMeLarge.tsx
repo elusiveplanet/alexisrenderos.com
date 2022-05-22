@@ -96,30 +96,28 @@ const SectionImage = styled.div`
   border-radius: 10px;
 `;
 
-export const AboutMeSectionLarge = (): JSX.Element => {
-  return (
-    <SectionWrapper>
-      <SectionHeaderWrapper>
-        <SectionHeader>
-          My mission is to democratize access to technology for all.
-        </SectionHeader>
-      </SectionHeaderWrapper>
-      <MissionWrapper>
-        <MissionBackground>
-          <SectionStripe>
-            <SectionImage />
-          </SectionStripe>
-        </MissionBackground>
-      </MissionWrapper>
-      <SectionSubheadingOne>
-        What matters most to me is what I enable for others.
-      </SectionSubheadingOne>
-      <SectionSubheadingTwo>
-        I take pride in developing thoughtful and intuitive software that helps
-        people around the world focus on what’s most important to them.
-      </SectionSubheadingTwo>
-    </SectionWrapper>
-  );
-};
+export const AboutMeSectionLarge = (): JSX.Element => (
+  <SectionWrapper>
+    <SectionHeaderWrapper>
+      <SectionHeader>
+        My mission is to democratize access to technology for all.
+      </SectionHeader>
+    </SectionHeaderWrapper>
+    <MissionWrapper>
+      <MissionBackground>
+        <SectionStripe>
+          <SectionImage />
+        </SectionStripe>
+      </MissionBackground>
+    </MissionWrapper>
+    <SectionSubheadingOne>
+      What matters most to me is what I enable for others.
+    </SectionSubheadingOne>
+    <SectionSubheadingTwo>
+      I take pride in developing thoughtful and intuitive software that helps
+      people around the world focus on what’s most important to them.
+    </SectionSubheadingTwo>
+  </SectionWrapper>
+);
 
 export default AboutMeSectionLarge;
