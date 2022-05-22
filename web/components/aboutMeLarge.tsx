@@ -4,8 +4,8 @@ import {
   DarkText,
   FullyTransparent,
   LightText,
-  NectarYellow,
   NeutralOffWhite,
+  SaffronToNectarGradient,
 } from "../utils/colors";
 
 const SectionWrapper = styled.div`
@@ -13,7 +13,7 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   max-height: 600px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 4em auto;
   max-width: 1000px;
 `;
 
@@ -21,6 +21,7 @@ const MissionWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 1em;
   height: 17.5em;
 `;
 
@@ -46,7 +47,7 @@ const SectionHeaderWrapper = styled.div`
 `;
 
 const SectionHeader = styled.h2`
-  font-size: 1.75em;
+  font-size: 2em;
   font-weight: 700;
   font-style: italic;
   margin: 0 auto;
@@ -65,8 +66,10 @@ const SectionSubheadingOne = styled.h3`
 `;
 
 const SectionSubheadingTwo = styled.h4`
-  font-weight: 300;
-  margin: 0.5em auto;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 110%;
+  margin: 0.75em auto;
   text-align: center;
   color: ${LightText};
   width: 65%;
@@ -78,7 +81,7 @@ const SectionStripe = styled.div`
   align-items: center;
   width: 100%;
   height: 2em;
-  background: ${NectarYellow};
+  background: ${SaffronToNectarGradient};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
@@ -93,7 +96,7 @@ const SectionImage = styled.div`
   border-radius: 10px;
 `;
 
-export const AboutMeSectionMobile = (): JSX.Element => {
+export const AboutMeSectionLarge = (): JSX.Element => {
   return (
     <SectionWrapper>
       <SectionHeaderWrapper>
@@ -119,4 +122,4 @@ export const AboutMeSectionMobile = (): JSX.Element => {
   );
 };
 
-export default AboutMeSectionMobile;
+export default AboutMeSectionLarge;
