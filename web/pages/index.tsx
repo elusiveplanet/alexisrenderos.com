@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Head from "next/head";
+import useSWR from "swr";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
-import useSWR from "swr";
 import {
   SocialLinkCollection,
   SocialLinkCollectionDirection,
