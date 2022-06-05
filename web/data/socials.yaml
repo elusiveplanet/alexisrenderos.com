@@ -1,5 +1,11 @@
-- linkedin: https://www.linkedin.com/in/renderos
+- service: GitHub
+  url: https://www.linkedin.com/in/renderos
+  displayOnPage: true
 
-- github: https://www.github.com/renderos17
+- service: LinkedIn
+  url: https://www.github.com/renderos17
+  displayOnPage: true
 
-- twitter: https://www.twitter.com/renderos_17
+- service: Twitter
+  url: https://www.twitter.com/elusiveplanet
+  displayOnPage: true

@@ -1,8 +1,13 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Head from "next/head";
+import useSWR from "swr";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
+import {
+  SocialLinkCollection,
+  SocialLinkCollectionDirection,
+} from "../components/socialLinkCollection";
 
 const IndexBody = styled.div`
   display: flex;
@@ -38,14 +43,14 @@ const HeroContent = styled.div`
   max-width: 500px;
 `;
 
-// const fetcher = async (
-//   input: RequestInfo,
-//   init: RequestInit,
-//   ...args: any[]
-// ) => {
-//   const res = await fetch(input, init);
-//   return res.json();
-// };
+const fetcher = async (
+  input: RequestInfo,
+  init: RequestInit,
+  ...args: any[]
+) => {
+  const res = await fetch(input, init);
+  return res.json();
+};
 
 export const Home = (): JSX.Element => {
   // const { data: workExperienceData, error: workExperienceDataError } = useSWR(
@@ -56,6 +61,10 @@ export const Home = (): JSX.Element => {
   //   "/api/getAllVisibleProjects",
   //   fetcher
   // );
+  const { data: socialLinkData, error: socialLinkDataError } = useSWR(
+    "/api/getAllVisibleSocialLinks",
+    fetcher
+  );
 
   const temp = 1;
 
@@ -153,6 +162,14 @@ export const Home = (): JSX.Element => {
 
         {/*{!!projectData && <ProjectCardCollection projectList={projectData} />}*/}
         {/*{!!projectDataError && <p>Error fetching project data...</p>}*/}
+
+        {!!socialLinkData && (
+          <SocialLinkCollection
+            socialLinkList={socialLinkData}
+            direction={SocialLinkCollectionDirection.Row}
+          />
+        )}
+        {!!socialLinkDataError && <p>Error fetching social link data...</p>}
       </IndexBody>
     </>
   );
