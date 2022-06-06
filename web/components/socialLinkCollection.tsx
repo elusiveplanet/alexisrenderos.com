@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import simpleHash from "../helpers/simpleHash";
-import { SocialLink, SocialLinkIcon } from "./socialLinkIcon";
+import { SocialLink, SocialLinkIcon, SocialLinkSize } from "./socialLinkIcon";
 
 export enum SocialLinkCollectionDirection {
   Column = "column",
@@ -24,11 +24,13 @@ export const SocialLinkCollectionWrapperColumn = styled.div`
 export type SocialLinkCollectionProps = {
   socialLinkList: SocialLink[];
   direction: SocialLinkCollectionDirection;
+  size: SocialLinkSize;
 };
 
 export const SocialLinkCollection = ({
   socialLinkList,
   direction = SocialLinkCollectionDirection.Row,
+  size = SocialLinkSize.Medium,
 }: SocialLinkCollectionProps): JSX.Element => {
   const socialLinkListLength = socialLinkList.length;
 
@@ -37,12 +39,13 @@ export const SocialLinkCollection = ({
   }
 
   if (socialLinkListLength === 1) {
-    return <SocialLinkIcon socialLink={socialLinkList[0]} />;
+    return <SocialLinkIcon socialLink={socialLinkList[0]} size={size} />;
   }
 
   const socialLinkChildren = socialLinkList.map((socialLinkEntry, index) => (
     <SocialLinkIcon
       socialLink={socialLinkEntry}
+      size={size}
       key={simpleHash(socialLinkEntry.service + socialLinkEntry.url + index)}
     />
   ));
