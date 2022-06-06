@@ -14,7 +14,7 @@ const SectionWrapper = styled.div`
   max-height: 600px;
   width: 100%;
   margin: 0 auto 4em auto;
-  max-width: 1000px;
+  max-width: 1400px;
 `;
 
 const MissionWrapper = styled.div`
