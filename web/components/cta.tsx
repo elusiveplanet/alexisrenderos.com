@@ -4,7 +4,7 @@ import {
   Black,
   FullyTransparent,
   LightText,
-  SaffronYellow,
+  SaffronToNectarGradient,
 } from "../utils/colors";
 
 export const CTAWrapper = styled.div`
@@ -20,7 +20,9 @@ export const CTAInfoWrapper = styled.div`
 export const CTATitleWrapper = styled.div``;
 
 export const CTAHeading = styled.h1`
-  color: ${SaffronYellow};
+  background: ${SaffronToNectarGradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 6em;
   text-align: left;
   font-weight: 700;
@@ -55,8 +57,6 @@ export const CTALink = styled.a`
   width: max-content;
   margin: 0.5em 0;
   padding: 0.1em 0.25em;
-  font-size: 1.5em;
-  font-weight: 700;
   color: ${LightText};
   text-decoration-color: ${LightText};
   img {
@@ -71,9 +71,14 @@ export const CTALink = styled.a`
   }
 `;
 
+export const CTALinkTitle = styled.h3`
+  font-size: 2.75em;
+  font-weight: 700;
+`;
+
 const CTANextButtonRight = styled.div`
-  height: 1.5em;
-  width: 1.5em;
+  height: 2.25em;
+  width: 2.25em;
   padding: 0 0.1em 0 0.5em;
 `;
 
@@ -93,8 +98,8 @@ export const CTA = (): JSX.Element => (
         </CTAHeading>
       </CTATitleWrapper>
     </CTAInfoWrapper>
-    <CTALink href="#work-experience">
-      <h3>Learn how I do it.</h3>
+    <CTALink href="#learn-about-me">
+      <CTALinkTitle>Learn how I do it.</CTALinkTitle>
       <CTANextButtonRight>
         <Image
           src="/images/next-button-right.png"
