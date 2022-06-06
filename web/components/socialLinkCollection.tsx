@@ -10,6 +10,7 @@ export enum SocialLinkCollectionDirection {
 export const SocialLinkCollectionWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin: 0.1em;
   padding: 0.4em;
 `;
