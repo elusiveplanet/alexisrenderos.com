@@ -9,11 +9,6 @@ import { LandingMobile } from "../components/landingMobile";
 import { Landing } from "../components/landing";
 import AboutMeMobile from "../components/aboutMeMobile";
 
-// For now defining screen sizes as
-// Desktop: Width > 1280px
-// Tablet: Width > 768px
-// Mobile: Width < Tablet
-
 const IndexBody = styled.div`
   display: flex;
   flex-direction: column;
