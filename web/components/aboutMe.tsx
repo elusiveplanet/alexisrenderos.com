@@ -98,9 +98,10 @@ const SectionImage = styled.div`
 
 export const AboutMeSectionLarge = (): JSX.Element => (
   <SectionWrapper>
+    <div id="learn-about-me" />
     <SectionHeaderWrapper>
       <SectionHeader>
-        My mission is to democratize access to technology for all.
+        My mission is to make the world more accessible for all.
       </SectionHeader>
     </SectionHeaderWrapper>
     <MissionWrapper>
