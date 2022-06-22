@@ -1,13 +1,13 @@
-import Link from "next/link";
 import styled from "styled-components";
 import Head from "next/head";
 import useSWR from "swr";
+import Link from "next/link";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
-import {
-  SocialLinkCollection,
-  SocialLinkCollectionDirection,
-} from "../components/socialLinkCollection";
+import AboutMe from "../components/aboutMe";
+import { LandingMobile } from "../components/landingMobile";
+import { Landing } from "../components/landing";
+import AboutMeMobile from "../components/aboutMeMobile";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -19,6 +19,29 @@ const IndexBody = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+  @media (max-width: 1280px) {
+    display: none;
+  }
+`;
+
+const IndexBodyTablet = styled.div`
+  display: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  @media (max-width: 1280px) and (min-width: 768px) {
+    display: flex;
+  }
+`;
+
+const IndexBodyMobile = styled.div`
+  display: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  @media (max-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const IndexTitle = styled.h2`
@@ -59,14 +82,14 @@ const fetcher = async (
 };
 
 export const Home = (): JSX.Element => {
-  // const { data: workExperienceData, error: workExperienceDataError } = useSWR(
-  //   "/api/getAllVisibleWorkExperience",
-  //   fetcher
-  // );
-  // const { data: projectData, error: projectDataError } = useSWR(
-  //   "/api/getAllVisibleProjects",
-  //   fetcher
-  // );
+  const { data: workExperienceData, error: workExperienceDataError } = useSWR(
+    "/api/getAllVisibleWorkExperience",
+    fetcher
+  );
+  const { data: projectData, error: projectDataError } = useSWR(
+    "/api/getAllVisibleProjects",
+    fetcher
+  );
   const { data: socialLinkData, error: socialLinkDataError } = useSWR(
     "/api/getAllVisibleSocialLinks",
     fetcher
@@ -125,6 +148,10 @@ export const Home = (): JSX.Element => {
         <meta name="twitter:creator" content="@elusiveplanet" />
       </Head>
       <IndexBody>
+        <Landing socialLinkList={socialLinkData} />
+        <AboutMe />
+      </IndexBody>
+      <IndexBodyTablet>
         <HeroContent>
           <IndexTitle>Alexis Renderos</IndexTitle>
           <IndexSubtitle>
@@ -158,26 +185,11 @@ export const Home = (): JSX.Element => {
             </h5>
           </IndexSubtitle>
         </HeroContent>
-
-        {/*<AboutMeSectionLarge />*/}
-        {/*{!!workExperienceData && (*/}
-        {/*  <WorkExperienceTimeline workExperienceList={workExperienceData} />*/}
-        {/*)}*/}
-        {/*{!!workExperienceDataError && (*/}
-        {/*  <p>Error fetching work experience data...</p>*/}
-        {/*)}*/}
-
-        {/*{!!projectData && <ProjectCardCollection projectList={projectData} />}*/}
-        {/*{!!projectDataError && <p>Error fetching project data...</p>}*/}
-
-        {!!socialLinkData && (
-          <SocialLinkCollection
-            socialLinkList={socialLinkData}
-            direction={SocialLinkCollectionDirection.Row}
-          />
-        )}
-        {!!socialLinkDataError && <p>Error fetching social link data...</p>}
-      </IndexBody>
+      </IndexBodyTablet>
+      <IndexBodyMobile>
+        <LandingMobile socialLinkList={socialLinkData} />
+        <AboutMeMobile />
+      </IndexBodyMobile>
     </>
   );
 };

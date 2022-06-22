@@ -12,15 +12,15 @@ export type JuiceboxHeaderProps = {
 };
 
 export const JuiceboxHeaderTitle = styled.h2`
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: 700;
-  margin: 0.5em;
+  margin: 0.5em 0.75em;
   text-align: left;
   color: ${DarkText};
   background: ${SaffronYellow};
   border: solid ${SaffronYellow};
-  border-width: 0.175em 0.35em 0.175em 0.35em;
-  box-shadow: 12px 12px 2px 0 ${HalfShadow};
+  border-width: 0.175em 0.3em 0.175em 0.3em;
+  box-shadow: 8px 10px 1px 0 ${HalfShadow};
   width: fit-content;
 `;
 
@@ -46,7 +46,7 @@ const JuiceboxHeaderWrapper = styled.div`
 `;
 
 const JuiceboxTitleWrapper = styled.div`
-  //align-items: flex-start;
+  align-items: flex-start;
   width: 100%;
 `;
 
@@ -58,14 +58,13 @@ const JuiceboxOptionsWrapper = styled.div`
   width: max-content;
 `;
 
-export const JuiceboxHeader = ({ title }: JuiceboxHeaderProps) => (
+export const JuiceboxHeaderMobile = ({ title }: JuiceboxHeaderProps) => (
   <JuiceboxHeaderWrapper>
     <JuiceboxTitleWrapper>
       <JuiceboxHeaderTitle>{title}</JuiceboxHeaderTitle>
     </JuiceboxTitleWrapper>
     <JuiceboxOptionsWrapper>
-      {/*<JuiceboxOption>About Me</JuiceboxOption>*/}
-      {/*<JuiceboxOption>Get In Touch</JuiceboxOption>*/}
+      {/*<JuiceboxOption>☰</JuiceboxOption>*/}
     </JuiceboxOptionsWrapper>
   </JuiceboxHeaderWrapper>
 );
