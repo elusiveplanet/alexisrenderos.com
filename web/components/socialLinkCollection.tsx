@@ -10,8 +10,8 @@ export enum SocialLinkCollectionDirection {
 export const SocialLinkCollectionWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0.1em;
-  padding: 0.4em;
+  margin: 0.1em 0;
+  padding: 0.5em 0;
 `;
 
 export const SocialLinkCollectionWrapperColumn = styled.div`

@@ -104,7 +104,7 @@ export const WorkExperienceCardHeading = styled.h2`
   letter-spacing: 0.0125em;
   text-align: left;
   margin: 0;
-  padding: 2px 0;
+  padding: 1px 0;
 `;
 
 export const WorkExperienceCardSubheadingOne = styled.h3`
@@ -118,7 +118,7 @@ export const WorkExperienceCardSubheadingOne = styled.h3`
 
 export const WorkExperienceCardSubheadingTwo = styled.h4`
   color: ${LightText};
-  font-size: 1.2em;
+  font-size: 1.3em;
   text-align: left;
   padding: 5px 0 0 0;
 `;
@@ -129,7 +129,7 @@ export const WorkExperienceCardBody = styled.p`
   line-height: 115%;
   text-align: left;
   margin: 0.1em 0;
-  padding: 5px 0 0 0;
+  padding: 0.5em 0 0 0;
   max-width: 600px;
 `;
 

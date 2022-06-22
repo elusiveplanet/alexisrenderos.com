@@ -15,6 +15,7 @@ export const CTAWrapper = styled.div`
 export const CTAInfoWrapper = styled.div`
   display: flex;
   margin: 0.5em 0;
+  flex-direction: column;
 `;
 
 export const CTATitleWrapper = styled.div``;
@@ -23,28 +24,21 @@ export const CTAHeading = styled.h1`
   background: ${SaffronToNectarGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 6em;
+  padding: 0.1em 0;
+  font-size: 2.75em;
   text-align: left;
   font-weight: 700;
   font-style: italic;
   line-height: 1em;
   letter-spacing: 0.015em;
-`;
-
-export const CTASubtextWrapper = styled.div`
-  float: right;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  shape-outside: inset(calc(100% - 150px) 0 0);
+  max-width: 600px;
 `;
 
 export const CTASubtext = styled.h2`
-  width: 475px;
-  height: 150px;
-  padding: 1em 0 0.25em 0.5em;
+  max-width: 400px;
+  padding-bottom: 0.5em;
   color: ${LightText};
-  font-size: 2em;
+  font-size: 1.25em;
   text-align: left;
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -55,8 +49,7 @@ export const CTALink = styled.a`
   flex-direction: row;
   align-items: center;
   width: max-content;
-  margin: 0.5em 0;
-  padding: 0.1em 0.25em;
+  padding: 0.1em 0.15em;
   color: ${LightText};
   text-decoration-color: ${LightText};
   img {
@@ -76,37 +69,35 @@ export const CTALinkWrapper = styled.button`
 `;
 
 export const CTALinkTitle = styled.h3`
-  font-size: 2.75em;
+  font-size: 1.5em;
   font-weight: 700;
 `;
 
 const CTANextButtonRight = styled.div`
-  height: 2.25em;
-  width: 2.25em;
-  padding: 0 0.1em 0 0.5em;
+  height: 1.4em;
+  width: 1.4em;
+  padding: 0 0.1em 0 0.45em;
 `;
 
 const smoothScroll = () => {
-  const element = document.getElementById("learn-about-me");
-  element.scrollIntoView({ behavior: "smooth" });
-  console.log("wow");
+  const element = document.getElementById("learn-about-me-mobile");
+  setTimeout(() => {
+    element.scrollIntoView({ behavior: "smooth" });
+  }, 500);
 };
 
-export const CTA = (): JSX.Element => (
+export const CtaMobile = (): JSX.Element => (
   <CTAWrapper>
     <CTAInfoWrapper>
-      <CTATitleWrapper>
-        <CTASubtextWrapper>
-          <CTASubtext>
-            I’m Alexis, a San Francisco based software engineer focused on front
-            end web development and accessibility.
-          </CTASubtext>
-        </CTASubtextWrapper>
-        <CTAHeading>
-          I enable others <br />
-          to do their best work.
-        </CTAHeading>
-      </CTATitleWrapper>
+      <CTASubtext>
+        I’m Alexis, a San Francisco
+        <br /> based software engineer.
+      </CTASubtext>
+      <CTAHeading>
+        I enable others
+        <br /> to do their
+        <br /> best work.
+      </CTAHeading>
     </CTAInfoWrapper>
     <CTALinkWrapper onClick={smoothScroll}>
       <CTALink>

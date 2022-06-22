@@ -31,10 +31,10 @@ const SocialLinkServiceIcon = styled.div`
 `;
 
 const SocialLinkServiceIconSmall = styled(SocialLinkServiceIcon)`
-  height: 2em;
-  width: 2em;
-  margin: 0.1em;
-  padding: 0.5em;
+  height: 1.85em;
+  width: 1.85em;
+  margin: 0.1em 0.2em 0.1em 0;
+  padding: 0.5em 1em 0.5em 0;
 `;
 
 const SocialLinkServiceIconMedium = styled(SocialLinkServiceIcon)`
