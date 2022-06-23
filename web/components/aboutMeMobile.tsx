@@ -116,7 +116,7 @@ const Footer = styled.div`
   h6 {
     font-size: 0.75em;
     font-weight: 300;
-    margin: 0.75em auto;
+    margin: 1.5em auto;
     text-align: center;
     color: ${LightText};
     width: 100%;

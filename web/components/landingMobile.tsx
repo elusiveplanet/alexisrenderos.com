@@ -26,7 +26,7 @@ export const LandingBodyWrapper = styled.div`
   justify-content: center;
   position: absolute;
   top: 50%;
-  transform: translate(0, -52.5%);
+  transform: translate(0, -60%);
   margin: auto;
   height: max-content;
   width: fit-content;

@@ -12,7 +12,7 @@ import {
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 600px;
+  min-height: 800px;
   height: 100vh;
   width: 100%;
   max-width: 1400px;
@@ -22,8 +22,8 @@ const MissionWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-bottom: 1em;
-  height: 17.5em;
+  margin-bottom: 16px;
+  min-height: 280px;
 `;
 
 const MissionBackground = styled.div`
@@ -42,7 +42,7 @@ const MissionBackground = styled.div`
 const SectionHeaderWrapper = styled.div`
   display: flex;
   align-items: flex-end;
-  height: 8em;
+  min-height: 128px;
   width: 100%;
   background: ${NeutralOffWhite};
 `;
@@ -83,7 +83,7 @@ const SectionStripe = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 2em;
+  height: 32px;
   background: ${SaffronToNectarGradient};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
