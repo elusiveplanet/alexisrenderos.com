@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import Head from "next/head";
 import useSWR from "swr";
-import Link from "next/link";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 import AboutMe from "../components/aboutMe";
 import { LandingMobile } from "../components/landingMobile";
 import { Landing } from "../components/landing";
 import AboutMeMobile from "../components/aboutMeMobile";
+import { LandingTablet } from "../components/landingTablet";
+import { AboutMeTablet } from "../components/aboutMeTablet";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -152,39 +153,8 @@ export const Home = (): JSX.Element => {
         <AboutMe />
       </IndexBody>
       <IndexBodyTablet>
-        <HeroContent>
-          <IndexTitle>Alexis Renderos</IndexTitle>
-          <IndexSubtitle>
-            <h3>👋 Welcome!</h3>
-            <h5>I&apos;m currently rebuilding my personal website.</h5>
-            <h5>
-              The old version is still at{" "}
-              <Link href="https://renderos17.github.io" passHref>
-                renderos17.github.io
-              </Link>
-              .
-            </h5>
-            <h5>
-              Designs for the new version can be found on{" "}
-              <Link
-                href="https://www.figma.com/file/2zSroQb71YqrjcLDHLGiEh/Final-Website-Mock?node-id=548%3A483"
-                passHref>
-                Figma
-              </Link>
-              .
-            </h5>
-            <h5>
-              If you&apos;d like to learn more about what I&apos;ve worked on,
-              check out my{" "}
-              <Link
-                href="https://renderos17.github.io/AlexisRenderosResume.pdf"
-                passHref>
-                Resume
-              </Link>
-              .
-            </h5>
-          </IndexSubtitle>
-        </HeroContent>
+        <LandingTablet socialLinkList={socialLinkData} />
+        <AboutMeTablet />
       </IndexBodyTablet>
       <IndexBodyMobile>
         <LandingMobile socialLinkList={socialLinkData} />

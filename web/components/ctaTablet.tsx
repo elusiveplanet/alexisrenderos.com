@@ -24,22 +24,28 @@ export const CTAHeading = styled.h1`
   background: ${SaffronToNectarGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 0.1em 0;
-  font-size: min(max(2em, 12vw), 5em);
+  font-size: 6em;
   text-align: left;
   font-weight: 700;
   font-style: italic;
   line-height: 1em;
   letter-spacing: 0.015em;
-  max-width: 600px;
+`;
+
+export const CTASubtextWrapper = styled.div`
+  float: right;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  shape-outside: inset(calc(100% - 150px) 0 0);
 `;
 
 export const CTASubtext = styled.h2`
-  max-width: 400px;
-  padding-bottom: 0.5em;
+  width: 475px;
+  height: fit-content;
+  padding: 1em 0 0.5em 0;
   color: ${LightText};
-  //20 46.8 24
-  font-size: min(max(1em, 6vw), 2em);
+  font-size: 2em;
   text-align: left;
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -50,7 +56,8 @@ export const CTALink = styled.a`
   flex-direction: row;
   align-items: center;
   width: max-content;
-  padding: 0.1em 0.15em;
+  margin: 0.5em 0;
+  padding: 0.1em 0.25em;
   color: ${LightText};
   text-decoration-color: ${LightText};
   img {
@@ -70,24 +77,24 @@ export const CTALinkWrapper = styled.button`
 `;
 
 export const CTALinkTitle = styled.h3`
-  font-size: min(max(1.25em, 6vw), 2.5em);
+  font-size: 2.75em;
   font-weight: 700;
 `;
 
 const CTANextButtonRight = styled.div`
-  height: min(max(1.15em, calc(6vw - 0.1em)), 2.4em);
-  width: min(max(1.15em, calc(6vw - 0.1em)), 2.4em);
-  padding: 0 0.1em 0 0.45em;
+  height: 2.25em;
+  width: 2.25em;
+  padding: 0 0.1em 0 0.5em;
 `;
 
 const smoothScroll = () => {
-  const element = document.getElementById("learn-about-me-mobile");
+  const element = document.getElementById("learn-about-me-tablet");
   setTimeout(() => {
     element.scrollIntoView({ behavior: "smooth" });
   }, 500);
 };
 
-export const CtaMobile = (): JSX.Element => (
+export const CtaTablet = (): JSX.Element => (
   <CTAWrapper>
     <CTAInfoWrapper>
       <CTASubtext>

@@ -24,9 +24,7 @@ export const LandingBodyWrapper = styled.div`
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -60%);
+  padding-bottom: 150px;
   margin: auto;
   height: max-content;
   width: fit-content;

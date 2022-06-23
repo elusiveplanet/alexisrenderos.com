@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { JuiceboxHeader } from "./navbar";
 import {
   SocialLinkCollection,
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
-import { CTA } from "./cta";
+import { CtaTablet } from "./ctaTablet";
+import { JuiceboxHeaderTablet } from "./navbarTablet";
 
 export const LandingWrapper = styled.div`
   display: flex;
@@ -16,47 +16,43 @@ export const LandingWrapper = styled.div`
   height: 100vh;
   min-height: 800px;
   width: 100%;
-  min-width: 1280px;
 `;
 
 export const LandingBodyWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  height: max-content;
+  padding-bottom: 100px;
   margin: auto;
-  width: 100%;
+  height: max-content;
+  width: fit-content;
   min-height: 600px;
-  padding-bottom: 10em;
 `;
 
-export const LandingSocialIconCollectionWrapper = styled.div`
-  margin-left: 1em;
-  margin-right: 4em;
-`;
+export const LandingSocialIconCollectionWrapper = styled.div``;
 
 export type LandingProps = {
   socialLinkList: SocialLink[];
 };
 
-export const Landing = ({
+export const LandingTablet = ({
   socialLinkList: socialLinkData,
 }: LandingProps): JSX.Element => (
   <LandingWrapper>
-    <JuiceboxHeader title="Alexis Renderos" />
+    <JuiceboxHeaderTablet title="Alexis Renderos" />
     <LandingBodyWrapper>
+      <CtaTablet />
       <LandingSocialIconCollectionWrapper>
         {!!socialLinkData && (
           <SocialLinkCollection
             socialLinkList={socialLinkData}
-            direction={SocialLinkCollectionDirection.Column}
+            direction={SocialLinkCollectionDirection.Row}
             size={SocialLinkSize.Medium}
           />
         )}
       </LandingSocialIconCollectionWrapper>
-      <CTA />
     </LandingBodyWrapper>
   </LandingWrapper>
 );
