@@ -14,7 +14,7 @@ export const LandingWrapper = styled.div`
   align-items: center;
   position: relative;
   height: 100vh;
-  min-height: 800px;
+  min-height: 600px;
   width: 100%;
 `;
 
@@ -28,7 +28,7 @@ export const LandingBodyWrapper = styled.div`
   margin: auto;
   height: max-content;
   width: fit-content;
-  min-height: 600px;
+  min-height: 500px;
 `;
 
 export const LandingSocialIconCollectionWrapper = styled.div``;

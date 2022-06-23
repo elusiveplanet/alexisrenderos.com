@@ -13,7 +13,7 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-height: 800px;
+  min-height: 600px;
   width: 100%;
   max-width: 1400px;
 `;
@@ -29,7 +29,7 @@ const MissionBackground = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: calc(200%);
+  height: 50vh;
   transform: skewY(-10deg);
   background: linear-gradient(
     180deg,
@@ -41,7 +41,7 @@ const MissionBackground = styled.div`
 const SectionHeaderWrapper = styled.div`
   display: flex;
   align-items: flex-end;
-  min-height: 100px;
+  min-height: auto;
   width: 100%;
   background: ${NeutralOffWhite};
 `;
@@ -51,6 +51,7 @@ const SectionHeader = styled.h2`
   font-weight: 700;
   font-style: italic;
   margin: 0 auto;
+  margin-top: 1em;
   text-align: center;
   color: ${DarkText};
   width: 90%;

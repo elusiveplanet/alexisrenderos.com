@@ -38,7 +38,6 @@ export const CTASubtext = styled.h2`
   max-width: 400px;
   padding-bottom: 0.5em;
   color: ${LightText};
-  //20 46.8 24
   font-size: min(max(1em, 6vw), 2em);
   text-align: left;
   font-weight: 400;
