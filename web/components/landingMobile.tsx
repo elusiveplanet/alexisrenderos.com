@@ -7,9 +7,9 @@ import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
 import { CtaMobile } from "./ctaMobile";
 import { JuiceboxHeaderMobile } from "./navbarMobile";
 
-export const LandingWrapper = styled.div.attrs((props) => ({
+export const LandingWrapper = styled.div.attrs(({ height }) => ({
   style: {
-    height: `${props.height}px`,
+    height: `${height}px`,
   },
 }))`
   display: flex;

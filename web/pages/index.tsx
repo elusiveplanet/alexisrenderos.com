@@ -86,12 +86,10 @@ export const Home = (): JSX.Element => {
   const parser = new UAParser();
 
   const handleWindowChange = () => {
-    if (
-      window.outerHeight !== outerHeight &&
-      (parser.getResult().device.type !== "tablet" ||
-        parser.getResult().device.type !== "mobile")
-    ) {
-      // True window resize on desktop and not a toolbar change on mobile
+    // If we haven't captured the initial window size + browser chrome yet,
+    // let's grab it and store it in state to create a reasonable assumption
+    // of what the "full bleed" height should be for the landing.
+    if (innerHeight === 0 || outerHeight === 0) {
       setInnerHeight(window.innerHeight);
       setOuterHeight(window.outerHeight);
     }
