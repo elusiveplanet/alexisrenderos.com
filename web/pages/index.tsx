@@ -9,6 +9,7 @@ import { Landing } from "../components/landing";
 import AboutMeMobile from "../components/aboutMeMobile";
 import { LandingTablet } from "../components/landingTablet";
 import { AboutMeTablet } from "../components/aboutMeTablet";
+import { useEffect, useState } from "react";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -20,29 +21,20 @@ const IndexBody = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  @media (max-width: 1280px) {
-    display: none;
-  }
 `;
 
 const IndexBodyTablet = styled.div`
-  display: none;
+  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  @media (max-width: 1280px) and (min-width: 768px) {
-    display: flex;
-  }
 `;
 
 const IndexBodyMobile = styled.div`
-  display: none;
+  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  @media (max-width: 768px) {
-    display: flex;
-  }
 `;
 
 export const IndexTitle = styled.h2`
@@ -83,6 +75,34 @@ const fetcher = async (
 };
 
 export const Home = (): JSX.Element => {
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  const MIN_DESKTOP_WIDTH = 1280;
+  const MIN_TABLET_WIDTH = 768;
+
+  const handleWindowChange = () => {
+    setHeight(window.innerHeight);
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    // component is mounted and window is available
+    handleWindowChange();
+
+    // Re-calculate on resize
+    window.addEventListener("resize", handleWindowChange);
+
+    // Re-calculate on device orientation change
+    window.addEventListener("orientationchange", handleWindowChange);
+
+    // unsubscribe from the event on component unmount
+    return () => {
+      window.removeEventListener("resize", handleWindowChange);
+      window.removeEventListener("orientationchange", handleWindowChange);
+    };
+  }, []);
+
   const { data: workExperienceData, error: workExperienceDataError } = useSWR(
     "/api/getAllVisibleWorkExperience",
     fetcher
@@ -148,18 +168,27 @@ export const Home = (): JSX.Element => {
         />
         <meta name="twitter:creator" content="@elusiveplanet" />
       </Head>
-      <IndexBody>
-        <Landing socialLinkList={socialLinkData} />
-        <AboutMe />
-      </IndexBody>
-      <IndexBodyTablet>
-        <LandingTablet socialLinkList={socialLinkData} />
-        <AboutMeTablet />
-      </IndexBodyTablet>
-      <IndexBodyMobile>
-        <LandingMobile socialLinkList={socialLinkData} />
-        <AboutMeMobile />
-      </IndexBodyMobile>
+      {width > MIN_DESKTOP_WIDTH && (
+        <IndexBody>
+          <Landing socialLinkList={socialLinkData} />
+          <AboutMe />
+        </IndexBody>
+      )}
+      {width < MIN_DESKTOP_WIDTH && width > MIN_TABLET_WIDTH && (
+        <IndexBodyTablet>
+          <LandingTablet socialLinkList={socialLinkData} />
+          <AboutMeTablet />
+        </IndexBodyTablet>
+      )}
+      {width < MIN_TABLET_WIDTH && (
+        <IndexBodyMobile>
+          <LandingMobile
+            windowHeight={height}
+            socialLinkList={socialLinkData}
+          />
+          <AboutMeMobile />
+        </IndexBodyMobile>
+      )}
     </>
   );
 };

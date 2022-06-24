@@ -13,7 +13,7 @@ export const LandingWrapper = styled.div`
   flex-wrap: nowrap;
   align-items: center;
   position: relative;
-  height: calc(var(--vh) * 100);
+  height: ${(props) => props.height}px;
   min-height: 600px;
   width: 100%;
 `;
@@ -34,40 +34,27 @@ export const LandingBodyWrapper = styled.div`
 export const LandingSocialIconCollectionWrapper = styled.div``;
 
 export type LandingProps = {
+  windowHeight: number;
   socialLinkList: SocialLink[];
 };
 
 export const LandingMobile = ({
+  windowHeight,
   socialLinkList: socialLinkData,
-}: LandingProps): JSX.Element => {
-  function calculateVh() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  }
-
-  // Initial calculation
-  calculateVh();
-
-  // Re-calculate on resize
-  window.addEventListener("resize", calculateVh);
-
-  // Re-calculate on device orientation change
-  window.addEventListener("orientationchange", calculateVh);
-  return (
-    <LandingWrapper>
-      <JuiceboxHeaderMobile title="Alexis Renderos" />
-      <LandingBodyWrapper>
-        <CtaMobile />
-        <LandingSocialIconCollectionWrapper>
-          {!!socialLinkData && (
-            <SocialLinkCollection
-              socialLinkList={socialLinkData}
-              direction={SocialLinkCollectionDirection.Row}
-              size={SocialLinkSize.Small}
-            />
-          )}
-        </LandingSocialIconCollectionWrapper>
-      </LandingBodyWrapper>
-    </LandingWrapper>
-  );
-};
+}: LandingProps): JSX.Element => (
+  <LandingWrapper height={windowHeight}>
+    <JuiceboxHeaderMobile title="Alexis Renderos" />
+    <LandingBodyWrapper>
+      <CtaMobile />
+      <LandingSocialIconCollectionWrapper>
+        {!!socialLinkData && (
+          <SocialLinkCollection
+            socialLinkList={socialLinkData}
+            direction={SocialLinkCollectionDirection.Row}
+            size={SocialLinkSize.Small}
+          />
+        )}
+      </LandingSocialIconCollectionWrapper>
+    </LandingBodyWrapper>
+  </LandingWrapper>
+);
