@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import Head from "next/head";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
 import UAParser from "ua-parser-js";
 import { GlobalStyle } from "../styles/styles";
-import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 import AboutMe from "../components/aboutMe";
 import { LandingMobile } from "../components/landingMobile";
 import { Landing } from "../components/landing";
 import AboutMeMobile from "../components/aboutMeMobile";
 import { LandingTablet } from "../components/landingTablet";
 import { AboutMeTablet } from "../components/aboutMeTablet";
+import GlobalHead from "../components/globalHead";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -38,39 +37,7 @@ const IndexBodyMobile = styled.div`
   align-items: center;
 `;
 
-export const IndexTitle = styled.h2`
-  font-size: 3em;
-  font-weight: 700;
-  margin: 0.5em auto;
-  text-align: center;
-  color: ${DarkText};
-  background: ${SaffronYellow};
-  border: solid ${SaffronYellow};
-  border-width: 0.175em 0.35em 0.175em 0.35em;
-  box-shadow: 15px 15px 2px 0 ${HalfShadow};
-  width: fit-content;
-`;
-
-export const IndexSubtitle = styled.div`
-  margin: 0 auto;
-  text-align: center;
-  h3,
-  h5 {
-    margin: 0.25em 0;
-  }
-`;
-
-const HeroContent = styled.div`
-  width: 65%;
-  margin: 0 auto;
-  max-width: 500px;
-`;
-
-const fetcher = async (
-  input: RequestInfo,
-  init: RequestInit,
-  ...args: any[]
-) => {
+const fetcher = async (input: RequestInfo, init: RequestInit) => {
   const res = await fetch(input, init);
   return res.json();
 };
@@ -103,12 +70,6 @@ export const Home = (): JSX.Element => {
   };
 
   useEffect(() => {
-    document.getElementById(
-      "test"
-    ).innerHTML = `<p>Initial Inner Height: ${initialInnerHeight}</p><br/><p>Initial Outer Height: ${initialOuterHeight}</p><br/><p>Inner Height: ${innerHeight}</p><br/><p>Outer Height: ${outerHeight}</p>`;
-  }, [initialInnerHeight, initialOuterHeight, innerHeight, outerHeight]);
-
-  useEffect(() => {
     // component is mounted and window is available
 
     // Run only once on page mount.
@@ -128,15 +89,6 @@ export const Home = (): JSX.Element => {
       window.removeEventListener("orientationchange", handleWindowChange);
     };
   }, []);
-
-  const { data: workExperienceData, error: workExperienceDataError } = useSWR(
-    "/api/getAllVisibleWorkExperience",
-    fetcher
-  );
-  const { data: projectData, error: projectDataError } = useSWR(
-    "/api/getAllVisibleProjects",
-    fetcher
-  );
   const { data: socialLinkData, error: socialLinkDataError } = useSWR(
     "/api/getAllVisibleSocialLinks",
     fetcher
@@ -147,53 +99,7 @@ export const Home = (): JSX.Element => {
   return (
     <>
       <GlobalStyle />
-      <Head>
-        <title>Alexis Renderos 🪐</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/images/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/images/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/images/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/images/favicon/site.webmanifest" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://alexisrenderos.com" />
-        <meta property="og:title" content="Alexis Renderos" />
-        <meta
-          property="og:description"
-          content="I enable others to do their best work."
-        />
-        <meta
-          property="og:image"
-          content="https://alexisrenderos.com/images/goldenGateWithDog.jpeg"
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Alexis Renderos" />
-        <meta
-          name="twitter:description"
-          content="I enable others to do their best work."
-        />
-        <meta
-          name="twitter:image"
-          content="https://alexisrenderos.com/images/goldenGateWithDog.jpeg"
-        />
-        <meta name="twitter:creator" content="@elusiveplanet" />
-      </Head>
+      <GlobalHead />
       {width > MIN_DESKTOP_WIDTH && (
         <IndexBody>
           <Landing socialLinkList={socialLinkData} />
@@ -212,10 +118,9 @@ export const Home = (): JSX.Element => {
             windowHeight={initialInnerHeight}
             socialLinkList={socialLinkData}
           />
-          <AboutMeMobile windowHeight={initialOuterHeight} />
+          <AboutMeMobile windowHeight={initialInnerHeight} />
         </IndexBodyMobile>
       )}
-      <div id="test">test</div>
     </>
   );
 };
