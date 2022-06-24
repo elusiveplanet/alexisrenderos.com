@@ -89,11 +89,12 @@ export const Home = (): JSX.Element => {
     // If we haven't captured the initial window size + browser chrome yet,
     // let's grab it and store it in state to create a reasonable assumption
     // of what the "full bleed" height should be for the landing.
+    // Inner and outer sometimes are different depending on mobile browser
     if (innerHeight === 0 || outerHeight === 0) {
-      setInnerHeight(window.innerHeight);
-      setOuterHeight(window.outerHeight);
+      setInnerHeight((prev) => window.innerHeight);
+      setOuterHeight((prev) => window.outerHeight);
     }
-    setWidth(window.innerWidth);
+    setWidth((prev) => window.innerWidth);
   };
 
   useEffect(() => {
