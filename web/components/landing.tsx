@@ -25,13 +25,11 @@ export const LandingBodyWrapper = styled.div`
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -55%);
   height: max-content;
   margin: auto;
   width: 100%;
   min-height: 600px;
+  padding-bottom: 10em;
 `;
 
 export const LandingSocialIconCollectionWrapper = styled.div`

@@ -9,11 +9,7 @@ import {
   SaffronToNectarGradient,
 } from "../utils/colors";
 
-const SectionWrapper = styled.div.attrs(({ height }) => ({
-  style: {
-    height: `${height}px`,
-  },
-}))`
+const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 800px;
@@ -25,16 +21,15 @@ const MissionWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 0.5em 0;
-  min-height: 150px;
-  height: min(max(150px, 35vw), 200px);
+  margin-bottom: 16px;
+  height: 280px;
 `;
 
 const MissionBackground = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 50vh;
+  height: 200vh;
   min-height: 500px;
   transform: skewY(-10deg);
   background: linear-gradient(
@@ -47,54 +42,55 @@ const MissionBackground = styled.div`
 const SectionHeaderWrapper = styled.div`
   display: flex;
   align-items: flex-end;
-  min-height: auto;
+  min-height: 128px;
   width: 100%;
   background: ${NeutralOffWhite};
 `;
 
 const SectionHeader = styled.h2`
-  font-size: min(max(1.3em, 4.75vw), 2.2em);
+  font-size: 2.25em;
   font-weight: 700;
   font-style: italic;
-  margin: 1em auto 0;
+  margin: 0 auto;
   text-align: center;
   color: ${DarkText};
-  width: 90%;
-  max-width: 500px;
+  width: 75%;
+  max-width: 600px;
 `;
 
 const SectionSubheadingOne = styled.h3`
-  font-size: min(max(1.3em, 4.5vw), 2em);
+  font-size: 2em;
+  font-weight: 500;
   margin: 0 auto;
   text-align: center;
   color: ${AccentText};
-  width: 90%;
+  width: 85%;
   max-width: 500px;
 `;
 
 const SectionSubheadingTwo = styled.h4`
-  font-size: min(max(1em, 4vw), 1.75em);
-  font-weight: 500;
+  font-size: 1.75em;
+  font-weight: 400;
   line-height: 125%;
   margin: 1em auto;
   text-align: center;
   color: ${LightText};
   width: 85%;
-  max-width: 500px;
+  max-width: 650px;
 `;
 
 const SectionStripe = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 1.25em;
+  height: 32px;
   background: ${SaffronToNectarGradient};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const SectionImage = styled.div`
-  height: min(max(8em, 30vw), 10em);
-  width: min(max(8em, 30vw), 10em);
+  height: 12em;
+  width: 12em;
   margin: 0 auto;
   transform: skewY(10deg);
   background: url("/images/AlexisHeadshot.png");
@@ -104,25 +100,25 @@ const SectionImage = styled.div`
 `;
 
 const Notice = styled.div`
-  margin-top: 1.5em;
+  margin-top: 2em;
   h4 {
-    font-size: min(max(1em, 4vw), 1.75em);
+    font-size: 1.75em;
     font-weight: 500;
     line-height: 125%;
-    margin: 0.75em auto;
+    margin: 1em auto;
     text-align: center;
     color: ${LightText};
     width: 80%;
-    max-width: 500px;
+    max-width: 675px;
   }
 `;
 
 const Footer = styled.div`
   margin-top: auto;
   h6 {
-    font-size: min(max(0.75em, 3vw), 1.1em);
+    font-size: 1.1em;
     font-weight: 300;
-    margin: 1.5em auto;
+    margin: 0.75em auto;
     text-align: center;
     color: ${LightText};
     width: 100%;
@@ -130,13 +126,9 @@ const Footer = styled.div`
   }
 `;
 
-export type AboutMeProps = {
-  windowHeight: number;
-};
-
-export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
-  <SectionWrapper height={windowHeight}>
-    <div id="learn-about-me-mobile" />
+export const AboutMeTablet = (): JSX.Element => (
+  <SectionWrapper>
+    <div id="learn-about-me-tablet" />
     <SectionHeaderWrapper>
       <SectionHeader>
         My mission is to make the world more accessible for all.
@@ -153,8 +145,8 @@ export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
       What matters most to me is what I enable for others.
     </SectionSubheadingOne>
     <SectionSubheadingTwo>
-      I take pride in developing thoughtful products that help people around the
-      world focus on what’s most important to them.
+      I take pride in developing thoughtful and intuitive software that helps
+      people around the world focus on what’s most important to them.
     </SectionSubheadingTwo>
     <Notice>
       <SectionSubheadingOne>
@@ -167,7 +159,8 @@ export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
           passHref>
           Figma
         </Link>
-        . The code is public on{" "}
+        .<br />
+        The code is public on{" "}
         <Link href="https://github.com/renderos17/alexisrenderos.com" passHref>
           GitHub
         </Link>
@@ -190,4 +183,4 @@ export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
   </SectionWrapper>
 );
 
-export default AboutMeMobile;
+export default AboutMeTablet;
