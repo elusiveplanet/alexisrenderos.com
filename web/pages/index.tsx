@@ -77,6 +77,8 @@ const fetcher = async (
 
 export const Home = (): JSX.Element => {
   const [width, setWidth] = useState(0);
+  const [initialInnerHeight, setInitialInnerHeight] = useState(0);
+  const [initialOuterHeight, setInitialOuterHeight] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
   const [outerHeight, setOuterHeight] = useState(0);
 
@@ -85,20 +87,33 @@ export const Home = (): JSX.Element => {
 
   const parser = new UAParser();
 
-  const handleWindowChange = () => {
+  const getInitialPageHeight = () => {
     // If we haven't captured the initial window size + browser chrome yet,
     // let's grab it and store it in state to create a reasonable assumption
     // of what the "full bleed" height should be for the landing.
     // Inner and outer sometimes are different depending on mobile browser
-    if (innerHeight === 0 || outerHeight === 0) {
-      setInnerHeight((prev) => window.innerHeight);
-      setOuterHeight((prev) => window.outerHeight);
-    }
+    setInitialInnerHeight((prev) => window.innerHeight);
+    setInitialOuterHeight((prev) => window.outerHeight);
+  };
+
+  const handleWindowChange = () => {
+    setInnerHeight((prev) => window.innerHeight);
+    setOuterHeight((prev) => window.outerHeight);
     setWidth((prev) => window.innerWidth);
   };
 
   useEffect(() => {
+    document.getElementById(
+      "test"
+    ).innerHTML = `<p>Initial Inner Height: ${initialInnerHeight}</p><br/><p>Initial Outer Height: ${initialOuterHeight}</p><br/><p>Inner Height: ${innerHeight}</p><br/><p>Outer Height: ${outerHeight}</p>`;
+  }, [initialInnerHeight, initialOuterHeight, innerHeight, outerHeight]);
+
+  useEffect(() => {
     // component is mounted and window is available
+
+    // Run only once on page mount.
+    getInitialPageHeight();
+
     handleWindowChange();
 
     // Re-calculate on resize
@@ -194,12 +209,13 @@ export const Home = (): JSX.Element => {
       {width < MIN_TABLET_WIDTH && (
         <IndexBodyMobile>
           <LandingMobile
-            windowHeight={innerHeight}
+            windowHeight={initialInnerHeight}
             socialLinkList={socialLinkData}
           />
-          <AboutMeMobile windowHeight={outerHeight} />
+          <AboutMeMobile windowHeight={initialOuterHeight} />
         </IndexBodyMobile>
       )}
+      <div id="test">test</div>
     </>
   );
 };
