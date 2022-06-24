@@ -10,6 +10,11 @@ import { LandingTablet } from "../components/landingTablet";
 import { AboutMeTablet } from "../components/aboutMeTablet";
 import GlobalHead from "../components/globalHead";
 
+// For now defining screen sizes as
+// Desktop: Width > 1280px
+// Tablet: Width > 768px
+// Mobile: Width < Tablet
+
 const IndexBody = styled.div`
   display: flex;
   flex-direction: column;
