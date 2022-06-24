@@ -12,8 +12,7 @@ import {
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 800px;
   width: 100%;
   max-width: 1400px;
 `;
@@ -22,7 +21,9 @@ const MissionWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  min-height: min(max(175px, 45vw), 225px);
+  padding: 0.5em 0;
+  min-height: 150px;
+  height: min(max(150px, 35vw), 200px);
 `;
 
 const MissionBackground = styled.div`
@@ -30,6 +31,7 @@ const MissionBackground = styled.div`
   align-items: center;
   width: 100%;
   height: 50vh;
+  min-height: 500px;
   transform: skewY(-10deg);
   background: linear-gradient(
     180deg,
@@ -50,8 +52,7 @@ const SectionHeader = styled.h2`
   font-size: min(max(1.3em, 4.75vw), 2.2em);
   font-weight: 700;
   font-style: italic;
-  margin: 0 auto;
-  margin-top: 1em;
+  margin: 1em auto 0;
   text-align: center;
   color: ${DarkText};
   width: 90%;
@@ -99,7 +100,7 @@ const SectionImage = styled.div`
 `;
 
 const Notice = styled.div`
-  margin-top: 2.5em;
+  margin-top: 1.5em;
   h4 {
     font-size: min(max(1em, 4vw), 1.75em);
     font-weight: 500;

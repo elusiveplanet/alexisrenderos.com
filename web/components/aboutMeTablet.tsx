@@ -13,7 +13,6 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 800px;
-  height: 100vh;
   width: 100%;
   max-width: 1400px;
 `;
@@ -23,14 +22,15 @@ const MissionWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   margin-bottom: 16px;
-  min-height: 280px;
+  height: 280px;
 `;
 
 const MissionBackground = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: calc(200%);
+  height: 200vh;
+  min-height: 500px;
   transform: skewY(-10deg);
   background: linear-gradient(
     180deg,
