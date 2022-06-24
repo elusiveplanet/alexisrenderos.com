@@ -11,13 +11,14 @@ export const WorkExperienceTimelineWrapper = styled.div`
   display: inline-flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin: 0 auto;
   width: max-content;
   max-width: 800px;
-  padding: 50px 50px;
+  padding: 2em;
 `;
 
 export const WorkExperienceTimelineTitle = styled.h2`
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 700;
   margin: 0 auto;
   text-align: center;

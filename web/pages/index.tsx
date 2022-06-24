@@ -1,66 +1,91 @@
-import Link from "next/link";
 import styled from "styled-components";
-import Head from "next/head";
 import useSWR from "swr";
+import { useEffect, useState } from "react";
 import { GlobalStyle } from "../styles/styles";
-import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
-import {
-  SocialLinkCollection,
-  SocialLinkCollectionDirection,
-} from "../components/socialLinkCollection";
+import AboutMe from "../components/aboutMe";
+import { LandingMobile } from "../components/landingMobile";
+import { Landing } from "../components/landing";
+import AboutMeMobile from "../components/aboutMeMobile";
+import { LandingTablet } from "../components/landingTablet";
+import { AboutMeTablet } from "../components/aboutMeTablet";
+import GlobalHead from "../components/globalHead";
+
+// For now defining screen sizes as
+// Desktop: Width > 1280px
+// Tablet: Width > 768px
+// Mobile: Width < Tablet
 
 const IndexBody = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-items: center;
 `;
 
-export const IndexTitle = styled.h2`
-  font-size: 3em;
-  font-weight: 700;
-  margin: 0.5em auto;
-  text-align: center;
-  color: ${DarkText};
-  background: ${SaffronYellow};
-  border: solid ${SaffronYellow};
-  border-width: 0.175em 0.35em 0.175em 0.35em;
-  box-shadow: 15px 15px 2px 0 ${HalfShadow};
-  width: fit-content;
+const IndexBodyTablet = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 `;
 
-export const IndexSubtitle = styled.div`
-  margin: 0 auto;
-  text-align: center;
-  h3,
-  h5 {
-    margin: 0.25em 0;
-  }
+const IndexBodyMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 `;
 
-const HeroContent = styled.div`
-  width: 65%;
-  margin: 0 auto;
-  max-width: 500px;
-`;
-
-const fetcher = async (
-  input: RequestInfo,
-  init: RequestInit,
-  ...args: any[]
-) => {
+const fetcher = async (input: RequestInfo, init: RequestInit) => {
   const res = await fetch(input, init);
   return res.json();
 };
 
 export const Home = (): JSX.Element => {
-  // const { data: workExperienceData, error: workExperienceDataError } = useSWR(
-  //   "/api/getAllVisibleWorkExperience",
-  //   fetcher
-  // );
-  // const { data: projectData, error: projectDataError } = useSWR(
-  //   "/api/getAllVisibleProjects",
-  //   fetcher
-  // );
+  const [width, setWidth] = useState(0);
+  const [initialInnerHeight, setInitialInnerHeight] = useState(0);
+  const [initialOuterHeight, setInitialOuterHeight] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(0);
+  const [outerHeight, setOuterHeight] = useState(0);
+
+  const MIN_DESKTOP_WIDTH = 1280;
+  const MIN_TABLET_WIDTH = 768;
+
+  const getInitialPageHeight = () => {
+    // If we haven't captured the initial window size + browser chrome yet,
+    // let's grab it and store it in state to create a reasonable assumption
+    // of what the "full bleed" height should be for the landing.
+    // Inner and outer sometimes are different depending on mobile browser
+    setInitialInnerHeight((prev) => window.innerHeight);
+    setInitialOuterHeight((prev) => window.outerHeight);
+  };
+
+  const handleWindowChange = () => {
+    setInnerHeight((prev) => window.innerHeight);
+    setOuterHeight((prev) => window.outerHeight);
+    setWidth((prev) => window.innerWidth);
+  };
+
+  useEffect(() => {
+    // component is mounted and window is available
+
+    // Run only once on page mount.
+    getInitialPageHeight();
+
+    handleWindowChange();
+
+    // Re-calculate on resize
+    window.addEventListener("resize", handleWindowChange);
+
+    // Re-calculate on device orientation change
+    window.addEventListener("orientationchange", handleWindowChange);
+
+    // unsubscribe from the event on component unmount
+    return () => {
+      window.removeEventListener("resize", handleWindowChange);
+      window.removeEventListener("orientationchange", handleWindowChange);
+    };
+  }, []);
   const { data: socialLinkData, error: socialLinkDataError } = useSWR(
     "/api/getAllVisibleSocialLinks",
     fetcher
@@ -71,106 +96,28 @@ export const Home = (): JSX.Element => {
   return (
     <>
       <GlobalStyle />
-      <Head>
-        <title>Alexis Renderos 🪐</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/images/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/images/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/images/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/images/favicon/site.webmanifest" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://alexisrenderos.com" />
-        <meta property="og:title" content="Alexis Renderos" />
-        <meta
-          property="og:description"
-          content="I enable others to do their best work."
-        />
-        <meta
-          property="og:image"
-          content="https://alexisrenderos.com/images/goldenGateWithDog.jpeg"
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Alexis Renderos" />
-        <meta
-          name="twitter:description"
-          content="I enable others to do their best work."
-        />
-        <meta
-          name="twitter:image"
-          content="https://alexisrenderos.com/images/goldenGateWithDog.jpeg"
-        />
-        <meta name="twitter:creator" content="@elusiveplanet" />
-      </Head>
-      <IndexBody>
-        <HeroContent>
-          <IndexTitle>Alexis Renderos</IndexTitle>
-          <IndexSubtitle>
-            <h3>👋 Welcome!</h3>
-            <h5>I&apos;m currently rebuilding my personal website.</h5>
-            <h5>
-              The old version is still at{" "}
-              <Link href="https://renderos17.github.io" passHref>
-                renderos17.github.io
-              </Link>
-              .
-            </h5>
-            <h5>
-              Designs for the new version can be found on{" "}
-              <Link
-                href="https://www.figma.com/file/2zSroQb71YqrjcLDHLGiEh/Final-Website-Mock?node-id=548%3A483"
-                passHref>
-                Figma
-              </Link>
-              .
-            </h5>
-            <h5>
-              If you&apos;d like to learn more about what I&apos;ve worked on,
-              check out my{" "}
-              <Link
-                href="https://renderos17.github.io/AlexisRenderosResume.pdf"
-                passHref>
-                Resume
-              </Link>
-              .
-            </h5>
-          </IndexSubtitle>
-        </HeroContent>
-
-        {/*{!!workExperienceData && (*/}
-        {/*  <WorkExperienceTimeline workExperienceList={workExperienceData} />*/}
-        {/*)}*/}
-        {/*{!!workExperienceDataError && (*/}
-        {/*  <p>Error fetching work experience data...</p>*/}
-        {/*)}*/}
-
-        {/*{!!projectData && <ProjectCardCollection projectList={projectData} />}*/}
-        {/*{!!projectDataError && <p>Error fetching project data...</p>}*/}
-
-        {!!socialLinkData && (
-          <SocialLinkCollection
+      <GlobalHead />
+      {width >= MIN_DESKTOP_WIDTH && (
+        <IndexBody>
+          <Landing socialLinkList={socialLinkData} />
+          <AboutMe />
+        </IndexBody>
+      )}
+      {width < MIN_DESKTOP_WIDTH && width >= MIN_TABLET_WIDTH && (
+        <IndexBodyTablet>
+          <LandingTablet socialLinkList={socialLinkData} />
+          <AboutMeTablet />
+        </IndexBodyTablet>
+      )}
+      {width < MIN_TABLET_WIDTH && (
+        <IndexBodyMobile>
+          <LandingMobile
+            windowHeight={initialInnerHeight}
             socialLinkList={socialLinkData}
-            direction={SocialLinkCollectionDirection.Row}
           />
-        )}
-        {!!socialLinkDataError && <p>Error fetching social link data...</p>}
-      </IndexBody>
+          <AboutMeMobile windowHeight={initialInnerHeight} />
+        </IndexBodyMobile>
+      )}
     </>
   );
 };

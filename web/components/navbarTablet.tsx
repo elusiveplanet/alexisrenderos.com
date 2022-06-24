@@ -58,7 +58,7 @@ const JuiceboxOptionsWrapper = styled.div`
   width: max-content;
 `;
 
-export const JuiceboxHeader = ({ title }: JuiceboxHeaderProps) => (
+export const JuiceboxHeaderTablet = ({ title }: JuiceboxHeaderProps) => (
   <JuiceboxHeaderWrapper>
     <JuiceboxTitleWrapper>
       <JuiceboxHeaderTitle>{title}</JuiceboxHeaderTitle>
