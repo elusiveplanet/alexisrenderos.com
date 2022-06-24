@@ -1,9 +1,9 @@
 - service: GitHub
-  url: https://www.linkedin.com/in/renderos
+  url: https://www.github.com/renderos17
   displayOnPage: true
 
 - service: LinkedIn
-  url: https://www.github.com/renderos17
+  url: https://www.linkedin.com/in/renderos
   displayOnPage: true
 
 - service: Twitter

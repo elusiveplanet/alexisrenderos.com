@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
-import UAParser from "ua-parser-js";
 import { GlobalStyle } from "../styles/styles";
 import AboutMe from "../components/aboutMe";
 import { LandingMobile } from "../components/landingMobile";
@@ -51,8 +50,6 @@ export const Home = (): JSX.Element => {
 
   const MIN_DESKTOP_WIDTH = 1280;
   const MIN_TABLET_WIDTH = 768;
-
-  const parser = new UAParser();
 
   const getInitialPageHeight = () => {
     // If we haven't captured the initial window size + browser chrome yet,
