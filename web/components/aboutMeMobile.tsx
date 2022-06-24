@@ -12,6 +12,7 @@ import {
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: ${(props) => props.height}px;
   min-height: 800px;
   width: 100%;
   max-width: 1400px;
@@ -126,8 +127,12 @@ const Footer = styled.div`
   }
 `;
 
-export const AboutMeMobile = (): JSX.Element => (
-  <SectionWrapper>
+export type AboutMeProps = {
+  windowHeight: number;
+};
+
+export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
+  <SectionWrapper height={windowHeight}>
     <div id="learn-about-me-mobile" />
     <SectionHeaderWrapper>
       <SectionHeader>

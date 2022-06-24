@@ -76,13 +76,18 @@ const fetcher = async (
 
 export const Home = (): JSX.Element => {
   const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(0);
+  const [outerHeight, setOuterHeight] = useState(0);
 
   const MIN_DESKTOP_WIDTH = 1280;
   const MIN_TABLET_WIDTH = 768;
 
   const handleWindowChange = () => {
-    setHeight(window.innerHeight);
+    if (window.outerHeight !== outerHeight) {
+      // True window resize and not a toolbar change
+      setInnerHeight(window.innerHeight);
+      setOuterHeight(window.outerHeight);
+    }
     setWidth(window.innerWidth);
   };
 
@@ -183,10 +188,10 @@ export const Home = (): JSX.Element => {
       {width < MIN_TABLET_WIDTH && (
         <IndexBodyMobile>
           <LandingMobile
-            windowHeight={height}
+            windowHeight={innerHeight}
             socialLinkList={socialLinkData}
           />
-          <AboutMeMobile />
+          <AboutMeMobile windowHeight={outerHeight} />
         </IndexBodyMobile>
       )}
     </>
