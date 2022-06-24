@@ -7,13 +7,16 @@ import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
 import { CtaMobile } from "./ctaMobile";
 import { JuiceboxHeaderMobile } from "./navbarMobile";
 
-export const LandingWrapper = styled.div`
+export const LandingWrapper = styled.div.attrs((props) => ({
+  style: {
+    height: `${props.height}px`,
+  },
+}))`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   position: relative;
-  height: ${(props) => props.height}px;
   min-height: 600px;
   width: 100%;
 `;

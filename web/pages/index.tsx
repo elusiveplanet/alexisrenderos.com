@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
+import UAParser from "ua-parser-js";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 import AboutMe from "../components/aboutMe";
@@ -82,9 +83,15 @@ export const Home = (): JSX.Element => {
   const MIN_DESKTOP_WIDTH = 1280;
   const MIN_TABLET_WIDTH = 768;
 
+  const parser = new UAParser();
+
   const handleWindowChange = () => {
-    if (window.outerHeight !== outerHeight) {
-      // True window resize and not a toolbar change
+    if (
+      window.outerHeight !== outerHeight &&
+      (parser.getResult().device.type !== "tablet" ||
+        parser.getResult().device.type !== "mobile")
+    ) {
+      // True window resize on desktop and not a toolbar change on mobile
       setInnerHeight(window.innerHeight);
       setOuterHeight(window.outerHeight);
     }
