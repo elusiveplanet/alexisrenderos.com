@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Head from "next/head";
 import useSWR from "swr";
+import { useEffect, useState } from "react";
 import { GlobalStyle } from "../styles/styles";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 import AboutMe from "../components/aboutMe";
@@ -9,7 +10,6 @@ import { Landing } from "../components/landing";
 import AboutMeMobile from "../components/aboutMeMobile";
 import { LandingTablet } from "../components/landingTablet";
 import { AboutMeTablet } from "../components/aboutMeTablet";
-import { useEffect, useState } from "react";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
