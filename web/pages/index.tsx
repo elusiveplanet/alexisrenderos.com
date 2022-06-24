@@ -97,13 +97,13 @@ export const Home = (): JSX.Element => {
     <>
       <GlobalStyle />
       <GlobalHead />
-      {width > MIN_DESKTOP_WIDTH && (
+      {width >= MIN_DESKTOP_WIDTH && (
         <IndexBody>
           <Landing socialLinkList={socialLinkData} />
           <AboutMe />
         </IndexBody>
       )}
-      {width < MIN_DESKTOP_WIDTH && width > MIN_TABLET_WIDTH && (
+      {width < MIN_DESKTOP_WIDTH && width >= MIN_TABLET_WIDTH && (
         <IndexBodyTablet>
           <LandingTablet socialLinkList={socialLinkData} />
           <AboutMeTablet />
