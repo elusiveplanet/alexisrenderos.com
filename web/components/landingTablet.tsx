@@ -4,10 +4,10 @@ import {
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
-import { CtaTablet } from "./ctaTablet";
-import { JuiceboxHeaderTablet } from "./navbarTablet";
+import CtaTablet from "./ctaTablet";
+import JuiceboxHeaderTablet from "./navbarTablet";
 
-export const LandingWrapper = styled.div`
+const LandingWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -18,7 +18,7 @@ export const LandingWrapper = styled.div`
   width: 100%;
 `;
 
-export const LandingBodyWrapper = styled.div`
+const LandingBodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -31,13 +31,13 @@ export const LandingBodyWrapper = styled.div`
   min-height: 600px;
 `;
 
-export const LandingSocialIconCollectionWrapper = styled.div``;
+const LandingSocialIconCollectionWrapper = styled.div``;
 
-export type LandingProps = {
+type LandingProps = {
   socialLinkList: SocialLink[];
 };
 
-export const LandingTablet = ({
+const LandingTablet = ({
   socialLinkList: socialLinkData,
 }: LandingProps): JSX.Element => (
   <LandingWrapper>
@@ -56,3 +56,5 @@ export const LandingTablet = ({
     </LandingBodyWrapper>
   </LandingWrapper>
 );
+
+export default LandingTablet;

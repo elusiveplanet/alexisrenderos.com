@@ -7,21 +7,21 @@ export enum SocialLinkCollectionDirection {
   Row = "row",
 }
 
-export const SocialLinkCollectionWrapperRow = styled.div`
+const SocialLinkCollectionWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0.1em 0;
   padding: 0.5em 0;
 `;
 
-export const SocialLinkCollectionWrapperColumn = styled.div`
+const SocialLinkCollectionWrapperColumn = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0.1em;
   padding: 0.4em;
 `;
 
-export type SocialLinkCollectionProps = {
+type SocialLinkCollectionProps = {
   socialLinkList: SocialLink[];
   direction: SocialLinkCollectionDirection;
   size: SocialLinkSize;

@@ -126,7 +126,7 @@ const Footer = styled.div`
   }
 `;
 
-export const AboutMe = (): JSX.Element => (
+const AboutMe = (): JSX.Element => (
   <SectionWrapper>
     <div id="learn-about-me" />
     <SectionHeaderWrapper>

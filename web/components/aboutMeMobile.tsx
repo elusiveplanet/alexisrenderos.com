@@ -130,11 +130,11 @@ const Footer = styled.div`
   }
 `;
 
-export type AboutMeProps = {
+type AboutMeProps = {
   windowHeight: number;
 };
 
-export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
+const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
   <SectionWrapper height={windowHeight}>
     <div id="learn-about-me-mobile" />
     <SectionHeaderWrapper>

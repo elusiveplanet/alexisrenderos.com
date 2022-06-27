@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export enum SocialLinkTarget {
+enum SocialLinkTarget {
   GitHub = "github-nb.png",
   LinkedIn = "linkedin-nb.png",
   Twitter = "twitter-nb.png",
@@ -18,7 +18,7 @@ export type SocialLink = {
   url: string;
 };
 
-export type SocialLinkIconProps = {
+type SocialLinkIconProps = {
   socialLink: SocialLink;
   size: SocialLinkSize;
 };

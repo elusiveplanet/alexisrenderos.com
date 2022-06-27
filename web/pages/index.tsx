@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
-import { GlobalStyle } from "../styles/styles";
 import AboutMe from "../components/aboutMe";
-import { LandingMobile } from "../components/landingMobile";
-import { Landing } from "../components/landing";
+import AboutMeTablet from "../components/aboutMeTablet";
 import AboutMeMobile from "../components/aboutMeMobile";
-import { LandingTablet } from "../components/landingTablet";
-import { AboutMeTablet } from "../components/aboutMeTablet";
-import GlobalHead from "../components/globalHead";
+import Landing from "../components/landing";
+import LandingTablet from "../components/landingTablet";
+import LandingMobile from "../components/landingMobile";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -22,19 +20,9 @@ const IndexBody = styled.div`
   align-items: center;
 `;
 
-const IndexBodyTablet = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-`;
+const IndexBodyTablet = styled(IndexBody)``;
 
-const IndexBodyMobile = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-`;
+const IndexBodyMobile = styled(IndexBody)``;
 
 const fetcher = async (input: RequestInfo, init: RequestInit) => {
   const res = await fetch(input, init);
@@ -95,8 +83,6 @@ export const Home = (): JSX.Element => {
 
   return (
     <>
-      <GlobalStyle />
-      <GlobalHead />
       {width >= MIN_DESKTOP_WIDTH && (
         <IndexBody>
           <Landing socialLinkList={socialLinkData} />

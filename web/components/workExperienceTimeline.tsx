@@ -7,7 +7,7 @@ import {
 import simpleHash from "../helpers/simpleHash";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 
-export const WorkExperienceTimelineWrapper = styled.div`
+const WorkExperienceTimelineWrapper = styled.div`
   display: inline-flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -17,7 +17,7 @@ export const WorkExperienceTimelineWrapper = styled.div`
   padding: 2em;
 `;
 
-export const WorkExperienceTimelineTitle = styled.h2`
+const WorkExperienceTimelineTitle = styled.h2`
   font-size: 2.5em;
   font-weight: 700;
   margin: 0 auto;
@@ -29,7 +29,7 @@ export const WorkExperienceTimelineTitle = styled.h2`
   box-shadow: 15px 15px 2px 0 ${HalfShadow};
 `;
 
-export type WorkExperienceCardCollectionProps = {
+type WorkExperienceCardCollectionProps = {
   workExperienceList: WorkExperienceEntry[];
 };
 

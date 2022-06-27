@@ -7,7 +7,7 @@ import {
   SaffronToNectarGradient,
 } from "../utils/colors";
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   body {
     //CSS Reset
     * {
@@ -133,4 +133,4 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Something = "";
+export default GlobalStyle;

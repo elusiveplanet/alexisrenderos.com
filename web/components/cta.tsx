@@ -7,19 +7,19 @@ import {
   SaffronToNectarGradient,
 } from "../utils/colors";
 
-export const CTAWrapper = styled.div`
+const CTAWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const CTAInfoWrapper = styled.div`
+const CTAInfoWrapper = styled.div`
   display: flex;
   margin: 0.5em 0;
 `;
 
-export const CTATitleWrapper = styled.div``;
+const CTATitleWrapper = styled.div``;
 
-export const CTAHeading = styled.h1`
+const CTAHeading = styled.h1`
   background: ${SaffronToNectarGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -31,7 +31,7 @@ export const CTAHeading = styled.h1`
   letter-spacing: 0.015em;
 `;
 
-export const CTASubtextWrapper = styled.div`
+const CTASubtextWrapper = styled.div`
   float: right;
   height: 100%;
   display: flex;
@@ -39,7 +39,7 @@ export const CTASubtextWrapper = styled.div`
   shape-outside: inset(calc(100% - 150px) 0 0);
 `;
 
-export const CTASubtext = styled.h2`
+const CTASubtext = styled.h2`
   width: 475px;
   height: 150px;
   padding: 1em 0 0.25em 0.5em;
@@ -50,7 +50,7 @@ export const CTASubtext = styled.h2`
   letter-spacing: 0.015em;
 `;
 
-export const CTALink = styled.a`
+const CTALink = styled.a`
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -71,11 +71,11 @@ export const CTALink = styled.a`
   }
 `;
 
-export const CTALinkWrapper = styled.button`
+const CTALinkWrapper = styled.button`
   width: min-content;
 `;
 
-export const CTALinkTitle = styled.h3`
+const CTALinkTitle = styled.h3`
   font-size: 2.75em;
   font-weight: 700;
 `;
@@ -89,10 +89,9 @@ const CTANextButtonRight = styled.div`
 const smoothScroll = () => {
   const element = document.getElementById("learn-about-me");
   element.scrollIntoView({ behavior: "smooth" });
-  console.log("wow");
 };
 
-export const CTA = (): JSX.Element => (
+const CTA = (): JSX.Element => (
   <CTAWrapper>
     <CTAInfoWrapper>
       <CTATitleWrapper>
@@ -124,3 +123,5 @@ export const CTA = (): JSX.Element => (
     </CTALinkWrapper>
   </CTAWrapper>
 );
+
+export default CTA;
