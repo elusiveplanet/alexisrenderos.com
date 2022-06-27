@@ -7,11 +7,12 @@ import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
 import CtaMobile from "./ctaMobile";
 import JuiceboxHeaderMobile from "./navbarMobile";
 
-const LandingWrapper = styled.div.attrs(({ height }) => ({
-  style: {
-    height: `${height}px`,
-  },
-}))`
+const LandingWrapper = styled.div.attrs<
+  { height: number }, // What is consumed by .attrs()
+  { height: number } // What comes out of .attrs()
+>((props) => ({
+  height: props.height,
+}))<{ height: number }>`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

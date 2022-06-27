@@ -9,11 +9,12 @@ import {
   SaffronToNectarGradient,
 } from "../utils/colors";
 
-const SectionWrapper = styled.div.attrs(({ height }) => ({
-  style: {
-    height: `${height}px`,
-  },
-}))`
+const SectionWrapper = styled.div.attrs<
+  { height: number }, // What is consumed by .attrs()
+  { height: number } // What comes out of .attrs()
+>((props) => ({
+  height: props.height,
+}))<{ height: number }>`
   display: flex;
   flex-direction: column;
   min-height: 800px;
