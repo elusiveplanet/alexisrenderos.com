@@ -61,6 +61,7 @@ export const SocialLinkIcon = ({ socialLink, size }: SocialLinkIconProps) => {
         width={40}
         height={40}
         alt={`Alexis' ${socialLink.service || "Social Media Profile"}`}
+        priority
       />
     </a>
   );
