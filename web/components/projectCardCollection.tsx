@@ -28,7 +28,7 @@ type ProjectCardCollectionProps = {
   projectList: ProjectEntry[];
 };
 
-export const ProjectCardCollection = ({
+const ProjectCardCollection = ({
   projectList,
 }: ProjectCardCollectionProps): JSX.Element => {
   const projectListLength = projectList.length;
@@ -53,3 +53,5 @@ export const ProjectCardCollection = ({
     </ProjectCardCollectionWrapper>
   );
 };
+
+export default ProjectCardCollection;

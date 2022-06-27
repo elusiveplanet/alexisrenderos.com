@@ -33,7 +33,7 @@ type WorkExperienceCardCollectionProps = {
   workExperienceList: WorkExperienceEntry[];
 };
 
-export const WorkExperienceTimeline = ({
+const WorkExperienceTimeline = ({
   workExperienceList,
 }: WorkExperienceCardCollectionProps): JSX.Element => {
   const experienceListLength = workExperienceList.length;
@@ -76,3 +76,5 @@ export const WorkExperienceTimeline = ({
     </WorkExperienceTimelineWrapper>
   );
 };
+
+export default WorkExperienceTimeline;
