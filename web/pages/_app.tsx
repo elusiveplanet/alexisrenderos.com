@@ -4,8 +4,8 @@ import GlobalStyle from "../styles/styles";
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
-    <GlobalStyle />
     <GlobalHead />
+    <GlobalStyle />
     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <Component {...pageProps} />
   </>

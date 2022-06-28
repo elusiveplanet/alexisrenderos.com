@@ -95,7 +95,7 @@ export const Home = (): JSX.Element => {
           <AboutMeTablet />
         </IndexBodyTablet>
       )}
-      {width < MIN_TABLET_WIDTH && (
+      {width < MIN_TABLET_WIDTH && width !== 0 && (
         <IndexBodyMobile>
           <LandingMobile
             windowHeight={initialInnerHeight}
