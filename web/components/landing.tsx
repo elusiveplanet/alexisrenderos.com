@@ -13,8 +13,8 @@ const LandingWrapper = styled.div`
   flex-wrap: nowrap;
   align-items: center;
   position: relative;
-  height: 100vh;
   min-height: 800px;
+  height: 100vh;
   width: 100%;
   min-width: 1280px;
 `;

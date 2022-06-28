@@ -2,9 +2,9 @@ import styled from "styled-components";
 import Image from "next/image";
 
 enum SocialLinkTarget {
-  GitHub = "github-nb.png",
-  LinkedIn = "linkedin-nb.png",
-  Twitter = "twitter-nb.png",
+  GitHub = "github-nb.webp",
+  LinkedIn = "linkedin-nb.webp",
+  Twitter = "twitter-nb.webp",
 }
 
 export enum SocialLinkSize {
@@ -38,10 +38,9 @@ const SocialLinkServiceIconSmall = styled(SocialLinkServiceIcon)`
 `;
 
 const SocialLinkServiceIconMedium = styled(SocialLinkServiceIcon)`
-  height: 2.5em;
-  width: 2.5em;
-  margin: 0.1em;
-  padding: 0.5em;
+  height: 2.75em;
+  width: 2.75em;
+  padding: 0.75em;
 `;
 
 const SocialLinkServiceIconLarge = styled(SocialLinkServiceIcon)`

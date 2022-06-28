@@ -10,6 +10,8 @@ import {
 const CTAWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 1000px;
+  min-height: 380px;
 `;
 
 const CTAInfoWrapper = styled.div`
@@ -17,7 +19,9 @@ const CTAInfoWrapper = styled.div`
   margin: 0.5em 0;
 `;
 
-const CTATitleWrapper = styled.div``;
+const CTATitleWrapper = styled.div`
+  min-width: 1010px;
+`;
 
 const CTAHeading = styled.h1`
   background: ${SaffronToNectarGradient};
@@ -42,7 +46,7 @@ const CTASubtextWrapper = styled.div`
 const CTASubtext = styled.h2`
   width: 475px;
   height: 150px;
-  padding: 1em 0 0.25em 0.5em;
+  padding: 1em 0 0.25em 0.25em;
   color: ${LightText};
   font-size: 2em;
   text-align: left;
@@ -73,6 +77,7 @@ const CTALink = styled.a`
 
 const CTALinkWrapper = styled.button`
   width: min-content;
+  min-height: 75px;
 `;
 
 const CTALinkTitle = styled.h3`
@@ -112,7 +117,7 @@ const CTA = (): JSX.Element => (
         <CTALinkTitle>Learn how I do it.</CTALinkTitle>
         <CTANextButtonRight>
           <Image
-            src="/images/next-button-right.png"
+            src="/images/next-button-right.webp"
             layout="responsive"
             width={40}
             height={40}

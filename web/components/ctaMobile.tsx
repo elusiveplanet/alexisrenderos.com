@@ -102,7 +102,7 @@ const CtaMobile = (): JSX.Element => (
         <CTALinkTitle>Learn how I do it.</CTALinkTitle>
         <CTANextButtonRight>
           <Image
-            src="/images/next-button-right.png"
+            src="/images/next-button-right.webp"
             layout="responsive"
             width={40}
             height={40}
