@@ -6,6 +6,27 @@ const GlobalHead = () => (
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <link
+      rel="preload"
+      href="/fonts/gt-walsheim-bold-oblique-trial.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/gt-walsheim-bold-trial.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+    />{" "}
+    <link
+      rel="preload"
+      href="/fonts/gt-walsheim-regular-trial.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+    />
+    <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/images/favicon/apple-touch-icon.png"
@@ -23,7 +44,6 @@ const GlobalHead = () => (
       href="/images/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="/images/favicon/site.webmanifest" />
-
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alexisrenderos.com" />
     <meta property="og:title" content="Alexis Renderos" />
@@ -35,7 +55,6 @@ const GlobalHead = () => (
       property="og:image"
       content="https://alexisrenderos.com/images/goldenGateWithDog.jpeg"
     />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Alexis Renderos" />
     <meta
