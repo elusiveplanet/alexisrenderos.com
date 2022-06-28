@@ -43,16 +43,16 @@ export type WorkExperienceEntry = {
   additionalInfo?: string;
 };
 
-export type WorkExperienceCardProps = {
+type WorkExperienceCardProps = {
   workExperience: WorkExperienceEntry;
   cardPosition: WorkExperienceCardPosition;
 };
 
-export type WorkExperienceCardTimelineProps = {
+type WorkExperienceCardTimelineProps = {
   position: WorkExperienceCardPosition;
 };
 
-export const TimelineDot = styled.div`
+const TimelineDot = styled.div`
   z-index: 2;
   background-color: ${NeutralOffWhite};
   border: 5px solid ${Black};
@@ -63,30 +63,30 @@ export const TimelineDot = styled.div`
   border-radius: 50%;
 `;
 
-export const TimeLine = styled.div`
+const TimeLine = styled.div`
   z-index: 1;
   background-color: ${SaffronYellow};
   position: absolute;
   width: 0.85em;
 `;
 
-export const TimeLineFirst = styled(TimeLine)`
+const TimeLineFirst = styled(TimeLine)`
   top: calc(50%);
   height: 50%;
 `;
 
-export const TimeLineBody = styled(TimeLine)`
+const TimeLineBody = styled(TimeLine)`
   top: 0;
   height: 100%;
 `;
 
-export const TimeLineLast = styled(TimeLine)`
+const TimeLineLast = styled(TimeLine)`
   top: 0;
   height: 50%;
 `;
 
 // Intentionally empty. For future use, if styling a single card is needed.
-export const TimeLineOnly = styled.div``;
+const TimeLineOnly = styled.div``;
 
 const WorkExperienceCardTimelineWrapper = styled.div`
   display: inline-flex;
@@ -98,7 +98,7 @@ const WorkExperienceCardTimelineWrapper = styled.div`
   width: 75px;
 `;
 
-export const WorkExperienceCardHeading = styled.h2`
+const WorkExperienceCardHeading = styled.h2`
   color: ${LightText};
   font-size: 2.05em;
   letter-spacing: 0.0125em;
@@ -107,7 +107,7 @@ export const WorkExperienceCardHeading = styled.h2`
   padding: 1px 0;
 `;
 
-export const WorkExperienceCardSubheadingOne = styled.h3`
+const WorkExperienceCardSubheadingOne = styled.h3`
   color: ${AccentText};
   font-size: 1.5em;
   letter-spacing: 0.0125em;
@@ -116,14 +116,14 @@ export const WorkExperienceCardSubheadingOne = styled.h3`
   padding: 0;
 `;
 
-export const WorkExperienceCardSubheadingTwo = styled.h4`
+const WorkExperienceCardSubheadingTwo = styled.h4`
   color: ${LightText};
   font-size: 1.3em;
   text-align: left;
   padding: 5px 0 0 0;
 `;
 
-export const WorkExperienceCardBody = styled.p`
+const WorkExperienceCardBody = styled.p`
   color: ${LightText};
   font-size: 1.75em;
   line-height: 115%;
@@ -151,7 +151,7 @@ const WorkExperienceCardWrapper = styled.div`
   background: ${FullyTransparent};
 `;
 
-export const WorkExperienceCardTimeline = ({
+const WorkExperienceCardTimeline = ({
   position,
 }: WorkExperienceCardTimelineProps) => (
   <WorkExperienceCardTimelineWrapper>

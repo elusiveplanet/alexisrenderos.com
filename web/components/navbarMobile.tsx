@@ -7,11 +7,11 @@ import {
   SaffronYellow,
 } from "../utils/colors";
 
-export type JuiceboxHeaderProps = {
+type JuiceboxHeaderProps = {
   title: string;
 };
 
-export const JuiceboxHeaderTitle = styled.h2`
+const JuiceboxHeaderTitle = styled.h2`
   font-size: min(max(1.5em, 6vw), 2.5em);
   font-weight: 700;
   margin: 0.5em 0.75em;
@@ -24,7 +24,7 @@ export const JuiceboxHeaderTitle = styled.h2`
   width: fit-content;
 `;
 
-export const JuiceboxOption = styled.a`
+const JuiceboxOption = styled.a`
   font-size: 2em;
   font-weight: 500;
   margin: 0.5em;
@@ -58,7 +58,7 @@ const JuiceboxOptionsWrapper = styled.div`
   width: max-content;
 `;
 
-export const JuiceboxHeaderMobile = ({ title }: JuiceboxHeaderProps) => (
+const JuiceboxHeaderMobile = ({ title }: JuiceboxHeaderProps) => (
   <JuiceboxHeaderWrapper>
     <JuiceboxTitleWrapper>
       <JuiceboxHeaderTitle>{title}</JuiceboxHeaderTitle>
@@ -68,3 +68,5 @@ export const JuiceboxHeaderMobile = ({ title }: JuiceboxHeaderProps) => (
     </JuiceboxOptionsWrapper>
   </JuiceboxHeaderWrapper>
 );
+
+export default JuiceboxHeaderMobile;

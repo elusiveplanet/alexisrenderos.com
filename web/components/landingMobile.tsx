@@ -4,14 +4,16 @@ import {
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
-import { CtaMobile } from "./ctaMobile";
-import { JuiceboxHeaderMobile } from "./navbarMobile";
+import CtaMobile from "./ctaMobile";
+import JuiceboxHeaderMobile from "./navbarMobile";
 
-export const LandingWrapper = styled.div.attrs(({ height }) => ({
+const LandingWrapper = styled.div.attrs<{
+  height: number;
+}>(({ height }) => ({
   style: {
     height: `${height}px`,
   },
-}))`
+}))<{ height: number }>`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -21,7 +23,7 @@ export const LandingWrapper = styled.div.attrs(({ height }) => ({
   width: 100%;
 `;
 
-export const LandingBodyWrapper = styled.div`
+const LandingBodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -34,14 +36,14 @@ export const LandingBodyWrapper = styled.div`
   min-height: 500px;
 `;
 
-export const LandingSocialIconCollectionWrapper = styled.div``;
+const LandingSocialIconCollectionWrapper = styled.div``;
 
-export type LandingProps = {
+type LandingProps = {
   windowHeight: number;
   socialLinkList: SocialLink[];
 };
 
-export const LandingMobile = ({
+const LandingMobile = ({
   windowHeight,
   socialLinkList: socialLinkData,
 }: LandingProps): JSX.Element => (
@@ -61,3 +63,5 @@ export const LandingMobile = ({
     </LandingBodyWrapper>
   </LandingWrapper>
 );
+
+export default LandingMobile;
