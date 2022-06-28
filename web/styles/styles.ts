@@ -7,78 +7,87 @@ import {
   SaffronToNectarGradient,
 } from "../utils/colors";
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   body {
     //CSS Reset
     * {
       all: unset;
       display: revert;
     }
-    
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Bold-Oblique-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-bold-oblique-trial.woff2") format("woff2");
       font-weight: 700;
       font-style: italic;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Bold-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-bold-trial.woff2") format("woff2");
       font-weight: 700;
       font-style: normal;
-    }        
-    @font-face {
-    font-family: "GT Walsheim Trial";
-    src: url("/fonts/GT-Walsheim-Medium-Oblique-Trial.otf");
-    font-weight: 500;
-    font-style: italic;  
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Medium-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-medium-oblique-trial.woff2") format("woff2");
+      font-weight: 500;
+      font-style: italic;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-medium-trial.woff2") format("woff2");
       font-weight: 500;
       font-style: normal;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Regular-Oblique-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-regular-oblique-trial.woff2") format("woff2");
       font-weight: 400;
       font-style: italic;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Regular-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-regular-trial.woff2") format("woff2");
       font-weight: 400;
       font-style: normal;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Light-Oblique-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-light-oblique-trial.woff2") format("woff2");
       font-weight: 300;
       font-style: italic;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Light-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-light-trial.woff2") format("woff2");
       font-weight: 300;
       font-style: normal;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Thin-Oblique-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-thin-oblique-trial.woff2") format("woff2");
       font-weight: 200;
       font-style: italic;
+      font-display: block;
     }
     @font-face {
-      font-family: "GT Walsheim Trial";
-      src: url("/fonts/GT-Walsheim-Thin-Trial.otf");
+      font-family: "GT Walsheim";
+      src: url("/fonts/gt-walsheim-thin-trial.woff2") format("woff2");
       font-weight: 200;
       font-style: normal;
+      font-display: block;
     }
     margin: 0;
     background: ${IndigoToAzureGradient};
     color: white;
-    font-family: GT Walsheim Trial, sans-serif;
+    font-family: GT Walsheim, sans-serif;
     
     a {
       outline: none;
@@ -133,4 +142,4 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Something = "";
+export default GlobalStyle;

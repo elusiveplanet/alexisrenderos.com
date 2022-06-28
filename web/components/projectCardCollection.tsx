@@ -3,7 +3,7 @@ import { ProjectCard, ProjectEntry } from "./projectCard";
 import simpleHash from "../helpers/simpleHash";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 
-export const ProjectCardCollectionWrapper = styled.div`
+const ProjectCardCollectionWrapper = styled.div`
   display: inline-flex;
   flex-direction: column;
   margin: 0 auto 10em auto;
@@ -12,7 +12,7 @@ export const ProjectCardCollectionWrapper = styled.div`
   padding: 2em;
 `;
 
-export const ProjectCardCollectionTitle = styled.h2`
+const ProjectCardCollectionTitle = styled.h2`
   font-size: 2.5em;
   font-weight: 700;
   margin: 0.75em auto;
@@ -24,11 +24,11 @@ export const ProjectCardCollectionTitle = styled.h2`
   box-shadow: 15px 15px 2px 0 ${HalfShadow};
 `;
 
-export type ProjectCardCollectionProps = {
+type ProjectCardCollectionProps = {
   projectList: ProjectEntry[];
 };
 
-export const ProjectCardCollection = ({
+const ProjectCardCollection = ({
   projectList,
 }: ProjectCardCollectionProps): JSX.Element => {
   const projectListLength = projectList.length;
@@ -53,3 +53,5 @@ export const ProjectCardCollection = ({
     </ProjectCardCollectionWrapper>
   );
 };
+
+export default ProjectCardCollection;

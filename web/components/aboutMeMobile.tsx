@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 import {
   AccentText,
   DarkText,
@@ -9,11 +10,13 @@ import {
   SaffronToNectarGradient,
 } from "../utils/colors";
 
-const SectionWrapper = styled.div.attrs(({ height }) => ({
+const SectionWrapper = styled.div.attrs<{
+  height: number;
+}>(({ height }) => ({
   style: {
     height: `${height}px`,
   },
-}))`
+}))<{ height: number }>`
   display: flex;
   flex-direction: column;
   min-height: 800px;
@@ -92,14 +95,15 @@ const SectionStripe = styled.div`
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const SectionImage = styled.div`
+const SectionImageWrapper = styled.div`
   height: min(max(8em, 30vw), 10em);
   width: min(max(8em, 30vw), 10em);
   margin: 0 auto;
   transform: skewY(10deg);
-  background: url("/images/AlexisHeadshot.png");
-  background-size: cover;
   filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+`;
+
+const SectionImage = styled(Image)`
   border-radius: 10px;
 `;
 
@@ -130,11 +134,11 @@ const Footer = styled.div`
   }
 `;
 
-export type AboutMeProps = {
+type AboutMeProps = {
   windowHeight: number;
 };
 
-export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
+const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
   <SectionWrapper height={windowHeight}>
     <div id="learn-about-me-mobile" />
     <SectionHeaderWrapper>
@@ -145,7 +149,15 @@ export const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
     <MissionWrapper>
       <MissionBackground>
         <SectionStripe>
-          <SectionImage />
+          <SectionImageWrapper>
+            <SectionImage
+              src="/images/AlexisHeadshot.webp"
+              layout="responsive"
+              width={40}
+              height={40}
+              alt="Alexis is featured in a portrait taken during sunset at a waterfront."
+            />
+          </SectionImageWrapper>
         </SectionStripe>
       </MissionBackground>
     </MissionWrapper>

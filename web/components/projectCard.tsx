@@ -21,7 +21,7 @@ export type ProjectEntry = {
   used?: string[];
 };
 
-export type ProjectCardProps = {
+type ProjectCardProps = {
   project: ProjectEntry;
 };
 
@@ -38,7 +38,7 @@ const ProjectCardWrapper = styled.div`
   border: 5px ${SlightShadow} solid;
 `;
 
-export const ProjectCardHeading = styled.h2`
+const ProjectCardHeading = styled.h2`
   color: ${LightText};
   font-size: 2em;
   text-align: left;
@@ -56,7 +56,7 @@ export const ProjectCardHeading = styled.h2`
   }
 `;
 
-export const ProjectCardBody = styled.p`
+const ProjectCardBody = styled.p`
   color: ${LightText};
   font-size: 1.75em;
   text-align: left;

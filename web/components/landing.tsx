@@ -1,25 +1,25 @@
 import styled from "styled-components";
-import { JuiceboxHeader } from "./navbar";
 import {
   SocialLinkCollection,
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
-import { CTA } from "./cta";
+import JuiceboxHeader from "./navbar";
+import CTA from "./cta";
 
-export const LandingWrapper = styled.div`
+const LandingWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   position: relative;
-  height: 100vh;
   min-height: 800px;
+  height: 100vh;
   width: 100%;
   min-width: 1280px;
 `;
 
-export const LandingBodyWrapper = styled.div`
+const LandingBodyWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -32,16 +32,17 @@ export const LandingBodyWrapper = styled.div`
   padding-bottom: 10em;
 `;
 
-export const LandingSocialIconCollectionWrapper = styled.div`
+const LandingSocialIconCollectionWrapper = styled.div`
   margin-left: 1em;
   margin-right: 4em;
+  min-width: 68px;
 `;
 
-export type LandingProps = {
+type LandingProps = {
   socialLinkList: SocialLink[];
 };
 
-export const Landing = ({
+const Landing = ({
   socialLinkList: socialLinkData,
 }: LandingProps): JSX.Element => (
   <LandingWrapper>
@@ -60,3 +61,5 @@ export const Landing = ({
     </LandingBodyWrapper>
   </LandingWrapper>
 );
+
+export default Landing;
