@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 import {
   AccentText,
   DarkText,
@@ -94,13 +95,11 @@ const SectionStripe = styled.div`
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const SectionImage = styled.div`
+const SectionImage = styled(Image)`
   height: min(max(8em, 30vw), 10em);
   width: min(max(8em, 30vw), 10em);
   margin: 0 auto;
   transform: skewY(10deg);
-  background: url("/images/AlexisHeadshot.png");
-  background-size: cover;
   filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
   border-radius: 10px;
 `;
@@ -147,7 +146,13 @@ const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
     <MissionWrapper>
       <MissionBackground>
         <SectionStripe>
-          <SectionImage />
+          <SectionImage
+            src="/images/AlexisHeadshot.webp"
+            layout="responsive"
+            width={40}
+            height={40}
+            alt="Alexis is featured in a portrait taken during sunset at a waterfront."
+          />
         </SectionStripe>
       </MissionBackground>
     </MissionWrapper>
