@@ -28,7 +28,7 @@
     "yaml": "^2.1.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^12.1.6",
+    "@next/eslint-plugin-next": "^12.2.0",
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.205",
     "@types/jest": "^28.1.3",
