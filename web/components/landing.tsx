@@ -35,6 +35,7 @@ const LandingBodyWrapper = styled.div`
 const LandingSocialIconCollectionWrapper = styled.div`
   margin-left: 1em;
   margin-right: 4em;
+  min-width: 68px;
 `;
 
 type LandingProps = {
