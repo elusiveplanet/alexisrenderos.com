@@ -44,14 +44,32 @@ export const Home = (): JSX.Element => {
     // let's grab it and store it in state to create a reasonable assumption
     // of what the "full bleed" height should be for the landing.
     // Inner and outer sometimes are different depending on mobile browser
-    setInitialInnerHeight((prev) => window.innerHeight);
+
+    // On Instagram and Facebook's in-app browsers, the page loads in a way
+    // that causes the inner window dimensions to be significantly larger than the
+    // outer, something that should *never* be the case. To fix this, we check if
+    // this error in reported window size exists (inner>outer), if so, we rely on the outer to populate
+    if (window.innerHeight > window.outerHeight) {
+      setInitialInnerHeight((prev) => window.outerHeight);
+    } else {
+      setInitialInnerHeight((prev) => window.innerHeight);
+    }
     setInitialOuterHeight((prev) => window.outerHeight);
+  };
+
+  const getPageWidth = () => {
+    // Similar bug as described in getInitialPageHeight, same fix.
+    if (window.innerWidth > window.outerWidth) {
+      setWidth((prev) => window.outerWidth);
+    } else {
+      setWidth((prev) => window.innerWidth);
+    }
   };
 
   const handleWindowChange = () => {
     setInnerHeight((prev) => window.innerHeight);
     setOuterHeight((prev) => window.outerHeight);
-    setWidth((prev) => window.innerWidth);
+    getPageWidth();
   };
 
   useEffect(() => {
