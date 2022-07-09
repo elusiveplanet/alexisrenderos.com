@@ -66,8 +66,7 @@ const GlobalHead = () => (
       content="https://alexisrenderos.com/images/goldenGateWithDog.jpeg"
     />
     <meta name="twitter:creator" content="@elusiveplanet" />
-    
-    <!-- Hotjar Tracking Code for https://alexisrenderos.com -->
+   
     <script>
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
