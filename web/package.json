@@ -9,7 +9,8 @@
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "next lint"
+    "lint": "next lint",
+    "svg": "svgr --expand-props --no-index -d components/icons components/icons/svg"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -30,6 +31,8 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.6",
+    "@svgr/cli": "^6.2.1",
+    "@svgr/core": "^6.2.1",
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.205",
     "@types/jest": "^28.1.3",

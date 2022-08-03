@@ -10,10 +10,11 @@ import {
 const GlobalStyle = createGlobalStyle`
   body {
     //CSS Reset
-    * {
+    *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
       all: unset;
       display: revert;
     }
+
     @font-face {
       font-family: "GT Walsheim";
       src: url("/fonts/gt-walsheim-bold-oblique-trial.woff2") format("woff2");
@@ -88,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${IndigoToAzureGradient};
     color: white;
     font-family: GT Walsheim, sans-serif;
-    
+
     a {
       outline: none;
       text-decoration: underline;
@@ -98,18 +99,19 @@ const GlobalStyle = createGlobalStyle`
       transition: background-size 350ms ease-in-out, color 500ms ease-in-out, text-decoration-color 500ms ease-in-out;
       --bg-h: 100%;
     }
+
     a:where(:hover, :focus-visible) {
       color: ${Black};
       text-decoration-color: ${FullyTransparent};
       background-size: 100% var(--bg-h);
       background-position-x: left;
     }
-    
+
     h1 {
       font-size: 2.25em;
       font-weight: 700;
     }
-    
+
     h2 {
       font-size: 2em;
       font-weight: 700;
@@ -119,7 +121,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.75em;
       font-weight: 500;
     }
-    
+
     h4 {
       font-size: 1.5em;
       font-weight: 500;

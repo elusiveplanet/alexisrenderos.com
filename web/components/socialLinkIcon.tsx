@@ -31,10 +31,11 @@ const SocialLinkServiceIcon = styled.div`
 `;
 
 const SocialLinkServiceIconSmall = styled(SocialLinkServiceIcon)`
-  height: 1.85em;
-  width: 1.85em;
+  --service-icon-dimension: min(max(2em, 6vw), 2.75em);
+  height: var(--service-icon-dimension);
+  width: var(--service-icon-dimension);
   margin: 0.1em 0.2em 0.1em 0;
-  padding: 0.5em 1em 0.5em 0;
+  padding: 0.5em calc(var(--service-icon-dimension) / 1.75) 0.5em 0;
 `;
 
 const SocialLinkServiceIconMedium = styled(SocialLinkServiceIcon)`
