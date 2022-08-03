@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import Image from "next/image";
-import {
-  Black,
-  FullyTransparent,
-  LightText,
-  SaffronToNectarGradient,
-} from "../utils/colors";
+import { LightText, SaffronToNectarGradient } from "../utils/colors";
+import CtaButton from "./ctaButton";
 
 const CTAWrapper = styled.div`
   display: flex;
@@ -42,48 +37,6 @@ const CTASubtext = styled.h2`
   letter-spacing: 0.015em;
 `;
 
-const CTALink = styled.a`
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  width: max-content;
-  padding: 0.1em 0.15em;
-  color: ${LightText};
-  text-decoration-color: ${LightText};
-  img {
-    transition: filter 500ms ease-in-out;
-  }
-  &:where(:hover, :focus-visible) {
-    color: ${Black};
-    text-decoration-color: ${FullyTransparent};
-    img {
-      filter: brightness(0%);
-    }
-  }
-`;
-
-const CTALinkWrapper = styled.button`
-  width: min-content;
-`;
-
-const CTALinkTitle = styled.h3`
-  font-size: min(max(1.25em, 6vw), 2.5em);
-  font-weight: 700;
-`;
-
-const CTANextButtonRight = styled.div`
-  height: min(max(1.15em, calc(6vw - 0.1em)), 2.4em);
-  width: min(max(1.15em, calc(6vw - 0.1em)), 2.4em);
-  padding: 0 0.1em 0 0.45em;
-`;
-
-const smoothScroll = () => {
-  const element = document.getElementById("learn-about-me-mobile");
-  setTimeout(() => {
-    element.scrollIntoView({ behavior: "smooth" });
-  }, 500);
-};
-
 const CtaMobile = (): JSX.Element => (
   <CTAWrapper>
     <CTAInfoWrapper>
@@ -97,20 +50,13 @@ const CtaMobile = (): JSX.Element => (
         <br /> best work.
       </CTAHeading>
     </CTAInfoWrapper>
-    <CTALinkWrapper onClick={smoothScroll}>
-      <CTALink>
-        <CTALinkTitle>Learn how I do it.</CTALinkTitle>
-        <CTANextButtonRight>
-          <Image
-            src="/images/next-button-right.webp"
-            layout="responsive"
-            width={40}
-            height={40}
-            alt="Icon of an arrow pointing right"
-          />
-        </CTANextButtonRight>
-      </CTALink>
-    </CTALinkWrapper>
+    <CtaButton
+      text="Learn how I do it"
+      target="learn-about-me-mobile"
+      anchor
+      mobile
+      arrow
+    />
   </CTAWrapper>
 );
 

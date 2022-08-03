@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import Image from "next/image";
-import {
-  Black,
-  FullyTransparent,
-  LightText,
-  SaffronToNectarGradient,
-} from "../utils/colors";
+import { LightText, SaffronToNectarGradient } from "../utils/colors";
+import CtaButton from "./ctaButton";
 
 const CTAWrapper = styled.div`
   display: flex;
@@ -16,7 +11,7 @@ const CTAWrapper = styled.div`
 
 const CTAInfoWrapper = styled.div`
   display: flex;
-  margin: 0.5em 0;
+  margin: 2.5em 0 0.5em;
 `;
 
 const CTATitleWrapper = styled.div`
@@ -54,48 +49,6 @@ const CTASubtext = styled.h2`
   letter-spacing: 0.015em;
 `;
 
-const CTALink = styled.a`
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  width: max-content;
-  margin: 0.5em 0;
-  padding: 0.1em 0.25em;
-  color: ${LightText};
-  text-decoration-color: ${LightText};
-  img {
-    transition: filter 500ms ease-in-out;
-  }
-  &:where(:hover, :focus-visible) {
-    color: ${Black};
-    text-decoration-color: ${FullyTransparent};
-    img {
-      filter: brightness(0%);
-    }
-  }
-`;
-
-const CTALinkWrapper = styled.button`
-  width: min-content;
-  min-height: 75px;
-`;
-
-const CTALinkTitle = styled.h3`
-  font-size: 2.75em;
-  font-weight: 700;
-`;
-
-const CTANextButtonRight = styled.div`
-  height: 2.25em;
-  width: 2.25em;
-  padding: 0 0.1em 0 0.5em;
-`;
-
-const smoothScroll = () => {
-  const element = document.getElementById("learn-about-me");
-  element.scrollIntoView({ behavior: "smooth" });
-};
-
 const CTA = (): JSX.Element => (
   <CTAWrapper>
     <CTAInfoWrapper>
@@ -112,20 +65,7 @@ const CTA = (): JSX.Element => (
         </CTAHeading>
       </CTATitleWrapper>
     </CTAInfoWrapper>
-    <CTALinkWrapper onClick={smoothScroll}>
-      <CTALink>
-        <CTALinkTitle>Learn how I do it.</CTALinkTitle>
-        <CTANextButtonRight>
-          <Image
-            src="/images/next-button-right.webp"
-            layout="responsive"
-            width={40}
-            height={40}
-            alt="Icon of an arrow pointing right"
-          />
-        </CTANextButtonRight>
-      </CTALink>
-    </CTALinkWrapper>
+    <CtaButton text="Learn how I do it" target="learn-about-me" anchor arrow />
   </CTAWrapper>
 );
 
