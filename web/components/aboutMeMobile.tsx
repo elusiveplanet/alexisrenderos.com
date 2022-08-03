@@ -73,6 +73,7 @@ const SectionTextWrapper = styled.div`
 
 const SectionSubheadingOne = styled.h3`
   font-size: min(max(1.3em, 4.5vw), 2em);
+  font-weight: 500;
   margin: 0 auto;
   text-align: center;
   color: ${AccentText};
@@ -82,12 +83,12 @@ const SectionSubheadingOne = styled.h3`
 
 const SectionSubheadingTwo = styled.h4`
   font-size: min(max(1em, 4vw), 1.75em);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 125%;
   margin: 1em auto;
   text-align: center;
   color: ${LightText};
-  width: 85%;
+  width: 70%;
   max-width: 500px;
 `;
 
@@ -114,15 +115,8 @@ const SectionImage = styled(Image)`
 
 const Notice = styled.div`
   margin-top: 1.5em;
-  h4 {
-    font-size: min(max(1em, 4vw), 1.75em);
+  a {
     font-weight: 500;
-    line-height: 125%;
-    margin: 0.75em auto;
-    text-align: center;
-    color: ${LightText};
-    width: 80%;
-    max-width: 500px;
   }
 `;
 
@@ -181,14 +175,16 @@ const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
         <SectionSubheadingOne>
           I&apos;m currently rebuilding my personal website.
         </SectionSubheadingOne>
-        <h4>
+        <SectionSubheadingTwo>
           Designs for the website rebuild are public on{" "}
           <Link
             href="https://www.figma.com/file/2zSroQb71YqrjcLDHLGiEh/Final-Website-Mock?node-id=548%3A483"
             passHref>
             Figma
           </Link>
-          .<br />
+          .
+        </SectionSubheadingTwo>
+        <SectionSubheadingTwo>
           The code is public on{" "}
           <Link
             href="https://github.com/renderos17/alexisrenderos.com"
@@ -196,8 +192,8 @@ const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
             GitHub
           </Link>
           .
-        </h4>
-        <h4>
+        </SectionSubheadingTwo>
+        <SectionSubheadingTwo>
           If you&apos;d like to learn more about what I&apos;ve been up to,
           check out my{" "}
           <Link
@@ -206,7 +202,7 @@ const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
             Resume
           </Link>
           .
-        </h4>
+        </SectionSubheadingTwo>
       </Notice>
     </SectionTextWrapper>
     <Footer>

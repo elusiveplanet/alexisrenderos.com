@@ -107,15 +107,8 @@ const SectionImage = styled(Image)`
 
 const Notice = styled.div`
   margin-top: 2em;
-  h4 {
-    font-size: 1.75em;
+  a {
     font-weight: 500;
-    line-height: 125%;
-    margin: 1em auto;
-    text-align: center;
-    color: ${LightText};
-    width: 80%;
-    max-width: 675px;
   }
 `;
 
@@ -170,7 +163,7 @@ const AboutMe = (): JSX.Element => (
         <SectionSubheadingOne>
           I&apos;m currently rebuilding my personal website.
         </SectionSubheadingOne>
-        <h4>
+        <SectionSubheadingTwo>
           Designs for the website rebuild are public on{" "}
           <Link
             href="https://www.figma.com/file/2zSroQb71YqrjcLDHLGiEh/Final-Website-Mock?node-id=548%3A483"
@@ -185,8 +178,8 @@ const AboutMe = (): JSX.Element => (
             GitHub
           </Link>
           .
-        </h4>
-        <h4>
+        </SectionSubheadingTwo>
+        <SectionSubheadingTwo>
           If you&apos;d like to learn more about what I&apos;ve been up to,
           check out my{" "}
           <Link
@@ -195,7 +188,7 @@ const AboutMe = (): JSX.Element => (
             Resume
           </Link>
           .
-        </h4>
+        </SectionSubheadingTwo>
       </Notice>
     </SectionTextWrapper>
     <Footer>
