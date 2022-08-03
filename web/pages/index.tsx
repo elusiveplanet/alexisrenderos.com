@@ -7,6 +7,7 @@ import AboutMeMobile from "../components/aboutMeMobile";
 import Landing from "../components/landing";
 import LandingTablet from "../components/landingTablet";
 import LandingMobile from "../components/landingMobile";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -35,9 +36,6 @@ export const Home = (): JSX.Element => {
   const [initialOuterHeight, setInitialOuterHeight] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
   const [outerHeight, setOuterHeight] = useState(0);
-
-  const MIN_DESKTOP_WIDTH = 1280;
-  const MIN_TABLET_WIDTH = 768;
 
   const getInitialPageHeight = () => {
     // If we haven't captured the initial window size + browser chrome yet,
