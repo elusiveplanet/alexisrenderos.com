@@ -44,5 +44,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
     "no-plusplus": "off",
     "import/no-named-as-default": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
   },
 };
