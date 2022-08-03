@@ -28,10 +28,10 @@ const MissionWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
   padding: 0.5em 0 0.5em 0;
-  min-height: 150px;
-  height: min(max(150px, 35vw), 200px);
+  min-height: 200px;
+  max-height: 210px;
 `;
 
 const MissionBackground = styled.div`
@@ -60,7 +60,7 @@ const SectionHeader = styled.h2`
   font-size: min(max(1.3em, 4.75vw), 2.2em);
   font-weight: 700;
   font-style: italic;
-  margin: 1em auto 1em auto;
+  margin: 1em auto 0 auto;
   text-align: center;
   color: ${DarkText};
   width: 90%;
