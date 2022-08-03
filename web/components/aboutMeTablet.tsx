@@ -59,6 +59,10 @@ const SectionHeader = styled.h2`
   max-width: 600px;
 `;
 
+const SectionTextWrapper = styled.div`
+  margin: 1em 0;
+`;
+
 const SectionSubheadingOne = styled.h3`
   font-size: 2em;
   font-weight: 500;
@@ -117,10 +121,11 @@ const Notice = styled.div`
 
 const Footer = styled.div`
   margin-top: auto;
+  padding-top: 5em;
   h6 {
-    font-size: 1.1em;
+    font-size: 1.15em;
     font-weight: 300;
-    margin: 0.75em auto;
+    margin: 1.25em auto;
     text-align: center;
     color: ${LightText};
     width: 100%;
@@ -151,42 +156,48 @@ const AboutMeTablet = (): JSX.Element => (
         </SectionStripe>
       </MissionBackground>
     </MissionWrapper>
-    <SectionSubheadingOne>
-      What matters most to me is what I enable for others.
-    </SectionSubheadingOne>
-    <SectionSubheadingTwo>
-      I take pride in developing thoughtful and intuitive software that helps
-      people around the world focus on what’s most important to them.
-    </SectionSubheadingTwo>
-    <Notice>
+    <SectionTextWrapper>
       <SectionSubheadingOne>
-        I&apos;m currently rebuilding my personal website.
+        What matters most to me is what I enable for others.
       </SectionSubheadingOne>
-      <h4>
-        Designs for the website rebuild are public on{" "}
-        <Link
-          href="https://www.figma.com/file/2zSroQb71YqrjcLDHLGiEh/Final-Website-Mock?node-id=548%3A483"
-          passHref>
-          Figma
-        </Link>
-        .<br />
-        The code is public on{" "}
-        <Link href="https://github.com/renderos17/alexisrenderos.com" passHref>
-          GitHub
-        </Link>
-        .
-      </h4>
-      <h4>
-        If you&apos;d like to learn more about what I&apos;ve been up to, check
-        out my{" "}
-        <Link
-          href="https://renderos17.github.io/AlexisRenderosResume.pdf"
-          passHref>
-          Resume
-        </Link>
-        .
-      </h4>
-    </Notice>
+      <SectionSubheadingTwo>
+        I take pride in developing thoughtful and intuitive software that helps
+        people around the world focus on what’s most important to them.
+      </SectionSubheadingTwo>
+    </SectionTextWrapper>
+    <SectionTextWrapper>
+      <Notice>
+        <SectionSubheadingOne>
+          I&apos;m currently rebuilding my personal website.
+        </SectionSubheadingOne>
+        <h4>
+          Designs for the website rebuild are public on{" "}
+          <Link
+            href="https://www.figma.com/file/2zSroQb71YqrjcLDHLGiEh/Final-Website-Mock?node-id=548%3A483"
+            passHref>
+            Figma
+          </Link>
+          .<br />
+          The code is public on{" "}
+          <Link
+            href="https://github.com/renderos17/alexisrenderos.com"
+            passHref>
+            GitHub
+          </Link>
+          .
+        </h4>
+        <h4>
+          If you&apos;d like to learn more about what I&apos;ve been up to,
+          check out my{" "}
+          <Link
+            href="https://renderos17.github.io/AlexisRenderosResume.pdf"
+            passHref>
+            Resume
+          </Link>
+          .
+        </h4>
+      </Notice>
+    </SectionTextWrapper>
     <Footer>
       <h6>Made with 💌 in San Francisco, CA</h6>
     </Footer>
