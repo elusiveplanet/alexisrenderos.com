@@ -29,7 +29,7 @@
     "yaml": "^2.1.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^12.1.6",
+    "@next/eslint-plugin-next": "^12.2.4",
     "@svgr/cli": "^6.2.1",
     "@svgr/core": "^6.2.1",
     "@swc/cli": "^0.1.57",
