@@ -4,5 +4,5 @@
   
 [[headers]]
   for = "public/fonts/*"
-  [headers.values]
+    [headers.values]
     Access-Control-Allow-Origin = "*"
