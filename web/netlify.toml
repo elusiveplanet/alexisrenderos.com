@@ -1,3 +1,8 @@
 [functions]
   # Includes all yaml files inside the "data/" directory.
   included_files = ["data/*.yaml"]
+  
+[[headers]]
+  for = "public/fonts/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
