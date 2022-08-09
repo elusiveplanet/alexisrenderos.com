@@ -3,6 +3,6 @@
   included_files = ["data/*.yaml"]
   
 [[headers]]
-  for = "public/fonts/*"
+  for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
