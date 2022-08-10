@@ -16,7 +16,7 @@ const SectionWrapper = styled.div`
   min-height: 800px;
   height: 100vh;
   width: 100%;
-  max-width: 1400px;
+  max-width: 2000px;
 `;
 
 const MissionWrapper = styled.div`
@@ -32,7 +32,7 @@ const MissionBackground = styled.div`
   align-items: center;
   width: 100%;
   height: calc(200%);
-  transform: skewY(-10deg);
+  transform: skewY(-7deg);
   background: linear-gradient(
     180deg,
     ${NeutralOffWhite} calc(50% - 1px),
@@ -97,7 +97,7 @@ const SectionImageWrapper = styled.div`
   height: 12em;
   width: 12em;
   margin: 0 auto;
-  transform: skewY(10deg);
+  transform: skewY(7deg);
   filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
 `;
 
