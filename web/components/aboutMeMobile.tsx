@@ -197,7 +197,7 @@ const AboutMeMobile = ({ windowHeight }: AboutMeProps): JSX.Element => (
           If you&apos;d like to learn more about what I&apos;ve been up to,
           check out my{" "}
           <Link
-            href="https://renderos17.github.io/AlexisRenderosResume.pdf"
+            href="https://alexisrenderos.com/documents/AlexisRenderosResume.pdf"
             passHref>
             Resume
           </Link>
