@@ -21,6 +21,8 @@ export const AlmostInsignificantShadow = "rgba(0, 0, 0, 0.075)";
 export const SlightShadow = "rgba(0, 0, 0, 0.2)";
 export const QuarterShadow = "rgba(0, 0, 0, 0.25)";
 export const HalfShadow = "rgba(0, 0, 0, 0.5)";
+export const ThreeQuarterShadow = "rgba(0, 0, 0, 0.75)";
+export const NearFullShadow = "rgba(0, 0, 0, 0.9)";
 
 // Text Colors
 export const LightText = "rgba(237, 239, 241, 1)";
