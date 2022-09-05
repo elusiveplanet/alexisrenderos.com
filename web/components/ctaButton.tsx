@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 import { LightText } from "../utils/colors";
 import SvgTopRightArrow from "./icons/TopRightArrow";
 import { MIN_TABLET_WIDTH } from "../utils/utils";
@@ -155,31 +156,6 @@ const CtaButtonArrow = styled(SvgTopRightArrow)`
   }
 `;
 
-const smoothScroll = (target, delay) => {
-  setTimeout(() => {
-    const element = document.getElementById(target);
-    element.scrollIntoView({ behavior: "smooth" });
-  }, delay);
-};
-
-const handleOnClick = (anchor, target, delay = 750) => {
-  // First we must modify any current animation
-  // Run if it wasn't running before, but set a timeout to pause after a bit.
-  document.getElementById("cta-button").style.animationPlayState = "running";
-  setTimeout(() => {
-    document.getElementById("cta-button").style.animationPlayState = "paused";
-  }, delay / 4);
-
-  // Handle scroll
-  if (anchor) {
-    smoothScroll(target, delay);
-  } else {
-    setTimeout(() => {
-      window.open(target);
-    }, delay);
-  }
-};
-
 type CtaButtonProps = {
   text: string; // Title of button
   target: string; // Think of this as href
@@ -194,20 +170,68 @@ const CtaButton = ({
   anchor = false,
   mobile = false,
   arrow = false,
-}: CtaButtonProps) => (
-  <CtaButtonWrapper
-    type="button"
-    id="cta-button"
-    onClick={() => handleOnClick(anchor, target)}>
-    <CtaButtonBorderAnimated
-      edgeSize={!mobile ? 1.375 : 0.8}
-      borderWidth={!mobile ? 0.25 : 0.2}>
-      <CtaButtonContentWrapper>
-        <CtaButtonText>{text}</CtaButtonText>
-        {!!arrow && <CtaButtonArrow fill="none" stroke={`${LightText}`} />}
-      </CtaButtonContentWrapper>
-    </CtaButtonBorderAnimated>
-  </CtaButtonWrapper>
-);
+}: CtaButtonProps) => {
+  const router = useRouter();
+
+  const handleAnimationDelay = (delay = 750) => {
+    // We must modify any current animation
+    // Run if it wasn't running before, but set a timeout to pause after a bit.
+    document.getElementById("cta-button").style.animationPlayState = "running";
+    setTimeout(() => {
+      document.getElementById("cta-button").style.animationPlayState = "paused";
+    }, delay / 4);
+  };
+
+  const smoothScroll = (targetAnchor, delay = 0) => {
+    if (delay === 0) {
+      // No delay? No delay.
+      const element = document.getElementById(targetAnchor);
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      handleAnimationDelay(delay);
+      setTimeout(() => {
+        const element = document.getElementById(targetAnchor);
+        element.scrollIntoView({ behavior: "smooth" });
+      }, delay);
+    }
+  };
+
+  const routerPush = (targetPath, delay = 0) => {
+    if (delay === 0) {
+      // No delay? No delay.
+      router.push(targetPath);
+    } else {
+      handleAnimationDelay(delay);
+      setTimeout(() => {
+        router.push(targetPath);
+      }, delay);
+    }
+  };
+
+  const handleOnClick = (isAnchor, targetPath, delay = 750) => {
+    // Handle scroll vs new page
+    if (isAnchor) {
+      smoothScroll(targetPath, mobile ? delay : 0);
+    } else {
+      routerPush(targetPath, mobile ? delay : 0);
+    }
+  };
+
+  return (
+    <CtaButtonWrapper
+      type="button"
+      id="cta-button"
+      onClick={() => handleOnClick(anchor, target)}>
+      <CtaButtonBorderAnimated
+        edgeSize={!mobile ? 1.375 : 0.8}
+        borderWidth={!mobile ? 0.25 : 0.2}>
+        <CtaButtonContentWrapper>
+          <CtaButtonText>{text}</CtaButtonText>
+          {!!arrow && <CtaButtonArrow fill="none" stroke={`${LightText}`} />}
+        </CtaButtonContentWrapper>
+      </CtaButtonBorderAnimated>
+    </CtaButtonWrapper>
+  );
+};
 
 export default CtaButton;
