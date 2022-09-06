@@ -29,7 +29,7 @@ export const LightText = "rgba(237, 239, 241, 1)";
 export const DarkText = "rgba(23, 24, 28, 1)";
 export const AccentText = SaffronYellow;
 
-// Background Colors
+// Transparencies
 export const FullyTransparent = "rgba(0, 0, 0, 0)";
 export const SlightlyDarken = "rgba(0, 0, 0, 0.075)";
 export const ModeratelyDarken = "rgba(0, 0, 0, 0.12)";
@@ -37,12 +37,42 @@ export const SignificantlyDarken = "rgba(0, 0, 0, 0.15)";
 export const SlightlyLighten = "rgba(255, 255, 255, 0.15)";
 export const SignificantlyLighten = "rgba(255, 255, 255, 0.075)";
 
+// Gradients
 export const IndigoToAzureGradient = `linear-gradient(to right,
   ${IndigoBlue} 0%,
   ${NavyBlue} 8%,
   ${CobaltBlue} 36%,
   ${AzureBlue} 100%)`;
-
 export const SaffronToNectarGradient = `linear-gradient(180deg,
   ${SaffronYellow} 0%,
   ${NectarYellow} 100%)`;
+export const RepeatingRainbowGradientFill = `repeating-linear-gradient(
+      45deg,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(255, 154, 0, 1) 5%,
+      rgba(208, 222, 33, 1) 10%,
+      rgba(79, 220, 74, 1) 15%,
+      rgba(63, 218, 216, 1) 20%,
+      rgba(47, 201, 226, 1) 25%,
+      rgba(28, 127, 238, 1) 30%,
+      rgba(95, 21, 242, 1) 35%,
+      rgba(186, 12, 248, 1) 40%,
+      rgba(251, 7, 217, 1) 45%,
+      rgba(255, 0, 0, 1) 50%,
+      rgba(255, 154, 0, 1) 55%,
+      rgba(208, 222, 33, 1) 60%,
+      rgba(79, 220, 74, 1) 65%,
+      rgba(63, 218, 216, 1) 70%,
+      rgba(47, 201, 226, 1) 75%,
+      rgba(28, 127, 238, 1) 80%,
+      rgba(95, 21, 242, 1) 85%,
+      rgba(186, 12, 248, 1) 90%,
+      rgba(251, 7, 217, 1) 95%,
+      rgba(255, 0, 0, 1) 100%
+    )`;
+export const PrimaryGradientFill = IndigoToAzureGradient;
+export const AccentGradientFill = SaffronToNectarGradient;
+
+// Background Colors
+export const PrimaryBackgroundColor = IndigoToAzureGradient;
+export const AlternateBackgroundColor = NeutralOffWhite;
