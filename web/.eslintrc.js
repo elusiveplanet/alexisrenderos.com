@@ -46,5 +46,6 @@ module.exports = {
     "import/no-named-as-default": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
+    "react/destructuring-assignment": "off",
   },
 };
