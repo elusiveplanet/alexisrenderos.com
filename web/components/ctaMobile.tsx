@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LightText, SaffronToNectarGradient } from "../utils/colors";
+import { AccentGradientFill, LightText } from "../utils/colors";
 import CtaButton from "./ctaButton";
 
 const CTAWrapper = styled.div`
@@ -14,7 +14,7 @@ const CTAInfoWrapper = styled.div`
 `;
 
 const CTAHeading = styled.h1`
-  background: ${SaffronToNectarGradient};
+  background: ${AccentGradientFill};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 0.1em 0;

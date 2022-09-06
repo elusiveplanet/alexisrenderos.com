@@ -34,12 +34,13 @@ type WorkExperienceCardCollectionProps = {
 };
 
 const WorkExperienceTimeline = ({
-  workExperienceList,
+  workExperienceList = [],
 }: WorkExperienceCardCollectionProps): JSX.Element => {
   const experienceListLength = workExperienceList.length;
 
   if (!workExperienceList || experienceListLength === 0) {
-    return {} as JSX.Element;
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return (<></>) as JSX.Element;
   }
 
   if (experienceListLength === 1) {

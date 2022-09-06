@@ -1,40 +1,41 @@
 import styled from "styled-components";
 import Image from "next/image";
 import {
+  AccentGradientFill,
   FullyTransparent,
   NeutralOffWhite,
-  SaffronToNectarGradient,
+  QuarterShadow,
 } from "../utils/colors";
 import { MAX_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
+import { ImagePath } from "../helpers/types";
 
-const SectionWrapper = styled.div`
+const DividerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 800px;
-  height: 100vh;
+  height: 16em;
   width: 100%;
-  max-width: 3500px;
 `;
 
-const MissionWrapper = styled.div`
+const DividerBackgroundWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-bottom: 16px;
-  min-height: 280px;
 `;
 
-const MissionBackground = styled.div`
+const DividerBackground = styled.div.attrs<{
+  alternate?: boolean;
+}>((props) => ({
+  alternate: props.alternate || false,
+}))<{ alternate?: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;
-  height: calc(200%);
+  height: 500vh;
   transform: skewY(-7deg);
-  background: linear-gradient(
-    180deg,
-    ${NeutralOffWhite} calc(50% - 1px),
-    ${FullyTransparent} calc(50%)
-  );
+  background: ${(props) =>
+    props.alternate
+      ? `linear-gradient(180deg, ${FullyTransparent} calc(50% - 1px), ${NeutralOffWhite} calc(50%))`
+      : `linear-gradient(180deg, ${NeutralOffWhite} calc(50% - 1px), ${FullyTransparent} calc(50%))`};
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
     transform: skewY(-10deg);
   }
@@ -43,21 +44,21 @@ const MissionBackground = styled.div`
   }
 `;
 
-const SectionStripe = styled.div`
+const Stripe = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   height: 32px;
-  background: ${SaffronToNectarGradient};
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background: ${AccentGradientFill};
+  box-shadow: 0 4px 4px ${QuarterShadow};
 `;
 
-const SectionImageWrapper = styled.div`
-  height: 12em;
-  width: 12em;
+const StripeImageWrapper = styled.div`
+  height: 12.5em;
+  width: 12.5em;
   margin: 0 auto;
   transform: skewY(7deg);
-  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(4px 4px 10px ${QuarterShadow});
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
     transform: skewY(10deg);
   }
@@ -66,28 +67,41 @@ const SectionImageWrapper = styled.div`
   }
 `;
 
-const SectionImage = styled(Image)`
+const StripeImage = styled(Image)`
   border-radius: 10px;
 `;
 
-const AboutMe = (): JSX.Element => (
-  <SectionWrapper>
-    <MissionWrapper>
-      <MissionBackground>
-        <SectionStripe>
-          <SectionImageWrapper>
-            <SectionImage
-              src="/images/AlexisHeadshot.webp"
-              layout="responsive"
-              width={40}
-              height={40}
-              alt="Alexis is featured in a portrait taken during sunset at a waterfront."
-            />
-          </SectionImageWrapper>
-        </SectionStripe>
-      </MissionBackground>
-    </MissionWrapper>
-  </SectionWrapper>
+type StoryCardProps = {
+  image?: ImagePath;
+  alternate?: boolean;
+};
+
+const SectionDivider = ({
+  image,
+  alternate = false,
+}: StoryCardProps): JSX.Element => (
+  <DividerWrapper>
+    <DividerBackgroundWrapper>
+      <DividerBackground alternate={alternate}>
+        <Stripe>
+          {!!image && (
+            <StripeImageWrapper>
+              <StripeImage
+                src={image.imagePath}
+                layout="responsive"
+                width={40}
+                height={40}
+                alt={
+                  image.imageAltText ||
+                  "Alt text unavailable. Apologies! Let me know and I'll fix it."
+                }
+              />
+            </StripeImageWrapper>
+          )}
+        </Stripe>
+      </DividerBackground>
+    </DividerBackgroundWrapper>
+  </DividerWrapper>
 );
 
-export default AboutMe;
+export default SectionDivider;

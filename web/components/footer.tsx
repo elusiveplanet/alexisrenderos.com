@@ -3,7 +3,6 @@ import { LightText } from "../utils/colors";
 
 const Footer = styled.div`
   margin-top: auto;
-  padding-top: 5em;
   h6 {
     font-size: 1.15em;
     font-weight: 300;
@@ -17,7 +16,7 @@ const Footer = styled.div`
 
 const GlobalFooter = () => (
   <Footer>
-    <h6>Made with 💌 in San Francisco, CA</h6>
+    <h6>The 27th time is always the charm 💌</h6>
   </Footer>
 );
 

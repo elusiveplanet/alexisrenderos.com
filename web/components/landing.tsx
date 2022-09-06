@@ -4,7 +4,6 @@ import {
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLink, SocialLinkSize } from "./socialLinkIcon";
-import JuiceboxHeader from "./navbar";
 import CTA from "./cta";
 
 const LandingWrapper = styled.div`
@@ -29,7 +28,7 @@ const LandingBodyWrapper = styled.div`
   margin: auto;
   width: 100%;
   min-height: 600px;
-  padding-bottom: 10em;
+  padding-bottom: 1em;
 `;
 
 const LandingSocialIconCollectionWrapper = styled.div`
@@ -46,7 +45,6 @@ const Landing = ({
   socialLinkList: socialLinkData,
 }: LandingProps): JSX.Element => (
   <LandingWrapper>
-    <JuiceboxHeader title="Alexis Renderos" />
     <LandingBodyWrapper>
       <LandingSocialIconCollectionWrapper>
         {!!socialLinkData && (

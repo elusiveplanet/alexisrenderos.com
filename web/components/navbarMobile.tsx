@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {
   DarkText,
   FullyTransparent,
-  HalfShadow,
   LightText,
   SaffronYellow,
 } from "../utils/colors";
@@ -12,15 +11,12 @@ type JuiceboxHeaderProps = {
 };
 
 const JuiceboxHeaderTitle = styled.h2`
-  font-size: min(max(1.5em, 6vw), 2.5em);
   font-weight: 700;
-  margin: 0.5em 0.75em;
+
   text-align: left;
   color: ${DarkText};
   background: ${SaffronYellow};
   border: solid ${SaffronYellow};
-  border-width: 0.175em 0.3em 0.175em 0.3em;
-  box-shadow: 8px 10px 1px 0 ${HalfShadow};
   width: fit-content;
 `;
 

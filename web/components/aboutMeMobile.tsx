@@ -2,12 +2,12 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import {
+  AccentGradientFill,
   AccentText,
   DarkText,
   FullyTransparent,
   LightText,
   NeutralOffWhite,
-  SaffronToNectarGradient,
 } from "../utils/colors";
 
 const SectionWrapper = styled.div.attrs<{
@@ -97,7 +97,7 @@ const SectionStripe = styled.div`
   align-items: center;
   width: 100%;
   height: 1.25em;
-  background: ${SaffronToNectarGradient};
+  background: ${AccentGradientFill};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 

@@ -1,37 +1,35 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
-import AboutMeTablet from "../components/aboutMeTablet";
-import AboutMeMobile from "../components/aboutMeMobile";
-import Landing from "../components/landing";
-import LandingTablet from "../components/landingTablet";
-import LandingMobile from "../components/landingMobile";
-import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 import JuiceboxHeader from "../components/navbar";
-import GlobalFooter from "../components/footer";
+import SectionDivider from "../components/sectionDivider";
+import StoryCardCollection from "../components/storyCardCollection";
+import SectionHeader from "../components/sectionHeader";
+import WorkExperienceTimeline from "../components/workExperienceTimeline";
+import ProjectCardCollection from "../components/projectCardCollection";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
 // Tablet: Width > 768px
 // Mobile: Width < Tablet
 
-const IndexBody = styled.div`
+const Body = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
 `;
 
-const IndexBodyTablet = styled(IndexBody)``;
+const BodyTablet = styled(Body)``;
 
-const IndexBodyMobile = styled(IndexBody)``;
+const BodyMobile = styled(Body)``;
 
 const fetcher = async (input: RequestInfo, init: RequestInit) => {
   const res = await fetch(input, init);
   return res.json();
 };
 
-export const Home = (): JSX.Element => {
+export const About = (): JSX.Element => {
   const [width, setWidth] = useState(0);
   const [initialInnerHeight, setInitialInnerHeight] = useState(0);
   const [initialOuterHeight, setInitialOuterHeight] = useState(0);
@@ -91,39 +89,54 @@ export const Home = (): JSX.Element => {
       window.removeEventListener("orientationchange", handleWindowChange);
     };
   }, []);
-  const { data: socialLinkData, error: socialLinkDataError } = useSWR(
-    "/api/getAllVisibleSocialLinks",
+  const { data: storyEntryData, error: storyEntryDataError } = useSWR(
+    "/api/getAllVisiblePersonalStoryEntries",
     fetcher
   );
 
-  const temp = 1;
+  const { data: workExperienceData, error: workExperienceDataError } = useSWR(
+    "/api/getAllVisibleWorkExperience",
+    fetcher
+  );
 
+  const { data: projectData, error: projectDataError } = useSWR(
+    "/api/getAllVisibleProjects",
+    fetcher
+  );
+
+  const DividerWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 800px;
+    height: 100vh;
+    width: 100%;
+    max-width: 3500px;
+  `;
   return (
-    <>
-      {width >= MIN_DESKTOP_WIDTH && (
-        <IndexBody>
-          <JuiceboxHeader title="Alexis Renderos" absolute />
-          <Landing socialLinkList={socialLinkData} />
-          <GlobalFooter />
-        </IndexBody>
-      )}
-      {width < MIN_DESKTOP_WIDTH && width >= MIN_TABLET_WIDTH && (
-        <IndexBodyTablet>
-          <LandingTablet socialLinkList={socialLinkData} />
-          <AboutMeTablet />
-        </IndexBodyTablet>
-      )}
-      {width < MIN_TABLET_WIDTH && width !== 0 && (
-        <IndexBodyMobile>
-          <LandingMobile
-            windowHeight={initialInnerHeight}
-            socialLinkList={socialLinkData}
-          />
-          <AboutMeMobile windowHeight={initialInnerHeight} />
-        </IndexBodyMobile>
-      )}
-    </>
+    <Body>
+      <JuiceboxHeader title="Alexis Renderos" altColor />
+      <SectionHeader
+        title="What matters most to me is enabling others to do more."
+        altColor
+      />
+      <SectionDivider
+        image={{
+          imagePath: "/images/AlexisHeadshot.webp",
+          imageAltText: "Alexis",
+        }}
+      />
+      <StoryCardCollection storyList={storyEntryData} />
+      {/*<p>From these early experiences, I realized something important.</p>*/}
+      {/*<h3>I love bringing out the best in people.</h3>*/}
+      {/*<p>*/}
+      {/*  The most fulfilling parts of my life have been spent investing in*/}
+      {/*  others. I love working on products and with teams built on this*/}
+      {/*  principle—if this resonates with you, I’d love to get in touch.*/}
+      {/*</p>*/}
+      <WorkExperienceTimeline workExperienceList={workExperienceData} />
+      <ProjectCardCollection projectList={projectData} />
+    </Body>
   );
 };
 
-export default Home;
+export default About;

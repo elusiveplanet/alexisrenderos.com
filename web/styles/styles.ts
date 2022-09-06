@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { IndigoToAzureGradient } from "../utils/colors";
+import { PrimaryBackgroundColor } from "../utils/colors";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -80,7 +80,7 @@ const GlobalStyle = createGlobalStyle`
       font-display: block;
     }
     margin: 0;
-    background: ${IndigoToAzureGradient};
+    background: ${PrimaryBackgroundColor};
     color: white;
     font-family: GT Walsheim, sans-serif;
 

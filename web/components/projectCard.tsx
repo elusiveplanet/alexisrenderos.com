@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import {
-  Black,
-  FullyTransparent,
   HalfShadow,
   LightText,
   ModeratelyDarken,
@@ -36,33 +34,32 @@ const ProjectCardWrapper = styled.div`
   box-shadow: 25px 25px 5px 0 ${HalfShadow};
   border-radius: 16px;
   border: 5px ${SlightShadow} solid;
+  transition: box-shadow 250ms ease-out, border 250ms ease-out;
+
+  :where(:hover, :focus-visible) {
+    border: 5px ${HalfShadow} solid;
+    box-shadow: 20px 20px 5px 0 ${HalfShadow};
+  }
 `;
 
 const ProjectCardHeading = styled.h2`
   color: ${LightText};
-  font-size: 2em;
+  font-size: 2.2em;
   text-align: left;
   margin: 0;
   padding: 10px 0 5px 0;
   max-width: 500px;
   font-weight: 700;
-  a {
-    color: ${LightText};
-    text-decoration-color: ${LightText};
-  }
-  a:where(:hover, :focus-visible) {
-    color: ${Black};
-    text-decoration-color: ${FullyTransparent};
-  }
 `;
 
 const ProjectCardBody = styled.p`
   color: ${LightText};
-  font-size: 1.75em;
+  font-size: 1.35em;
   text-align: left;
   margin: 0;
+  line-height: 135%;
   padding: 5px 0 10px 0;
-  max-width: 600px;
+  max-width: 500px;
   font-weight: 400;
 `;
 
@@ -72,7 +69,7 @@ const ProjectCardTextWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: max-content;
-  padding: 25px;
+  padding: 1.75em 2em;
   background-color: ${ModeratelyDarken};
 `;
 
@@ -85,14 +82,17 @@ const ProjectCardAccentWrapper = styled.div`
 `;
 
 export const ProjectCard = ({ project }: ProjectCardProps) => (
-  <ProjectCardWrapper>
-    <ProjectCardAccentWrapper />
-    <ProjectCardTextWrapper>
-      <ProjectCardHeading>
-        {!!project.url && <a href={project.url}>{project.name}</a>}
-        {!project.url && project.name}
-      </ProjectCardHeading>
-      <ProjectCardBody>{project.description}</ProjectCardBody>
-    </ProjectCardTextWrapper>
-  </ProjectCardWrapper>
+  <a href={project.url}>
+    <ProjectCardWrapper>
+      <ProjectCardAccentWrapper />
+      <ProjectCardTextWrapper>
+        <ProjectCardHeading>
+          {/*{!!project.url && <a href={project.url}>{project.name}</a>}*/}
+          {/*{!project.url && project.name}*/}
+          {project.name}
+        </ProjectCardHeading>
+        <ProjectCardBody>{project.description}</ProjectCardBody>
+      </ProjectCardTextWrapper>
+    </ProjectCardWrapper>
+  </a>
 );

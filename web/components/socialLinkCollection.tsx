@@ -35,7 +35,8 @@ export const SocialLinkCollection = ({
   const socialLinkListLength = socialLinkList.length;
 
   if (!socialLinkList || socialLinkListLength === 0) {
-    return {} as JSX.Element;
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return (<></>) as JSX.Element;
   }
 
   if (socialLinkListLength === 1) {

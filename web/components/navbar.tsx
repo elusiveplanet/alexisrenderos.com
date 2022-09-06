@@ -1,20 +1,21 @@
 import styled from "styled-components";
+import Link from "next/link";
 import {
   AccentText,
+  AlternateBackgroundColor,
   DarkText,
   FullyTransparent,
   HalfShadow,
-  IndigoToAzureGradient,
   LightText,
-  NeutralOffWhite,
+  PrimaryBackgroundColor,
   SaffronYellow,
   ThreeQuarterShadow,
 } from "../utils/colors";
 import { MIN_TABLET_WIDTH } from "../utils/utils";
-import Link from "next/link";
 
 type JuiceboxHeaderProps = {
   title: string;
+  absolute?: boolean;
   altColor?: boolean;
 };
 
@@ -42,7 +43,7 @@ const JuiceboxHeaderTitle = styled.a.attrs<{
   width: fit-content;
   transition: box-shadow 500ms ease-out;
   :where(:hover, :focus-visible) {
-    box-shadow: 11px 11px 1px 0
+    box-shadow: 10px 10px 1px 0
       ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
   }
 
@@ -65,7 +66,7 @@ const JuiceboxHeaderWrapper = styled.div`
   justify-content: space-between;
   margin: 0.5em 0;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
 `;
 
 const JuiceboxTitleWrapper = styled(Link)`
@@ -82,10 +83,14 @@ const JuiceboxOptionsWrapper = styled.ol`
   width: max-content;
 `;
 
-const StyledJuiceboxHeader = styled.header`
-  position: absolute;
+const StyledJuiceboxHeader = styled.header.attrs<{
+  absolute?: boolean;
+}>((props) => ({
+  absolute: props.absolute || false,
+}))<{ absolute?: boolean }>`
+  position: ${(props) => (props.absolute ? "absolute" : "static")};
+  z-index: 100;
   width: 100%;
-  height: 100%;
 `;
 
 const StyledJuiceboxHeaderWrapper = styled.header.attrs<{
@@ -93,7 +98,6 @@ const StyledJuiceboxHeaderWrapper = styled.header.attrs<{
 }>((props) => ({
   altColor: props.altColor || false,
 }))<{ altColor?: boolean }>`
-  position: sticky;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +105,7 @@ const StyledJuiceboxHeaderWrapper = styled.header.attrs<{
   z-index: 100;
   width: 100%;
   background: ${(props) =>
-    props.altColor ? NeutralOffWhite : IndigoToAzureGradient};
+    props.altColor ? AlternateBackgroundColor : PrimaryBackgroundColor};
 `;
 
 const JuiceboxOptionText = styled.a``;
@@ -111,7 +115,7 @@ const JuiceboxOptionWrapper = styled.li.attrs<{
 }>((props) => ({
   altColor: props.altColor || false,
 }))<{ altColor?: boolean }>`
-  margin: 0 0 0 3.25em;
+  margin: 0.5em 0 0 3.25em;
   list-style-type: ">";
   ::marker {
     font-size: 1.8em;
@@ -150,8 +154,12 @@ const JuiceboxOption = ({
   </JuiceboxOptionWrapper>
 );
 
-const JuiceboxHeader = ({ title, altColor = false }: JuiceboxHeaderProps) => (
-  <StyledJuiceboxHeader>
+const JuiceboxHeader = ({
+  title,
+  absolute,
+  altColor = false,
+}: JuiceboxHeaderProps) => (
+  <StyledJuiceboxHeader absolute={absolute}>
     <StyledJuiceboxHeaderWrapper altColor={altColor}>
       <JuiceboxHeaderWrapper>
         <JuiceboxTitleWrapper href="/" passHref>

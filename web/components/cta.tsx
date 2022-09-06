@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LightText, SaffronToNectarGradient } from "../utils/colors";
+import { AccentGradientFill, LightText } from "../utils/colors";
 import CtaButton from "./ctaButton";
 
 const CTAWrapper = styled.div`
@@ -19,7 +19,7 @@ const CTATitleWrapper = styled.div`
 `;
 
 const CTAHeading = styled.h1`
-  background: ${SaffronToNectarGradient};
+  background: ${AccentGradientFill};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 6em;
@@ -65,7 +65,7 @@ const CTA = (): JSX.Element => (
         </CTAHeading>
       </CTATitleWrapper>
     </CTAInfoWrapper>
-    <CtaButton text="Learn how I do it" target="learn-about-me" anchor arrow />
+    <CtaButton text="Learn how I do it" target="/about" arrow />
   </CTAWrapper>
 );
 
