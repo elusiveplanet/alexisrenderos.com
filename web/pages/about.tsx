@@ -5,8 +5,15 @@ import JuiceboxHeader from "../components/navbar";
 import SectionDivider from "../components/sectionDivider";
 import StoryCardCollection from "../components/storyCardCollection";
 import SectionHeader from "../components/sectionHeader";
-import WorkExperienceTimeline from "../components/workExperienceTimeline";
-import ProjectCardCollection from "../components/projectCardCollection";
+import {
+  AccentText,
+  Black,
+  FullyTransparent,
+  LightText,
+  SaffronToNectarGradient,
+} from "../utils/colors";
+import Link from "next/link";
+import GlobalFooter from "../components/footer";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -112,6 +119,56 @@ export const About = (): JSX.Element => {
     width: 100%;
     max-width: 3500px;
   `;
+
+  const StoryTextWrapper = styled.div`
+    margin: 5em auto;
+    width: 80%;
+    max-width: 850px;
+
+    a {
+      outline: none;
+      text-decoration: underline;
+      text-decoration-color: ${AccentText};
+      color: ${AccentText};
+      background: ${SaffronToNectarGradient} no-repeat right bottom / 0
+        var(--bg-h);
+      transition: background-size 350ms ease-in-out, color 500ms ease-in-out,
+        text-decoration-color 500ms ease-in-out;
+      --bg-h: 100%;
+    }
+    a:where(:hover, :focus-visible) {
+      color: ${Black};
+      text-decoration-color: ${FullyTransparent};
+      background-size: 100% var(--bg-h);
+      background-position-x: left;
+    }
+  `;
+
+  const StoryHeadline = styled.h2`
+    font-size: min(max(1.3em, 4.75vw), 3em);
+    font-weight: 700;
+    margin: 0.33em auto;
+    text-align: center;
+    color: ${AccentText};
+  `;
+
+  const StoryBodyOne = styled.p`
+    font-size: min(max(1.3em, 4.5vw), 1.85em);
+    font-weight: 400;
+    margin: 0.33em auto;
+    text-align: center;
+    color: ${LightText};
+  `;
+
+  const StoryBodyTwo = styled.p`
+    font-size: min(max(1em, 4vw), 1.5em);
+    font-weight: 400;
+    line-height: 125%;
+    margin: 0.33em auto;
+    text-align: center;
+    color: ${LightText};
+  `;
+
   return (
     <Body>
       <JuiceboxHeader title="Alexis Renderos" altColor />
@@ -126,15 +183,30 @@ export const About = (): JSX.Element => {
         }}
       />
       <StoryCardCollection storyList={storyEntryData} />
-      {/*<p>From these early experiences, I realized something important.</p>*/}
-      {/*<h3>I love bringing out the best in people.</h3>*/}
-      {/*<p>*/}
-      {/*  The most fulfilling parts of my life have been spent investing in*/}
-      {/*  others. I love working on products and with teams built on this*/}
-      {/*  principle—if this resonates with you, I’d love to get in touch.*/}
-      {/*</p>*/}
-      <WorkExperienceTimeline workExperienceList={workExperienceData} />
-      <ProjectCardCollection projectList={projectData} />
+      <StoryTextWrapper>
+        <StoryBodyOne>
+          From these early experiences, I realized something important.
+        </StoryBodyOne>
+        <StoryHeadline>I love bringing out the best in people.</StoryHeadline>
+        <StoryBodyTwo>
+          The most fulfilling parts of my life have been spent investing in
+          others.
+        </StoryBodyTwo>
+        <br />
+        <StoryBodyTwo>
+          I love working on products and with teams built on this principle—if
+          this resonates with you, I’d love to{" "}
+          <Link href="/contact" passHref>
+            get in touch
+          </Link>
+          .
+        </StoryBodyTwo>
+      </StoryTextWrapper>
+
+      {/*<WorkExperienceTimeline workExperienceList={workExperienceData} />*/}
+      {/*<ProjectCardCollection projectList={projectData} />*/}
+
+      <GlobalFooter />
     </Body>
   );
 };
