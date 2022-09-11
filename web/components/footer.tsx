@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Link from "next/link";
+import useSWR from "swr";
 import {
   DarkText,
   HalfShadow,
@@ -8,13 +10,11 @@ import {
   SlightlyDarken,
 } from "../utils/colors";
 import { MIN_TABLET_WIDTH } from "../utils/utils";
-import useSWR from "swr";
 import {
   SocialLinkCollection,
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLinkSize } from "./socialLinkIcon";
-import Link from "next/link";
 
 const FooterWrapper = styled.div`
   display: flex;

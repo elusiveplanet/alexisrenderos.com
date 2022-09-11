@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import JuiceboxHeader from "../components/navbar";
 import SectionDivider from "../components/sectionDivider";
 import StoryCardCollection from "../components/storyCardCollection";
@@ -12,7 +13,6 @@ import {
   LightText,
   SaffronToNectarGradient,
 } from "../utils/colors";
-import Link from "next/link";
 import GlobalFooter from "../components/footer";
 
 // For now defining screen sizes as
