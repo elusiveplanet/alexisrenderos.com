@@ -34,7 +34,7 @@ const ProjectCardWrapper = styled.div`
   box-shadow: 25px 25px 5px 0 ${HalfShadow};
   border-radius: 16px;
   border: 5px ${SlightShadow} solid;
-  transition: box-shadow 250ms ease-out, border 250ms ease-out;
+  transition: box-shadow 250ms ease-out, border 300ms ease-out;
 
   :where(:hover, :focus-visible) {
     border: 5px ${HalfShadow} solid;
@@ -46,10 +46,13 @@ const ProjectCardHeading = styled.h2`
   color: ${LightText};
   font-size: 2.2em;
   text-align: left;
-  margin: 0;
-  padding: 10px 0 5px 0;
+  padding: 0.125em 0.15em;
   max-width: 500px;
   font-weight: 700;
+  border-radius: 0.25em;
+  :where(:hover, :focus-visible) {
+    background: ${HalfShadow};
+  }
 `;
 
 const ProjectCardBody = styled.p`
@@ -58,7 +61,7 @@ const ProjectCardBody = styled.p`
   text-align: left;
   margin: 0;
   line-height: 135%;
-  padding: 5px 0 10px 0;
+  padding: 0.125em 0.15em;
   max-width: 500px;
   font-weight: 400;
 `;
@@ -69,8 +72,8 @@ const ProjectCardTextWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: max-content;
-  padding: 1.75em 2em;
-  background-color: ${ModeratelyDarken};
+  padding: 1.75em 1.5em;
+  background: ${ModeratelyDarken};
 `;
 
 const ProjectCardAccentWrapper = styled.div`

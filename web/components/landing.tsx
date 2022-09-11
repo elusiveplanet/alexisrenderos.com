@@ -16,6 +16,7 @@ const LandingWrapper = styled.div`
   height: 100vh;
   width: 100%;
   min-width: 1280px;
+  margin-bottom: 0.5px;
 `;
 
 const LandingBodyWrapper = styled.div`

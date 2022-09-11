@@ -4,6 +4,7 @@ import {
   AccentText,
   AlternateBackgroundColor,
   DarkText,
+  DarkTextAlternate,
   FullyTransparent,
   HalfShadow,
   LightText,
@@ -128,13 +129,13 @@ const JuiceboxOptionWrapper = styled.li.attrs<{
     font-weight: 500;
     margin: 0 0 0 0.2em;
     text-align: right;
-    color: ${(props) => (props.altColor ? DarkText : LightText)};
+    color: ${(props) => (props.altColor ? DarkTextAlternate : LightText)};
     width: max-content;
     transition: color 250ms;
   }
   :where(:hover, :focus-visible) {
     ::marker {
-      color: ${(props) => (props.altColor ? DarkText : AccentText)};
+      color: ${(props) => (props.altColor ? DarkTextAlternate : AccentText)};
     }
     filter: brightness(95%);
   }

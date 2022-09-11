@@ -21,15 +21,16 @@ type StoryCardProps = {
 const StoryCardHeading = styled.h3`
   font-size: 2em;
   font-weight: 500;
+  line-height: 125%;
   text-align: left;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
   color: ${AccentText};
 `;
 
 const StoryCardBodyText = styled.p`
   font-size: 1.6em;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 140%;
   text-align: left;
   color: ${LightText};
 `;

@@ -3,6 +3,7 @@ import {
   AccentText,
   AlternateBackgroundColor,
   FullyTransparent,
+  IndigoToAzureTextGradient,
   PrimaryBackgroundColor,
 } from "../utils/colors";
 
@@ -33,7 +34,7 @@ const Header = styled.h2.attrs<{
     props.altColor &&
     `
     color: ${FullyTransparent};
-    background: ${PrimaryBackgroundColor};
+    background: ${IndigoToAzureTextGradient};
     width: 75%;
     -webkit-text-fill-color: transparent;
     background-clip: text;

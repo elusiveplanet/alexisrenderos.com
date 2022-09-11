@@ -6,7 +6,9 @@ import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 const ProjectCardCollectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-content: center;
+  justify-content: center;
   width: 100%;
   padding: 2em 0;
 `;
@@ -18,6 +20,7 @@ const ProjectCardWrapper = styled.div`
   align-content: center;
   justify-content: center;
   width: 100%;
+  max-width: 1600px;
 `;
 
 const ProjectCardCollectionTitle = styled.h2`

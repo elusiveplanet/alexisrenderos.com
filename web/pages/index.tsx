@@ -8,7 +8,6 @@ import LandingTablet from "../components/landingTablet";
 import LandingMobile from "../components/landingMobile";
 import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 import JuiceboxHeader from "../components/navbar";
-import GlobalFooter from "../components/footer";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -104,7 +103,6 @@ export const Home = (): JSX.Element => {
         <IndexBody>
           <JuiceboxHeader title="Alexis Renderos" absolute />
           <Landing socialLinkList={socialLinkData} />
-          <GlobalFooter />
         </IndexBody>
       )}
       {width < MIN_DESKTOP_WIDTH && width >= MIN_TABLET_WIDTH && (
