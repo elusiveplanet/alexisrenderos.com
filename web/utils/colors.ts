@@ -8,7 +8,7 @@ export const NectarYellow = "rgba(244, 184, 10, 1)";
 export const IndigoBlue = "rgba(24, 48, 73, 1)";
 export const NavyBlue = "rgba(24, 51, 79, 1)";
 export const CobaltBlue = "rgba(24, 58, 91, 1)";
-export const AzureBlue = "rgba(24, 81, 135, 1)";
+export const AzureBlue = "rgb(24,81,135)"; //#185187
 
 // Other Colors
 export const White = "rgba(255, 255, 255, 1)";
@@ -27,6 +27,7 @@ export const NearFullShadow = "rgba(0, 0, 0, 0.9)";
 // Text Colors
 export const LightText = "rgba(237, 239, 241, 1)";
 export const DarkText = "rgba(23, 24, 28, 1)";
+export const DarkTextAlternate = CobaltBlue;
 export const AccentText = SaffronYellow;
 
 // Transparencies
@@ -34,6 +35,8 @@ export const FullyTransparent = "rgba(0, 0, 0, 0)";
 export const SlightlyDarken = "rgba(0, 0, 0, 0.075)";
 export const ModeratelyDarken = "rgba(0, 0, 0, 0.12)";
 export const SignificantlyDarken = "rgba(0, 0, 0, 0.15)";
+export const MegaDarken = "rgba(0, 0, 0, 0.15)";
+export const GigaDarken = "rgba(0, 0, 0, 0.3)";
 export const SlightlyLighten = "rgba(255, 255, 255, 0.15)";
 export const SignificantlyLighten = "rgba(255, 255, 255, 0.075)";
 
@@ -43,9 +46,13 @@ export const IndigoToAzureGradient = `linear-gradient(to right,
   ${NavyBlue} 8%,
   ${CobaltBlue} 36%,
   ${AzureBlue} 100%)`;
-export const SaffronToNectarGradient = `linear-gradient(180deg,
-  ${SaffronYellow} 0%,
-  ${NectarYellow} 100%)`;
+
+export const IndigoToAzureTextGradient = `linear-gradient(45deg,
+  ${IndigoBlue} 0%,
+  ${NavyBlue} 8%,
+  ${CobaltBlue} 36%,
+  ${AzureBlue} 75%)`;
+
 export const RepeatingRainbowGradientFill = `repeating-linear-gradient(
       45deg,
       rgba(255, 0, 0, 1) 0%,
@@ -70,6 +77,9 @@ export const RepeatingRainbowGradientFill = `repeating-linear-gradient(
       rgba(251, 7, 217, 1) 95%,
       rgba(255, 0, 0, 1) 100%
     )`;
+export const SaffronToNectarGradient = `linear-gradient(180deg,
+  ${SaffronYellow} 0%,
+  ${NectarYellow} 100%)`;
 export const PrimaryGradientFill = IndigoToAzureGradient;
 export const AccentGradientFill = SaffronToNectarGradient;
 
