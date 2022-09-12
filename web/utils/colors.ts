@@ -29,6 +29,7 @@ export const LightText = "rgba(237, 239, 241, 1)";
 export const DarkText = "rgba(23, 24, 28, 1)";
 export const DarkTextAlternate = CobaltBlue;
 export const AccentText = SaffronYellow;
+export const ErrorText = SaffronYellow;
 
 // Transparencies
 export const FullyTransparent = "rgba(0, 0, 0, 0)";
@@ -86,3 +87,4 @@ export const AccentGradientFill = SaffronToNectarGradient;
 // Background Colors
 export const PrimaryBackgroundColor = IndigoToAzureGradient;
 export const AlternateBackgroundColor = NeutralOffWhite;
+export const CoolToneAlternateBackgroundColor = LightText;
