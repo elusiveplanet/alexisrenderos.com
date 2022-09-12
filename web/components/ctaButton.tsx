@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { LightText, RepeatingRainbowGradientFill } from "../utils/colors";
 import SvgTopRightArrow from "./icons/TopRightArrow";
 import { MIN_TABLET_WIDTH } from "../utils/utils";
-import { useState } from "react";
 
 const CtaButtonWrapper = styled.button`
   height: fit-content;
