@@ -53,6 +53,7 @@ const FooterCollectionOne = styled.div`
 const FooterCollectionTwo = styled.div`
   display: flex;
   flex-direction: column;
+  align-content: center;
   margin-left: auto;
 `;
 
@@ -92,6 +93,8 @@ const fetcher = async (input: RequestInfo, init: RequestInit) => {
   const res = await fetch(input, init);
   return res.json();
 };
+
+// add a no social option for use on contact and landing
 
 const GlobalFooter = () => {
   const { data: socialLinkData, error: socialLinkDataError } = useSWR(
