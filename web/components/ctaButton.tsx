@@ -10,6 +10,8 @@ const CtaButtonWrapper = styled.button`
   width: fit-content;
   margin: 1em 0;
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    // on mobile
+    // TODO: Needs to be properly scaled with styles
     margin: 0.5em 0;
   }
 `;
@@ -117,6 +119,8 @@ const CtaButtonContentWrapper = styled.div.attrs<{
   justify-content: center;
   padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    // on mobile
+    // TODO: Needs to be properly scaled with styles
     padding: ${(props) => (props.isSubmit ? "0.75em 3em" : "0.85em 1.75em")};
   }
 `;
@@ -130,6 +134,7 @@ const CtaButtonText = styled.div.attrs<{
   font-style: normal;
   font-size: ${(props) => (props.isSubmit ? "1.35em" : "2em")};
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    // on mobile
     font-size: ${(props) => (props.isSubmit ? "1.15em" : "1.5em")};
   }
   width: max-content;
@@ -141,6 +146,8 @@ const CtaButtonArrow = styled(SvgTopRightArrow)`
   padding-left: 1.25em;
   padding-top: 0.15em;
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    // on mobile
+    // TODO: Needs to be properly scaled with styles
     height: 0.75em;
     width: 0.75em;
     padding-left: 0.6em;

@@ -8,6 +8,7 @@ import {
   SocialLinkCollectionDirection,
 } from "./socialLinkCollection";
 import { SocialLinkSize } from "./socialLinkIcon";
+import fetcher from "../helpers/fetcher";
 
 const ContactCardWrapper = styled.div`
   display: flex;
@@ -44,11 +45,6 @@ const JobTitle = styled.p`
   font-weight: 300;
 `;
 
-const fetcher = async (input: RequestInfo, init: RequestInit) => {
-  const res = await fetch(input, init);
-  return res.json();
-};
-
 const ContactCard = () => {
   const { data: socialLinkData, error: socialLinkDataError } = useSWR(
     "/api/getAllVisibleSocialLinks",
@@ -72,7 +68,7 @@ const ContactCard = () => {
         <SocialLinkCollection
           socialLinkList={socialLinkData}
           direction={SocialLinkCollectionDirection.Row}
-          size={SocialLinkSize.Small}
+          size={SocialLinkSize.XSmall}
         />
       )}
     </ContactCardWrapper>

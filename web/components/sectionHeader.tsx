@@ -6,6 +6,7 @@ import {
   IndigoToAzureTextGradient,
   PrimaryBackgroundColor,
 } from "../utils/colors";
+import { MIN_TABLET_WIDTH } from "../utils/utils";
 
 const HeaderWrapper = styled.div.attrs<{
   altColor?: boolean;
@@ -26,7 +27,7 @@ const Header = styled.h2.attrs<{
   font-size: 2.75em;
   font-weight: 700;
   font-style: italic;
-  margin: 1.25em auto 0.75em auto;
+  margin: 2em auto 0.75em auto;
   text-align: center;
   color: ${AccentText};
 
@@ -43,6 +44,11 @@ const Header = styled.h2.attrs<{
 
   width: 75%;
   max-width: 800px;
+  @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    font-size: 1.5em;
+    margin: 1.25em auto 1em auto;
+    width: 90%;
+  }
 `;
 
 type SectionHeaderProps = {

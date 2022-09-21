@@ -14,6 +14,9 @@ const DividerWrapper = styled.div`
   flex-direction: column;
   height: 16em;
   width: 100%;
+  @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    height: 10em;
+  }
 `;
 
 const DividerBackgroundWrapper = styled.div`
@@ -48,9 +51,12 @@ const Stripe = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 32px;
+  height: 2em;
   background: ${AccentGradientFill};
   box-shadow: 0 4px 4px ${QuarterShadow};
+  @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    height: 1.5em;
+  }
 `;
 
 const StripeImageWrapper = styled.div`
@@ -60,6 +66,8 @@ const StripeImageWrapper = styled.div`
   transform: skewY(7deg);
   filter: drop-shadow(4px 4px 10px ${QuarterShadow});
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    height: 8em;
+    width: 8em;
     transform: skewY(10deg);
   }
   @media (min-width: ${MAX_DESKTOP_WIDTH}px) {

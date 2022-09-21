@@ -87,7 +87,7 @@ const ContactWidget = () => {
 
   return (
     <Formik
-      initialValues={{ email: "", message: "" }}
+      initialValues={{ name: "", email: "", message: "" }}
       onSubmit={handleOnSubmit}
       validationSchema={formSchema}>
       {({ isSubmitting }) => (
@@ -99,7 +99,7 @@ const ContactWidget = () => {
             </InputGroup>
             <Input
               id="name"
-              type="name"
+              type="text"
               name="name"
               placeholder="Dorian Gray"
             />
@@ -110,7 +110,6 @@ const ContactWidget = () => {
               <Label htmlFor="email">Email</Label>
               <ErrorLabel name="email" className="errorMsg" component="p" />
             </InputGroup>
-
             <Input
               id="email"
               type="email"

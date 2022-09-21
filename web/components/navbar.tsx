@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import {
   AccentText,
   AlternateBackgroundColor,
@@ -12,7 +13,8 @@ import {
   SaffronYellow,
   ThreeQuarterShadow,
 } from "../utils/colors";
-import { MIN_TABLET_WIDTH } from "../utils/utils";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
+import BurgerMenu from "./burgerMenu";
 
 type JuiceboxHeaderProps = {
   title: string;
@@ -23,6 +25,10 @@ type JuiceboxHeaderProps = {
 type JuiceboxOptionProps = {
   title: string;
   path: string;
+  altColor?: boolean;
+};
+
+type JuiceboxHeaderOptionsChildrenProps = {
   altColor?: boolean;
 };
 
@@ -49,6 +55,7 @@ const JuiceboxHeaderTitle = styled.a.attrs<{
   }
 
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    // on mobile
     font-size: min(max(1.5em, 6vw), 2.5em);
     margin: 0.5em 0.75em;
     border-width: 0.175em 0.3em 0.175em 0.3em;
@@ -65,23 +72,36 @@ const JuiceboxHeaderWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0.5em 0;
+  margin: 0.5em 2.5em;
   width: 100%;
   max-width: 1500px;
+  @media (max-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on tablet or mobile
+    margin: 0.5em;
+    max-width: 1400px;
+  }
 `;
 
 const JuiceboxTitleWrapper = styled(Link)`
   align-items: flex-start;
-  margin: 1.5em 0;
   width: 100%;
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop
+    margin: 1.5em 0;
+  }
 `;
 
 const JuiceboxOptionsWrapper = styled.ol`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: auto 0;
+  margin: auto 2.5em;
   width: max-content;
+  @media (max-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on tablet or mobile
+    margin: auto 0 auto 2.5em;
+    padding-top: 0.5em;
+  }
 `;
 
 const StyledJuiceboxHeader = styled.header.attrs<{
@@ -155,25 +175,72 @@ const JuiceboxOption = ({
   </JuiceboxOptionWrapper>
 );
 
+const JuiceboxHeaderOptionsChildren = ({
+  altColor = false,
+}: JuiceboxHeaderOptionsChildrenProps): JSX.Element => (
+  <>
+    <JuiceboxOption title="About" path="/about" altColor={altColor} />
+    <JuiceboxOption title="Contact" path="/contact" altColor={altColor} />
+    <JuiceboxOption title="Resume" path="/resume" altColor={altColor} />
+  </>
+);
+
 const JuiceboxHeader = ({
   title,
   absolute,
   altColor = false,
-}: JuiceboxHeaderProps) => (
-  <StyledJuiceboxHeader absolute={absolute}>
-    <StyledJuiceboxHeaderWrapper altColor={altColor}>
-      <JuiceboxHeaderWrapper>
-        <JuiceboxTitleWrapper href="/" passHref>
-          <JuiceboxHeaderTitle altColor={altColor}>{title}</JuiceboxHeaderTitle>
-        </JuiceboxTitleWrapper>
-        <JuiceboxOptionsWrapper>
-          <JuiceboxOption title="About" path="/about" altColor={altColor} />
-          <JuiceboxOption title="Contact" path="/contact" altColor={altColor} />
-          <JuiceboxOption title="Resume" path="/resume" altColor={altColor} />
-        </JuiceboxOptionsWrapper>
-      </JuiceboxHeaderWrapper>
-    </StyledJuiceboxHeaderWrapper>
-  </StyledJuiceboxHeader>
-);
+}: JuiceboxHeaderProps) => {
+  const [width, setWidth] = useState(0);
+
+  const getPageWidth = () => {
+    if (window.innerWidth > window.outerWidth) {
+      setWidth((prev) => window.outerWidth);
+    } else {
+      setWidth((prev) => window.innerWidth);
+    }
+  };
+
+  useEffect(() => {
+    // component is mounted and window is available
+
+    // Run only once on page mount.
+    getPageWidth();
+
+    // Re-calculate on resize
+    window.addEventListener("resize", getPageWidth);
+
+    // Re-calculate on device orientation change
+    window.addEventListener("orientationchange", getPageWidth);
+
+    // unsubscribe from the event on component unmount
+    return () => {
+      window.removeEventListener("resize", getPageWidth);
+      window.removeEventListener("orientationchange", getPageWidth);
+    };
+  }, []);
+
+  return (
+    <StyledJuiceboxHeader absolute={absolute}>
+      <StyledJuiceboxHeaderWrapper altColor={altColor}>
+        <JuiceboxHeaderWrapper>
+          <JuiceboxTitleWrapper href="/" passHref>
+            <JuiceboxHeaderTitle altColor={altColor}>
+              {title}
+            </JuiceboxHeaderTitle>
+          </JuiceboxTitleWrapper>
+          <JuiceboxOptionsWrapper>
+            {width >= MIN_DESKTOP_WIDTH ? (
+              <JuiceboxHeaderOptionsChildren altColor={altColor} />
+            ) : (
+              <BurgerMenu altColor={altColor}>
+                <JuiceboxHeaderOptionsChildren altColor={altColor} />
+              </BurgerMenu>
+            )}
+          </JuiceboxOptionsWrapper>
+        </JuiceboxHeaderWrapper>
+      </StyledJuiceboxHeaderWrapper>
+    </StyledJuiceboxHeader>
+  );
+};
 
 export default JuiceboxHeader;

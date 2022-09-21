@@ -1,20 +1,20 @@
 - order: 1
   displayOnPage: true
-  title: When I was ten, I built a video game for my grandmother as a gift.
-  body: I’ll never forget how excited she was to learn about what I had created and my newfound passion. I didn’t realize it then, but that key memory would become the foundation for why I adore making.
+  title: When I was ten, I built a video game for my grandmother.
+  body: I’ll never forget how excited she was to learn about my newfound passion. I didn’t realize it then, but that key memory would become the foundation for why I adore making.
   imagePath: /images/AlexisAndGrandmother.webp
   imageAltText: A toddler-aged Alexis and his grandmother stand outside under the shade of a fruiting grapefruit tree, cut grapefruit in hand. Alexis, with squinted eyes and scrunched cheeks, is pretending to enjoy the deeply sour and bitter taste as he takes a bite of a cut grapefruit.
 
 - order: 2
   displayOnPage: true
-  title: My first job was working at a makerspace in my local public library.
-  body: I designed and taught technical and non-technical classes for my community, constantly finding myself in awe of the curious and resourceful students I had the opportunity to support.
+  title: My first job was working at a makerspace.
+  body: I designed and taught classes for my community, constantly finding myself in awe of the curious and resourceful students I had the opportunity to support.
   imagePath: /images/ElaAreaPublicLibrary.webp
   imageAltText: An exterior photo of a quaint library with a sand-colored brick facade and forest green accents at early sunset. A long, wide brick path with young, autumn colored trees invites you inside.
 
 - order: 3
   displayOnPage: true
-  title: In college, I built teams of people and plenty of software.
+  title: In college, I built teams and software.
   body: I studied software engineering at Iowa State University, working in public radio and completing four software engineering internships before dropping out to join a startup full-time.
   imagePath: /images/RadioStationPhotoBoard.webp
   imageAltText: A corkboard filled with Polaroid photos and camera prints of various college-aged individuals working at a radio station. Alexis is featured in one image as he sits in front of a digital mixer in a production room during a broadcast.

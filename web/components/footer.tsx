@@ -34,6 +34,9 @@ const FooterWrapper = styled.div`
     width: 100%;
     max-width: 500px;
   }
+  @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    min-height: 7.5em;
+  }
 `;
 
 const FooterItemWrapper = styled.div`
@@ -42,6 +45,9 @@ const FooterItemWrapper = styled.div`
   margin: auto 0;
   width: 75%;
   max-width: 1250px;
+  @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    width: 90%;
+  }
 `;
 
 const FooterCollectionOne = styled.div`
@@ -74,19 +80,16 @@ const PageTitleCard = styled.a`
   }
 
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    font-size: min(max(1.5em, 6vw), 2.5em);
-    margin: 0.5em 0.75em;
-    border-width: 0.175em 0.3em 0.175em 0.3em;
-    box-shadow: 8px 10px 1px 0 ${HalfShadow};
-    :where(:hover, :focus-visible) {
-      box-shadow: 7px 9px 1px 0 ${HalfShadow};
-    }
+    font-size: 1.15em;
   }
 `;
 
 const CopyrightText = styled.p`
   font-size: 0.825em;
   font-weight: 300;
+  @media (max-width: ${MIN_TABLET_WIDTH}px) {
+    font-size: 0.75em;
+  }
 `;
 
 const fetcher = async (input: RequestInfo, init: RequestInit) => {
@@ -118,7 +121,7 @@ const GlobalFooter = () => {
             <SocialLinkCollection
               socialLinkList={socialLinkData}
               direction={SocialLinkCollectionDirection.Row}
-              size={SocialLinkSize.Small}
+              size={SocialLinkSize.XSmall}
             />
           )}
         </FooterCollectionTwo>
