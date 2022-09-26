@@ -8,11 +8,11 @@ import { MIN_TABLET_WIDTH } from "../utils/utils";
 const CtaButtonWrapper = styled.button`
   height: fit-content;
   width: fit-content;
-  margin: 1em 0;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // on mobile
+  margin: 0.5em 0;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
     // TODO: Needs to be properly scaled with styles
-    margin: 0.5em 0;
+    margin: 1em 0;
   }
 `;
 
@@ -117,11 +117,11 @@ const CtaButtonContentWrapper = styled.div.attrs<{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // on mobile
+  padding: ${(props) => (props.isSubmit ? "0.75em 3em" : "0.85em 1.75em")};
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
     // TODO: Needs to be properly scaled with styles
-    padding: ${(props) => (props.isSubmit ? "0.75em 3em" : "0.85em 1.75em")};
+    padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
   }
 `;
 
@@ -132,26 +132,26 @@ const CtaButtonText = styled.div.attrs<{
 }))<{ isSubmit?: boolean }>`
   font-weight: 700;
   font-style: normal;
-  font-size: ${(props) => (props.isSubmit ? "1.35em" : "2em")};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // on mobile
-    font-size: ${(props) => (props.isSubmit ? "1.15em" : "1.5em")};
+  font-size: ${(props) => (props.isSubmit ? "1.15em" : "1.5em")};
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
+    font-size: ${(props) => (props.isSubmit ? "1.35em" : "2em")};
   }
   width: max-content;
 `;
 
 const CtaButtonArrow = styled(SvgTopRightArrow)`
-  height: 1.25em;
-  width: 1.25em;
-  padding-left: 1.25em;
-  padding-top: 0.15em;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // on mobile
+  height: 0.75em;
+  width: 0.75em;
+  padding-left: 0.6em;
+  padding-top: 0.075em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
     // TODO: Needs to be properly scaled with styles
-    height: 0.75em;
-    width: 0.75em;
-    padding-left: 0.6em;
-    padding-top: 0.075em;
+    height: 1.25em;
+    width: 1.25em;
+    padding-left: 1.25em;
+    padding-top: 0.15em;
   }
 `;
 

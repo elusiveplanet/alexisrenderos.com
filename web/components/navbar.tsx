@@ -32,56 +32,6 @@ type JuiceboxHeaderOptionsChildrenProps = {
   altColor?: boolean;
 };
 
-const JuiceboxHeaderTitle = styled.a.attrs<{
-  altColor?: boolean;
-}>((props) => ({
-  altColor: props.altColor || false,
-}))<{ altColor?: boolean }>`
-  font-size: 2.5em;
-  font-weight: 700;
-  margin: 0.5em;
-  text-align: left;
-  color: ${DarkText};
-  background: ${SaffronYellow};
-  border: solid ${SaffronYellow};
-  border-width: 0.175em 0.35em 0.175em 0.35em;
-  box-shadow: 12px 12px 1px 0
-    ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
-  width: fit-content;
-  transition: box-shadow 500ms ease-out;
-  :where(:hover, :focus-visible) {
-    box-shadow: 10px 10px 1px 0
-      ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
-  }
-
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // on mobile
-    font-size: min(max(1.5em, 6vw), 2.5em);
-    margin: 0.5em 0.75em;
-    border-width: 0.175em 0.3em 0.175em 0.3em;
-    box-shadow: 8px 10px 1px 0
-      ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
-    :where(:hover, :focus-visible) {
-      box-shadow: 7px 9px 1px 0
-        ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
-    }
-  }
-`;
-
-const JuiceboxHeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0.5em 2.5em;
-  width: 100%;
-  max-width: 1500px;
-  @media (max-width: ${MIN_DESKTOP_WIDTH}px) {
-    // on tablet or mobile
-    margin: 0.5em;
-    max-width: 1400px;
-  }
-`;
-
 const JuiceboxTitleWrapper = styled(Link)`
   align-items: flex-start;
   width: 100%;
@@ -91,16 +41,80 @@ const JuiceboxTitleWrapper = styled(Link)`
   }
 `;
 
+const JuiceboxHeaderTitle = styled.a.attrs<{
+  altColor?: boolean;
+}>((props) => ({
+  altColor: props.altColor || false,
+}))<{ altColor?: boolean }>`
+  font-size: min(max(1.5em, 6vw), 2.25em);
+  margin: 0.5em 0.65em 0.75em 0.75em;
+  padding: 0.175em 0.3em 0.175em 0.3em;
+  box-shadow: 8px 10px 1px 0 ${" "}
+    ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
+  :where(:hover, :focus-visible) {
+    box-shadow: 7px 9px 1px 0 ${" "}
+      ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
+  }
+  font-weight: 700;
+  text-align: left;
+  color: ${DarkText};
+  background: ${SaffronYellow};
+  width: fit-content;
+  transition: box-shadow 500ms ease-out;
+  z-index: 100;
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet
+    font-size: 2.25em;
+    margin: 0.5em 0.65em 0.75em 0.75em;
+    padding: 0.175em 0.3em 0.175em 0.3em;
+  }
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop
+    font-size: 2.5em;
+    margin: 0.5em;
+    padding: 0.175em 0.35em 0.175em 0.35em;
+    box-shadow: 12px 12px 1px 0 ${" "}
+      ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
+    :where(:hover, :focus-visible) {
+      box-shadow: 10px 10px 1px 0 ${" "}
+        ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
+    }
+  }
+`;
+
+const JuiceboxHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em;
+  max-width: 1400px;
+  width: 100%;
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop
+    margin: 0.5em 2.5em;
+    max-width: 1500px;
+  }
+`;
+
 const JuiceboxOptionsWrapper = styled.ol`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: auto 2.5em;
+  margin: auto 1em auto 0;
+  //padding-top: 0.75em;
+
   width: max-content;
-  @media (max-width: ${MIN_DESKTOP_WIDTH}px) {
-    // on tablet or mobile
-    margin: auto 0 auto 2.5em;
-    padding-top: 0.5em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet
+    margin: auto 1.5em auto 0;
+    padding: 0;
+  }
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop
+    margin: auto 2.5em;
+    padding: 0;
   }
 `;
 
@@ -110,7 +124,7 @@ const StyledJuiceboxHeader = styled.header.attrs<{
   absolute: props.absolute || false,
 }))<{ absolute?: boolean }>`
   position: ${(props) => (props.absolute ? "absolute" : "static")};
-  z-index: 100;
+  z-index: 50;
   width: 100%;
 `;
 
@@ -129,33 +143,53 @@ const StyledJuiceboxHeaderWrapper = styled.header.attrs<{
     props.altColor ? AlternateBackgroundColor : PrimaryBackgroundColor};
 `;
 
-const JuiceboxOptionText = styled.a``;
+const JuiceboxOptionText = styled.li``;
 
-const JuiceboxOptionWrapper = styled.li.attrs<{
+const JuiceboxOptionWrapper = styled.a.attrs<{
   altColor?: boolean;
 }>((props) => ({
   altColor: props.altColor || false,
 }))<{ altColor?: boolean }>`
-  margin: 0.5em 0 0 3.25em;
+  z-index: 135;
+  margin: 0;
   list-style-type: ">";
-  ::marker {
-    font-size: 1.8em;
-    font-weight: 500;
-    color: ${FullyTransparent};
-    transition: color 250ms;
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    margin: 0 0 0 1.75em;
   }
-  a {
-    font-size: 1.75em;
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    margin: 0.5em 0 0 3.25em;
+  }
+
+  li {
+    font-size: min(max(2em, 5.2vw), 2.5em);
+    @media (min-width: ${MIN_TABLET_WIDTH}px) {
+      font-size: 1.6em;
+    }
+    @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+      font-size: 1.75em;
+    }
+
     font-weight: 500;
-    margin: 0 0 0 0.2em;
-    text-align: right;
+    padding: 0 0.2em;
     color: ${(props) => (props.altColor ? DarkTextAlternate : LightText)};
-    width: max-content;
+    width: fit-content;
     transition: color 250ms;
+
+    ::marker {
+      font-weight: 700;
+      @media (min-width: ${MIN_TABLET_WIDTH}px) {
+        font-weight: 500;
+      }
+      color: ${FullyTransparent};
+      transition: color 250ms;
+    }
   }
   :where(:hover, :focus-visible) {
-    ::marker {
-      color: ${(props) => (props.altColor ? DarkTextAlternate : AccentText)};
+    li {
+      ::marker {
+        color: ${(props) => (props.altColor ? DarkTextAlternate : AccentText)};
+      }
     }
     filter: brightness(95%);
   }
@@ -168,11 +202,11 @@ const JuiceboxOption = ({
   path,
   altColor = false,
 }: JuiceboxOptionProps) => (
-  <JuiceboxOptionWrapper altColor={altColor}>
-    <JuiceboxOptionLinkWrapper href={path} passHref>
+  <JuiceboxOptionLinkWrapper href={path} passHref>
+    <JuiceboxOptionWrapper altColor={altColor}>
       <JuiceboxOptionText>{title}</JuiceboxOptionText>
-    </JuiceboxOptionLinkWrapper>
-  </JuiceboxOptionWrapper>
+    </JuiceboxOptionWrapper>
+  </JuiceboxOptionLinkWrapper>
 );
 
 const JuiceboxHeaderOptionsChildren = ({
@@ -198,6 +232,9 @@ const JuiceboxHeader = ({
     } else {
       setWidth((prev) => window.innerWidth);
     }
+    console.log([window.innerWidth, window.outerWidth]);
+    // setWidth((prev) => document.documentElement.clientWidth);
+    // console.log(document.documentElement.clientWidth);
   };
 
   useEffect(() => {
@@ -229,11 +266,11 @@ const JuiceboxHeader = ({
             </JuiceboxHeaderTitle>
           </JuiceboxTitleWrapper>
           <JuiceboxOptionsWrapper>
-            {width >= MIN_DESKTOP_WIDTH ? (
+            {width >= MIN_TABLET_WIDTH ? (
               <JuiceboxHeaderOptionsChildren altColor={altColor} />
             ) : (
               <BurgerMenu altColor={altColor}>
-                <JuiceboxHeaderOptionsChildren altColor={altColor} />
+                <JuiceboxHeaderOptionsChildren altColor={false} />
               </BurgerMenu>
             )}
           </JuiceboxOptionsWrapper>

@@ -33,23 +33,27 @@ const CTAHeading = styled.h1`
   background: ${AccentGradientFill};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 6em;
+  font-size: min(max(2em, 12vw), 5em);
+  padding: 0.1em 0;
+  max-width: 600px;
   text-align: left;
   font-weight: 700;
   font-style: italic;
   line-height: 1em;
   letter-spacing: 0.015em;
 
-  @media (max-width: ${MIN_DESKTOP_WIDTH}px) {
-    // if on tablet or phone
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // if on tablet
     font-size: 5.5em;
+    padding: 0;
+    max-width: none;
   }
 
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // if on phone
-    font-size: min(max(2em, 12vw), 5em);
-    padding: 0.1em 0;
-    max-width: 600px;
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // if on desktop
+    font-size: 6em;
+    padding: 0;
+    max-width: none;
   }
 `;
 

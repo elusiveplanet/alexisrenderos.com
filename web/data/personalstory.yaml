@@ -1,7 +1,7 @@
 - order: 1
   displayOnPage: true
-  title: When I was ten, I built a video game for my grandmother.
-  body: I’ll never forget how excited she was to learn about my newfound passion. I didn’t realize it then, but that key memory would become the foundation for why I adore making.
+  title: When I was ten, I built a video game for my grandmother as a gift.
+  body: I’ll never forget how excited she was to learn about my newfound passion. That key memory would become the foundation for why I adore making.
   imagePath: /images/AlexisAndGrandmother.webp
   imageAltText: A toddler-aged Alexis and his grandmother stand outside under the shade of a fruiting grapefruit tree, cut grapefruit in hand. Alexis, with squinted eyes and scrunched cheeks, is pretending to enjoy the deeply sour and bitter taste as he takes a bite of a cut grapefruit.
 
@@ -14,8 +14,8 @@
 
 - order: 3
   displayOnPage: true
-  title: In college, I built teams and software.
-  body: I studied software engineering at Iowa State University, working in public radio and completing four software engineering internships before dropping out to join a startup full-time.
+  title: In college, I built teams of people and plenty of software.
+  body: I studied engineering at Iowa State, working in public radio and completing four software engineering internships before joining a startup full-time.
   imagePath: /images/RadioStationPhotoBoard.webp
   imageAltText: A corkboard filled with Polaroid photos and camera prints of various college-aged individuals working at a radio station. Alexis is featured in one image as he sits in front of a digital mixer in a production room during a broadcast.
 

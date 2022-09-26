@@ -40,21 +40,19 @@ const LandingBodyWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin: auto;
-  padding-bottom: 100px;
   height: max-content;
   width: fit-content;
-  min-height: 600px;
+
+  padding-bottom: 75px;
+  min-height: 500px;
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     width: 100%;
     padding-bottom: 1em;
+    //padding-bottom: 100px;
     flex-direction: row;
     align-items: center;
-  }
-
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    padding-bottom: 75px;
-    min-height: 500px;
+    min-height: 600px;
   }
 `;
 
@@ -121,9 +119,9 @@ const Landing = ({
                   : SocialLinkCollectionDirection.Row
               }
               size={
-                width < MIN_TABLET_WIDTH
-                  ? SocialLinkSize.Small
-                  : SocialLinkSize.Medium
+                width >= MIN_TABLET_WIDTH
+                  ? SocialLinkSize.Medium
+                  : SocialLinkSize.Small
               }
             />
           )}

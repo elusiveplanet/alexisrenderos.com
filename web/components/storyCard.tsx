@@ -31,10 +31,11 @@ const StoryCardHeading = styled.h3`
   font-weight: 500;
   line-height: 125%;
   text-align: left;
-  margin-bottom: 0.3em;
   color: ${AccentText};
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    font-size: min(max(1.5em, 4.5vw), 1.85em);
+    //font-size: min(max(1.5em, 4.5vw), 1.85em);
+    font-weight: 700;
+    font-size: 1.25em;
   }
 `;
 
@@ -45,7 +46,9 @@ const StoryCardBodyText = styled.p`
   text-align: left;
   color: ${LightText};
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    font-size: min(max(1.2em, 4vw), 1.5em);
+    //font-size: min(max(1.2em, 4vw), 1.5em);
+    font-size: 1em;
+    line-height: 150%;
     //max-width: 12em;
   }
 `;
@@ -71,15 +74,11 @@ const StoryCardTextWrapper = styled.div`
   flex-direction: column;
   max-width: 600px;
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    margin: 0 1.5em;
+    //margin: 0 1.5em;
   }
 `;
 
-const StoryCardImageWrapper = styled.div.attrs<{
-  reversed?: boolean;
-}>((props) => ({
-  reversed: props.reversed || false,
-}))<{ reversed?: boolean }>`
+const StoryCardImageWrapper = styled.div`
   height: 14em;
   width: 14em;
   margin: 2em 0;
@@ -87,9 +86,8 @@ const StoryCardImageWrapper = styled.div.attrs<{
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
     height: 8em;
     width: 8em;
-    margin: ${(props) =>
-      props.reversed ? "0.25em 0 0.75em 0.75em" : "0.25em 1.5em 0.75em 0"};
-    float: ${(props) => (props.reversed ? "right" : "left")};
+    margin: 0.25em 0;
+    flex-shrink: 0;
   }
 `;
 
@@ -102,16 +100,21 @@ const CompactStoryCardWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   align-content: center;
-  margin: 1em auto;
+  margin: 1em 1.25em;
   gap: 0.5em;
 `;
 
-const StoryCardTextAndImageWrapper = styled.div`
-  //display: flex;
-  //flex-direction: row;
+const StoryCardTextAndImageWrapper = styled.div.attrs<{
+  reversed?: boolean;
+}>((props) => ({
+  reversed: props.reversed || false,
+}))<{ reversed?: boolean }>`
+  display: flex;
+  flex-direction: ${(props) => (props.reversed ? "row-reverse" : "row")};
   max-width: 600px;
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    margin: 0 1.5em;
+    //margin: 0 1.5em;
+    gap: 1em;
   }
 `;
 
@@ -125,9 +128,9 @@ export const StoryCard = ({
       <StoryCardTextWrapper>
         <StoryCardHeading>{storyEntry.title}</StoryCardHeading>
       </StoryCardTextWrapper>
-      <StoryCardTextAndImageWrapper>
+      <StoryCardTextAndImageWrapper reversed={reversed}>
         {!!storyEntry.image && (
-          <StoryCardImageWrapper reversed={reversed}>
+          <StoryCardImageWrapper>
             <StoryCardImage
               src={storyEntry.image.imagePath}
               layout="responsive"

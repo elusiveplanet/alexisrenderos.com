@@ -66,7 +66,6 @@ export const SocialLinkIcon = ({ socialLink, size }: SocialLinkIconProps) => {
     <a href={socialLink.url}>
       <Image
         src={imageLocation}
-        layout="responsive"
         width={40}
         height={40}
         alt={`Alexis' ${socialLink.service || "Social Media Profile"}`}

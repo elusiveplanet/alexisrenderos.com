@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import useSWR from "swr";
+import { useEffect, useState } from "react";
 import JuiceboxHeader from "../components/navbar";
 import SectionDivider from "../components/sectionDivider";
 import StoryCardCollection from "../components/storyCardCollection";
@@ -9,7 +10,6 @@ import GlobalFooter from "../components/footer";
 import AnimatedLink from "../components/animatedLink";
 import fetcher from "../helpers/fetcher";
 import { MIN_TABLET_WIDTH } from "../utils/utils";
-import { useEffect, useState } from "react";
 
 // For now defining screen sizes as
 // Desktop: Width > 1280px
@@ -28,7 +28,9 @@ const StoryTextWrapper = styled.div`
   width: 80%;
   max-width: 850px;
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    width: 90%;
+    //width: 100%;
+    width: auto;
+    margin: 5em 1.75em 5em 1.25em;
   }
 `;
 

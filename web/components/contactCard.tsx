@@ -27,15 +27,16 @@ const ContactCardImage = styled(Image)`
 `;
 
 const FullName = styled.h4`
-  font-size: 1.75em;
+  font-size: min(max(1.5em, 6vw), 2.5em);
   font-weight: 700;
   text-align: left;
   color: ${AccentText};
   width: fit-content;
   height: fit-content;
 
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    font-size: min(max(1.5em, 6vw), 2.5em);
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // On screen >min tablet
+    font-size: 1.75em;
   }
 `;
 

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import useSWR from "swr";
+import { useEffect, useState } from "react";
 import Landing from "../components/landing";
 import JuiceboxHeader from "../components/navbar";
 import ViewportHeightContainer from "../components/viewportHeightContainer";
 import fetcher from "../helpers/fetcher";
-import { useEffect, useState } from "react";
 import isMobile from "../helpers/isMobile";
 
 // For now defining screen sizes as
@@ -23,7 +23,6 @@ export const Home = (): JSX.Element => {
   const [isOnMobile, setIsOnMobile] = useState(false);
   useEffect(() => {
     // component is mounted and window is available
-
     // Run only once on page mount.
     setIsOnMobile((prev) => isMobile(window));
   }, []);
