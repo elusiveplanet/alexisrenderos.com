@@ -43,13 +43,12 @@ const LandingBodyWrapper = styled.div`
   height: max-content;
   width: fit-content;
 
-  padding-bottom: 75px;
+  padding-bottom: 10%;
   min-height: 500px;
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     width: 100%;
     padding-bottom: 1em;
-    //padding-bottom: 100px;
     flex-direction: row;
     align-items: center;
     min-height: 600px;
@@ -76,11 +75,7 @@ const Landing = ({
   const [width, setWidth] = useState(0);
 
   const getPageWidth = () => {
-    if (window.innerWidth > window.outerWidth) {
-      setWidth((prev) => window.outerWidth);
-    } else {
-      setWidth((prev) => window.innerWidth);
-    }
+    setWidth((prev) => window.innerWidth);
     console.log([window.innerWidth, window.outerWidth]);
     // setWidth((prev) => document.documentElement.clientWidth);
     // console.log(document.documentElement.clientWidth);

@@ -89,24 +89,28 @@ const BurgerMenuOverlay = styled.div.attrs<{
   visibility: ${(props) => (props.clicked ? "visible" : "hidden")};
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const BurgerMenuChildren = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: fit-content;
   gap: 3em;
 `;
 
 // alt color only sets the initial state of the burger icon
 const BurgerMenu = ({ children, altColor = false }: BurgerMenuProps) => {
   const [click, setClick] = useState(false);
-  const handleClick = () => {
+  const handleOverflow = () => {
     document.querySelector("body").style.overflow = click
       ? "visible"
       : "hidden";
-
-    setClick(!click);
+  };
+  const handleClick = () => {
+    setClick((prev) => !click);
+    handleOverflow();
   };
   return (
     <>
@@ -114,7 +118,7 @@ const BurgerMenu = ({ children, altColor = false }: BurgerMenuProps) => {
         <BurgerMenuChildren>{children}</BurgerMenuChildren>
       </BurgerMenuOverlay>
       <BurgerMenuLabel htmlFor="navigation-toggle" onClick={handleClick}>
-        <BurgerButton onClick={() => handleClick}>
+        <BurgerButton id="hamburger-menu-button" onClick={() => handleClick}>
           <BurgerIcon altColor={altColor} clicked={click} />
         </BurgerButton>
       </BurgerMenuLabel>

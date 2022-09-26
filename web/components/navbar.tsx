@@ -15,6 +15,7 @@ import {
 } from "../utils/colors";
 import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 import BurgerMenu from "./burgerMenu";
+import { router } from "next/client";
 
 type JuiceboxHeaderProps = {
   title: string;
@@ -47,7 +48,7 @@ const JuiceboxHeaderTitle = styled.a.attrs<{
   altColor: props.altColor || false,
 }))<{ altColor?: boolean }>`
   font-size: min(max(1.5em, 6vw), 2.25em);
-  margin: 0.5em 0.65em 0.75em 0.75em;
+  margin: 0.5em 0.65em 0.75em 0.5em;
   padding: 0.175em 0.3em 0.175em 0.3em;
   box-shadow: 8px 10px 1px 0 ${" "}
     ${(props) => (props.altColor ? ThreeQuarterShadow : HalfShadow)};
@@ -102,7 +103,7 @@ const JuiceboxOptionsWrapper = styled.ol`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: auto 1em auto 0;
+  margin: auto 0;
   //padding-top: 0.75em;
 
   width: max-content;
@@ -203,7 +204,16 @@ const JuiceboxOption = ({
   altColor = false,
 }: JuiceboxOptionProps) => (
   <JuiceboxOptionLinkWrapper href={path} passHref>
-    <JuiceboxOptionWrapper altColor={altColor}>
+    <JuiceboxOptionWrapper
+      altColor={altColor}
+      onClick={() => {
+        if (
+          router?.pathname === path &&
+          document.getElementById("hamburger-menu-button")
+        ) {
+          document.getElementById("hamburger-menu-button").click();
+        }
+      }}>
       <JuiceboxOptionText>{title}</JuiceboxOptionText>
     </JuiceboxOptionWrapper>
   </JuiceboxOptionLinkWrapper>
@@ -227,14 +237,16 @@ const JuiceboxHeader = ({
   const [width, setWidth] = useState(0);
 
   const getPageWidth = () => {
-    if (window.innerWidth > window.outerWidth) {
-      setWidth((prev) => window.outerWidth);
-    } else {
-      setWidth((prev) => window.innerWidth);
-    }
+    setWidth((prev) => window.innerWidth);
     console.log([window.innerWidth, window.outerWidth]);
     // setWidth((prev) => document.documentElement.clientWidth);
     // console.log(document.documentElement.clientWidth);
+  };
+
+  const handleOverflow = () => {
+    if (document.querySelector("body").style.overflow === "hidden") {
+      document.querySelector("body").style.removeProperty("overflow");
+    }
   };
 
   useEffect(() => {
@@ -248,6 +260,8 @@ const JuiceboxHeader = ({
 
     // Re-calculate on device orientation change
     window.addEventListener("orientationchange", getPageWidth);
+
+    handleOverflow();
 
     // unsubscribe from the event on component unmount
     return () => {

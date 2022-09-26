@@ -28,7 +28,6 @@ const StoryTextWrapper = styled.div`
   width: 80%;
   max-width: 850px;
   @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    //width: 100%;
     width: auto;
     margin: 5em 1.75em 5em 1.25em;
   }
@@ -77,11 +76,7 @@ export const About = (): JSX.Element => {
   const [width, setWidth] = useState(0);
 
   const getPageWidth = () => {
-    if (window.innerWidth > window.outerWidth) {
-      setWidth((prev) => window.outerWidth);
-    } else {
-      setWidth((prev) => window.innerWidth);
-    }
+    setWidth((prev) => window.innerWidth);
     console.log([window.innerWidth, window.outerWidth]);
     // setWidth((prev) => document.documentElement.clientWidth);
     // console.log(document.documentElement.clientWidth);

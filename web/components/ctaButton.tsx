@@ -180,7 +180,7 @@ const CtaButton = ({
     useState<boolean>(false);
 
   const handleMouseLeave = (e) => {
-    setAnimationDisabledState(false);
+    setAnimationDisabledState((prev) => false);
   };
 
   const handleAnimationDelay = (delay = 750) => {
@@ -189,11 +189,11 @@ const CtaButton = ({
     document.getElementById("cta-button").style.animationPlayState = "running";
     setTimeout(() => {
       document.getElementById("cta-button").style.animationPlayState = "paused";
-      setAnimationDisabledState(true);
+      setAnimationDisabledState((prev) => true);
       document
         .getElementById("cta-button")
         .addEventListener("mouseleave", (e) => handleMouseLeave(e));
-    }, delay / 4);
+    }, delay);
   };
 
   const smoothScroll = (targetAnchor, delay = 0) => {
@@ -222,7 +222,7 @@ const CtaButton = ({
     }
   };
 
-  const handleOnClick = (isAnchor, targetPath, isSubmit, delay = 750) => {
+  const handleOnClick = (isAnchor, targetPath, isSubmit, delay = 1250) => {
     // Handle scroll vs new page vs submit
     if (isAnchor) {
       smoothScroll(targetPath, mobile ? delay : 0);
@@ -230,7 +230,7 @@ const CtaButton = ({
       routerPush(targetPath, mobile ? delay : 0);
     } else {
       // It's a submit button, we shouldn't do anything other than disable the animation.
-      handleAnimationDelay(250);
+      handleAnimationDelay(mobile ? delay : delay / 2);
     }
   };
 
