@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { router } from "next/client";
 import {
   AccentText,
   AlternateBackgroundColor,
@@ -15,7 +16,6 @@ import {
 } from "../utils/colors";
 import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 import BurgerMenu from "./burgerMenu";
-import { router } from "next/client";
 
 type JuiceboxHeaderProps = {
   title: string;
