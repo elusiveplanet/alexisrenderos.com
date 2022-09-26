@@ -284,13 +284,14 @@ const JuiceboxHeader = ({
             </JuiceboxHeaderTitle>
           </JuiceboxTitleWrapper>
           <JuiceboxOptionsWrapper>
-            {width >= MIN_TABLET_WIDTH ? (
-              <JuiceboxHeaderOptionsChildren altColor={altColor} />
-            ) : (
-              <BurgerMenu altColor={altColor}>
-                <JuiceboxHeaderOptionsChildren altColor={false} />
-              </BurgerMenu>
-            )}
+            {width !== 0 &&
+              (width >= MIN_TABLET_WIDTH ? (
+                <JuiceboxHeaderOptionsChildren altColor={altColor} />
+              ) : (
+                <BurgerMenu altColor={altColor}>
+                  <JuiceboxHeaderOptionsChildren altColor={false} />
+                </BurgerMenu>
+              ))}
           </JuiceboxOptionsWrapper>
         </JuiceboxHeaderWrapper>
       </StyledJuiceboxHeaderWrapper>

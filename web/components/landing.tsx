@@ -105,9 +105,9 @@ const Landing = ({
   return (
     <LandingWrapper mobile={mobile}>
       <LandingBodyWrapper>
-        {width < MIN_DESKTOP_WIDTH && <CTA width={width} />}
+        {width !== 0 && width < MIN_DESKTOP_WIDTH && <CTA width={width} />}
         <LandingSocialIconCollectionWrapper>
-          {!!socialLinkData && (
+          {width !== 0 && !!socialLinkData && (
             <SocialLinkCollection
               socialLinkList={socialLinkData}
               direction={
@@ -123,7 +123,7 @@ const Landing = ({
             />
           )}
         </LandingSocialIconCollectionWrapper>
-        {width >= MIN_DESKTOP_WIDTH && <CTA width={width} />}
+        {width !== 0 && width >= MIN_DESKTOP_WIDTH && <CTA width={width} />}
       </LandingBodyWrapper>
     </LandingWrapper>
   );

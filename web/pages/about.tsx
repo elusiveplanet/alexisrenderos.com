@@ -109,7 +109,7 @@ export const About = (): JSX.Element => {
         />
         <StoryCardCollection
           storyList={storyEntryData}
-          compact={width < MIN_TABLET_WIDTH}
+          compact={width !== 0 && width < MIN_TABLET_WIDTH}
         />
         <StoryTextWrapper>
           <StoryBodyOne>

@@ -96,40 +96,42 @@ type CTAProps = {
 
 const CTA = ({ width }: CTAProps): JSX.Element => (
   <CTAWrapper>
-    {width >= MIN_DESKTOP_WIDTH ? (
-      <CTAInfoWrapper>
-        <CTATitleWrapper>
-          <CTASubtextWrapper>
-            <CTASubtext>
-              I’m Alexis, a San Francisco based software engineer focused on
-              front end web development and accessibility.
-            </CTASubtext>
-          </CTASubtextWrapper>
+    {width !== 0 &&
+      (width >= MIN_DESKTOP_WIDTH ? (
+        <CTAInfoWrapper>
+          <CTATitleWrapper>
+            <CTASubtextWrapper>
+              <CTASubtext>
+                I’m Alexis, a San Francisco based software engineer focused on
+                front end web development and accessibility.
+              </CTASubtext>
+            </CTASubtextWrapper>
+            <CTAHeading>
+              I enable others <br />
+              to do their best work.
+            </CTAHeading>
+          </CTATitleWrapper>
+        </CTAInfoWrapper>
+      ) : (
+        <CTAInfoWrapper>
+          <CTASubtext>
+            I’m Alexis, a San Francisco
+            <br /> based software engineer.
+          </CTASubtext>
           <CTAHeading>
-            I enable others <br />
-            to do their best work.
+            I enable others
+            <br /> to do their
+            <br /> best work.
           </CTAHeading>
-        </CTATitleWrapper>
-      </CTAInfoWrapper>
-    ) : (
-      <CTAInfoWrapper>
-        <CTASubtext>
-          I’m Alexis, a San Francisco
-          <br /> based software engineer.
-        </CTASubtext>
-        <CTAHeading>
-          I enable others
-          <br /> to do their
-          <br /> best work.
-        </CTAHeading>
-      </CTAInfoWrapper>
-    )}
+        </CTAInfoWrapper>
+      ))}
 
-    {width >= MIN_TABLET_WIDTH ? (
-      <CtaButton text="Learn how I do it" target="/about" arrow />
-    ) : (
-      <CtaButton text="Learn how I do it" target="/about" mobile arrow />
-    )}
+    {width !== 0 &&
+      (width >= MIN_TABLET_WIDTH ? (
+        <CtaButton text="Learn how I do it" target="/about" arrow />
+      ) : (
+        <CtaButton text="Learn how I do it" target="/about" mobile arrow />
+      ))}
   </CTAWrapper>
 );
 

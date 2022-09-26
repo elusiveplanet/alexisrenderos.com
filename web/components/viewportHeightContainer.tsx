@@ -18,20 +18,24 @@ import styled from "styled-components";
 // measurement that is reported to the window interface. This is described and fixed in getInitialPageHeight.
 
 const Container = styled.div.attrs<{
+  min: boolean;
   height: number;
-}>(({ height }) => ({
+}>(({ min = false, height }) => ({
   style: {
-    height: `${height}px`,
+    minHeight: `${height}px`,
+    height: min ? `auto` : `${height}px`,
   },
-}))<{ height: number }>`
+}))<{ min: boolean; height: number }>`
   width: 100%;
 `;
 
 type ViewportHeightContainerProps = {
+  min?: boolean;
   children: JSX.Element;
 };
 
 const ViewportHeightContainer = ({
+  min = false,
   children,
 }: ViewportHeightContainerProps) => {
   // const [width, setWidth] = useState(0);
@@ -94,7 +98,11 @@ const ViewportHeightContainer = ({
     };
   }, []);
 
-  return <Container height={initialInnerHeight}>{children}</Container>;
+  return (
+    <Container min={min} height={initialInnerHeight}>
+      {children}
+    </Container>
+  );
 };
 
 export default ViewportHeightContainer;

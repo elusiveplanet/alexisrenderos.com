@@ -84,7 +84,7 @@ const ContactAndDividerWrapper = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 85%;
-  padding: 1em 0;
+  padding: 1em 0 3em 0;
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     max-width: 85%;
   }
@@ -141,7 +141,7 @@ export const Contact = (): JSX.Element => {
     <>
       <JuiceboxHeader title="Alexis Renderos" altColor />
       {isOnMobile ? (
-        <ViewportHeightContainer>
+        <ViewportHeightContainer min>
           <ContactBody mobile={isOnMobile}>
             <ContactChildren />
           </ContactBody>
