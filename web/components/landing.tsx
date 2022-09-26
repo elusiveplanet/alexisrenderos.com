@@ -20,16 +20,16 @@ const LandingWrapper = styled.div.attrs<{
   flex-wrap: nowrap;
   align-items: center;
   position: relative;
-  min-height: 800px;
+  min-height: 600px;
   width: 100%;
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    min-height: 800px;
+  }
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     margin-bottom: 0.5px;
-    min-width: 1200px;
-  }
-
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    min-height: 600px;
+    min-height: 1200px;
   }
 `;
 
@@ -56,6 +56,8 @@ const LandingBodyWrapper = styled.div`
 `;
 
 const LandingSocialIconCollectionWrapper = styled.div`
+  margin: 0.1em 0;
+  padding: 0.5em 0;
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     margin-left: 1em;
     margin-right: 4em;

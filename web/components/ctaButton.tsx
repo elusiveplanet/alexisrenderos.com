@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { LightText, RepeatingRainbowGradientFill } from "../utils/colors";
 import SvgTopRightArrow from "./icons/TopRightArrow";
-import { MIN_TABLET_WIDTH } from "../utils/utils";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 
 const CtaButtonWrapper = styled.button`
   height: fit-content;
@@ -25,8 +25,19 @@ const CtaButtonBorderAnimated = styled.div.attrs<{
   borderWidth: `${props.borderWidth || 0.25}em`,
   animationDisabled: props.animationDisabled ?? false,
 }))<{ edgeSize?: number; borderWidth?: number; animationDisabled?: boolean }>`
-  --border-width: ${(props) => props.borderWidth};
-  --edge-size: ${(props) => props.edgeSize};
+  --border-width: 0.2em;
+  --edge-size: 0.75em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet
+    --border-width: 0.225em;
+    --edge-size: 1em;
+  }
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop
+    --border-width: 0.225em;
+    --edge-size: 1.25em;
+  }
+
   position: relative;
   height: 100%;
   width: 100%;
@@ -121,6 +132,10 @@ const CtaButtonContentWrapper = styled.div.attrs<{
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     // on tablet and up
     // TODO: Needs to be properly scaled with styles
+    padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
+  }
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop and up
     padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
   }
 `;
@@ -242,7 +257,7 @@ const CtaButton = ({
       return 0.8;
     }
     if (isSubmit) {
-      return 1.05;
+      return 0.75;
     }
     return 1.375;
   };
@@ -255,7 +270,7 @@ const CtaButton = ({
       return 0.2;
     }
     if (isSubmit) {
-      return 0.2;
+      return 0.15;
     }
     return 0.25;
   };

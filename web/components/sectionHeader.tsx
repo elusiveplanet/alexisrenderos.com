@@ -6,12 +6,12 @@ import {
   IndigoToAzureTextGradient,
   PrimaryBackgroundColor,
 } from "../utils/colors";
-import { MIN_TABLET_WIDTH } from "../utils/utils";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 
 const HeaderWrapper = styled.div.attrs<{
   altColor?: boolean;
 }>((props) => ({
-  reversed: props.altColor || false,
+  altColor: props.altColor || false,
 }))<{ altColor?: boolean }>`
   display: flex;
   width: 100%;
@@ -24,10 +24,12 @@ const Header = styled.h2.attrs<{
 }>((props) => ({
   altColor: props.altColor || false,
 }))<{ altColor?: boolean }>`
-  font-size: 2.75em;
+  position: relative;
+  font-size: min(max(1.55em, 5.25vw), 2.75em);
+  margin: 1.25em auto 1em auto;
+  width: 90%;
   font-weight: 700;
   font-style: italic;
-  margin: 2em auto 0.75em auto;
   text-align: center;
   color: ${AccentText};
 
@@ -36,18 +38,21 @@ const Header = styled.h2.attrs<{
     `
     color: ${FullyTransparent};
     background: ${IndigoToAzureTextGradient};
-    width: 75%;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-  `}
+  `};
 
-  width: 75%;
-  max-width: 800px;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    font-size: 1.5em;
-    margin: 1.25em auto 1em auto;
-    width: 90%;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    font-size: 2.75em;
+    margin: 1em auto 0.75em auto;
+    width: 77.5%;
+    max-width: 750px;
+  }
+
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    font-size: 2.75em;
+    margin: 1.5em auto 0.75em auto;
   }
 `;
 

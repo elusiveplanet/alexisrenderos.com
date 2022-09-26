@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { router } from "next/client";
+import { useRouter } from "next/router";
 import {
   AccentText,
   AlternateBackgroundColor,
@@ -156,7 +156,7 @@ const JuiceboxOptionWrapper = styled.a.attrs<{
   list-style-type: ">";
 
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
-    margin: 0 0 0 1.75em;
+    margin: 0 0 0 min(max(1.75em, 3.5vw), 3em);
   }
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     margin: 0.5em 0 0 3.25em;
@@ -202,22 +202,26 @@ const JuiceboxOption = ({
   title,
   path,
   altColor = false,
-}: JuiceboxOptionProps) => (
-  <JuiceboxOptionLinkWrapper href={path} passHref>
-    <JuiceboxOptionWrapper
-      altColor={altColor}
-      onClick={() => {
-        if (
-          router?.pathname === path &&
-          document.getElementById("hamburger-menu-button")
-        ) {
-          document.getElementById("hamburger-menu-button").click();
-        }
-      }}>
-      <JuiceboxOptionText>{title}</JuiceboxOptionText>
-    </JuiceboxOptionWrapper>
-  </JuiceboxOptionLinkWrapper>
-);
+}: JuiceboxOptionProps) => {
+  const router = useRouter();
+
+  return (
+    <JuiceboxOptionLinkWrapper href={path} passHref>
+      <JuiceboxOptionWrapper
+        altColor={altColor}
+        onClick={() => {
+          if (
+            router?.pathname === path &&
+            document.getElementById("hamburger-menu-button")
+          ) {
+            document.getElementById("hamburger-menu-button").click();
+          }
+        }}>
+        <JuiceboxOptionText>{title}</JuiceboxOptionText>
+      </JuiceboxOptionWrapper>
+    </JuiceboxOptionLinkWrapper>
+  );
+};
 
 const JuiceboxHeaderOptionsChildren = ({
   altColor = false,

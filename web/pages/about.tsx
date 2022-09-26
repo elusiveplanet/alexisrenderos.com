@@ -24,47 +24,39 @@ const AboutBody = styled.div`
 `;
 
 const StoryTextWrapper = styled.div`
-  margin: 5em auto;
-  width: 80%;
-  max-width: 850px;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    width: auto;
-    margin: 5em 1.75em 5em 1.25em;
+  width: auto;
+  margin: 5em 1.75em 5em 1.25em;
+  max-width: 500px;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    margin: 5em auto;
+    width: 80%;
+    max-width: 800px;
   }
 `;
 
 const StoryHeadline = styled.h2`
-  font-size: min(max(1.75em, 4.75vw), 3em);
+  font-size: min(max(1.75em, 5.5vw), 2.5em);
   font-weight: 700;
   margin: 0.33em auto;
-  text-align: center;
+  text-align: left;
   color: ${AccentText};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    text-align: left;
-  }
 `;
 
 const StoryBodyOne = styled.p`
-  font-size: min(max(1.15em, 4.5vw), 1.85em);
+  font-size: min(max(1.15em, 4vw), 1.75em);
   font-weight: 400;
   margin: 0.33em auto;
-  text-align: center;
+  text-align: left;
   color: ${LightText};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    text-align: left;
-  }
 `;
 
 const StoryBodyTwo = styled.p`
-  font-size: min(max(1.05em, 4vw), 1.5em);
+  font-size: min(max(1.05em, 3.5vw), 1.5em);
   font-weight: 400;
   line-height: 135%;
   margin: 0.33em auto;
-  text-align: center;
+  text-align: left;
   color: ${LightText};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    text-align: left;
-  }
 `;
 
 export const About = (): JSX.Element => {

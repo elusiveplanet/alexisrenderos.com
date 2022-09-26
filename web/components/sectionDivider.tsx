@@ -12,10 +12,10 @@ import { ImagePath } from "../helpers/types";
 const DividerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 16em;
+  max-height: 12em;
   width: 100%;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    height: 10em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    max-height: 16em;
   }
 `;
 
@@ -34,13 +34,13 @@ const DividerBackground = styled.div.attrs<{
   align-items: center;
   width: 100%;
   height: 500vh;
-  transform: skewY(-7deg);
+  transform: skewY(-10deg);
   background: ${(props) =>
     props.alternate
       ? `linear-gradient(180deg, ${FullyTransparent} calc(50% - 1px), ${NeutralOffWhite} calc(50%))`
       : `linear-gradient(180deg, ${NeutralOffWhite} calc(50% - 1px), ${FullyTransparent} calc(50%))`};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    transform: skewY(-10deg);
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    transform: skewY(-7deg);
   }
   @media (min-width: ${MAX_DESKTOP_WIDTH}px) {
     transform: skewY(-4deg);
@@ -51,24 +51,24 @@ const Stripe = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 2em;
+  height: 1.5em;
   background: ${AccentGradientFill};
   box-shadow: 0 4px 4px ${QuarterShadow};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    height: 1.5em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    height: 2em;
   }
 `;
 
 const StripeImageWrapper = styled.div`
-  height: 12.5em;
-  width: 12.5em;
+  height: min(max(8em, 21.3vw), 12.5em);
+  width: min(max(8em, 21.3vw), 12.5em);
+  transform: skewY(10deg);
   margin: 0 auto;
-  transform: skewY(7deg);
   filter: drop-shadow(4px 4px 10px ${QuarterShadow});
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    height: 8em;
-    width: 8em;
-    transform: skewY(10deg);
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    height: 12.5em;
+    width: 12.5em;
+    transform: skewY(7deg);
   }
   @media (min-width: ${MAX_DESKTOP_WIDTH}px) {
     transform: skewY(4deg);
@@ -79,7 +79,7 @@ const StripeImage = styled(Image)`
   border-radius: 10px;
 `;
 
-type StoryCardProps = {
+type SectionDividerProps = {
   image?: ImagePath;
   alternate?: boolean;
 };
@@ -87,7 +87,7 @@ type StoryCardProps = {
 const SectionDivider = ({
   image,
   alternate = false,
-}: StoryCardProps): JSX.Element => (
+}: SectionDividerProps): JSX.Element => (
   <DividerWrapper>
     <DividerBackgroundWrapper>
       <DividerBackground alternate={alternate}>

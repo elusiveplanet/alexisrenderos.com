@@ -27,29 +27,26 @@ type StoryCardProps = {
 };
 
 const StoryCardHeading = styled.h3`
-  font-size: 2em;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: min(max(1.25em, 4vw), 1.5em);
   line-height: 125%;
   text-align: left;
   color: ${AccentText};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    //font-size: min(max(1.5em, 4.5vw), 1.85em);
-    font-weight: 700;
-    font-size: 1.25em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    font-size: 2em;
+    font-weight: 500;
   }
 `;
 
 const StoryCardBodyText = styled.p`
-  font-size: 1.6em;
+  font-size: min(max(1em, 3.5vw), 1.25em);
+  line-height: 150%;
   font-weight: 400;
-  line-height: 140%;
   text-align: left;
   color: ${LightText};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    //font-size: min(max(1.2em, 4vw), 1.5em);
-    font-size: 1em;
-    line-height: 150%;
-    //max-width: 12em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    font-size: 1.6em;
+    line-height: 140%;
   }
 `;
 
@@ -59,35 +56,32 @@ const StoryCardWrapper = styled.div.attrs<{
   reversed: props.reversed || false,
 }))<{ reversed?: boolean }>`
   display: flex;
-  flex-direction: ${(props) => (props.reversed ? "row-reverse" : "row")};
-  align-items: center;
-  align-content: center;
+  flex-direction: column-reverse;
   margin: 1em auto;
   gap: ${(props) => (props.reversed ? "3.5em" : "2em")};
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    flex-direction: column-reverse;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    flex-direction: ${(props) => (props.reversed ? "row-reverse" : "row")};
+    max-width: 80%;
   }
 `;
 
 const StoryCardTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 600px;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    //margin: 0 1.5em;
-  }
+  gap: 0.5em;
+  max-width: 615px;
 `;
 
 const StoryCardImageWrapper = styled.div`
-  height: 14em;
-  width: 14em;
-  margin: 2em 0;
+  height: min(max(8em, 21.3vw), 10em);
+  width: min(max(8em, 21.3vw), 10em);
+  margin: 0.25em 0;
+  flex-shrink: 0;
   filter: drop-shadow(4px 4px 10px ${QuarterShadow});
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    height: 8em;
-    width: 8em;
-    margin: 0.25em 0;
-    flex-shrink: 0;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    height: min(max(12em, 20vw), 14em);
+    width: min(max(12em, 20vw), 14em);
+    //margin: 2em 0;
   }
 `;
 
@@ -102,6 +96,7 @@ const CompactStoryCardWrapper = styled.div`
   align-content: center;
   margin: 1em 1.25em;
   gap: 0.5em;
+  max-width: 500px;
 `;
 
 const StoryCardTextAndImageWrapper = styled.div.attrs<{
@@ -112,10 +107,7 @@ const StoryCardTextAndImageWrapper = styled.div.attrs<{
   display: flex;
   flex-direction: ${(props) => (props.reversed ? "row-reverse" : "row")};
   max-width: 600px;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    //margin: 0 1.5em;
-    gap: 1em;
-  }
+  gap: 1em;
 `;
 
 export const StoryCard = ({

@@ -10,6 +10,7 @@ import {
   LightText,
 } from "../utils/colors";
 import CtaButton from "./ctaButton";
+import { MIN_TABLET_WIDTH } from "../utils/utils";
 
 const formSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -38,29 +39,35 @@ const InputWrapper = styled.div`
 const InputGroup = styled.div`
   display: flex;
   flex-direction: row;
+  p {
+    font-size: min(max(1em, 2.25vw), 1.15em);
+    color: ${ErrorText};
+    margin-left: auto;
+  }
 `;
 
 const Label = styled.label`
-  font-size: 1.15em;
+  font-size: min(max(1em, 2.25vw), 1.15em);
   color: ${LightText};
   width: max-content;
 `;
 
 const Input = styled(Field)`
-  padding: 1em;
+  padding: min(max(0.75em, 3vw), 1em);
+  font-size: min(max(0.95em, 2.25vw), 1em);
   color: ${DarkText};
   background: ${CoolToneAlternateBackgroundColor};
   border: none;
   border-radius: 4px;
-  width: 30vw;
-  min-width: 20em;
+  width: auto;
+  min-width: 15em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    width: 30vw;
+    min-width: 18em;
+  }
 `;
 
-const ErrorLabel = styled(ErrorMessage)`
-  font-size: 1.15em;
-  color: ${ErrorText};
-  margin-left: auto;
-`;
+const ErrorLabel = styled(ErrorMessage)``;
 
 const ContactWidget = () => {
   /* Server State Handling */
