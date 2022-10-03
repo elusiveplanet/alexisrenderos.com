@@ -69,7 +69,7 @@ export const About = (): JSX.Element => {
 
   const getPageWidth = () => {
     setWidth((prev) => window.innerWidth);
-    console.log([window.innerWidth, window.outerWidth]);
+    // console.log([window.innerWidth, window.outerWidth]);
     // setWidth((prev) => document.documentElement.clientWidth);
     // console.log(document.documentElement.clientWidth);
   };

@@ -89,8 +89,12 @@ type CheckboxInputProps = {
 const StyledCheckbox = styled(Field)`
   accent-color: ${SaffronYellow};
   margin: 0;
-  height: min(max(1.15em, 2.25vw), 1.35em); /* not needed */
-  width: min(max(1.15em, 2.25vw), 1.35em); /* not needed */
+  height: min(max(1.15em, 2.25vw), 1.35em);
+  width: min(max(1.15em, 2.25vw), 1.35em);
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    height: 1.5em;
+    width: 1.5em;
+  }
 `;
 
 const CheckboxLabel = styled(Label)`
@@ -101,6 +105,10 @@ const CheckboxLabel = styled(Label)`
   align-content: center;
   font-size: min(max(1em, 2.25vw), 1.15em);
   color: ${LightText};
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    padding-top: 0.25em;
+    font-size: 1.25em;
+  }
 `;
 
 export const CheckboxInput = ({
