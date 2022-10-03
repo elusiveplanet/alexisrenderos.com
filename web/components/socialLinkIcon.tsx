@@ -25,9 +25,12 @@ type SocialLinkIconProps = {
 };
 
 const SocialLinkServiceIcon = styled.div`
-  &:hover {
+  transition: filter 0.5s ease;
+  :hover {
     filter: brightness(60%);
-    transition: all 0.5s ease;
+  }
+  :focus-within {
+    filter: brightness(60%);
   }
 `;
 

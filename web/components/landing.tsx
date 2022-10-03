@@ -29,7 +29,7 @@ const LandingWrapper = styled.div.attrs<{
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     margin-bottom: 0.5px;
-    min-height: 1200px;
+    min-height: 800px;
   }
 `;
 

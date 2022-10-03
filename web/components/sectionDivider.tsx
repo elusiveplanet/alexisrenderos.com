@@ -40,7 +40,7 @@ const DividerBackground = styled.div.attrs<{
       ? `linear-gradient(180deg, ${FullyTransparent} calc(50% - 1px), ${NeutralOffWhite} calc(50%))`
       : `linear-gradient(180deg, ${NeutralOffWhite} calc(50% - 1px), ${FullyTransparent} calc(50%))`};
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
-    transform: skewY(-7deg);
+    transform: skewY(-6deg);
   }
   @media (min-width: ${MAX_DESKTOP_WIDTH}px) {
     transform: skewY(-4deg);
@@ -68,7 +68,7 @@ const StripeImageWrapper = styled.div`
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     height: 12.5em;
     width: 12.5em;
-    transform: skewY(7deg);
+    transform: skewY(6deg);
   }
   @media (min-width: ${MAX_DESKTOP_WIDTH}px) {
     transform: skewY(4deg);

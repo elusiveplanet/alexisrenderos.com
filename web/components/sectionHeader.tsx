@@ -26,7 +26,7 @@ const Header = styled.h2.attrs<{
 }))<{ altColor?: boolean }>`
   position: relative;
   font-size: min(max(1.55em, 5.25vw), 2.75em);
-  margin: 1.25em auto 1em auto;
+  margin: 0.75em auto 0.25em auto;
   width: 90%;
   font-weight: 700;
   font-style: italic;
@@ -45,14 +45,14 @@ const Header = styled.h2.attrs<{
 
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     font-size: 2.75em;
-    margin: 1em auto 0.75em auto;
+    margin: 0.5em auto 0.5em auto;
     width: 77.5%;
     max-width: 750px;
   }
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     font-size: 2.75em;
-    margin: 1.5em auto 0.75em auto;
+    margin: 0.5em auto 0.5em auto;
   }
 `;
 
