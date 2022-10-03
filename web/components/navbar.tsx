@@ -146,11 +146,16 @@ const StyledJuiceboxHeaderWrapper = styled.header.attrs<{
 
 const JuiceboxOptionText = styled.li``;
 
+// Force marker is in here to create a marker on the current page
+// that is hidden when the Juicebox is interacted with for the first time
+// TODO: Implement force marker.
 const JuiceboxOptionWrapper = styled.a.attrs<{
   altColor?: boolean;
+  forceMarker?: boolean;
 }>((props) => ({
   altColor: props.altColor || false,
-}))<{ altColor?: boolean }>`
+  forceMarker: props.forceMarker || false,
+}))<{ altColor?: boolean; forceMarker?: boolean }>`
   z-index: 135;
   margin: 0;
   list-style-type: ">";
