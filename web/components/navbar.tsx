@@ -234,7 +234,6 @@ const JuiceboxHeaderOptionsChildren = ({
   <>
     <JuiceboxOption title="About" path="/about" altColor={altColor} />
     <JuiceboxOption title="Contact" path="/contact" altColor={altColor} />
-    <JuiceboxOption title="Resume" path="/resume" altColor={altColor} />
   </>
 );
 
