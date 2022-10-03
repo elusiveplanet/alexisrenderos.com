@@ -5,7 +5,6 @@ import GlobalFooter from "../components/footer";
 import {
   AlternateBackgroundColor,
   FullyTransparent,
-  HalfShadow,
   PrimaryBackgroundColor,
   SlightShadow,
 } from "../utils/colors";
@@ -41,7 +40,7 @@ const ContactBody = styled.div.attrs<{
   }
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
-    min-height: 1200px;
+    min-height: 800px;
   }
 `;
 
@@ -55,12 +54,12 @@ const ContactWrapper = styled.div`
   flex-direction: column;
   background: ${PrimaryBackgroundColor} center;
   background-size: 100vw 100vh;
-  box-shadow: 14px 18px 12px 0 ${HalfShadow};
+  box-shadow: 8px 18px 18px 0 ${SlightShadow};
   border-radius: 16px;
   border: 5px ${SlightShadow} solid;
   transition: box-shadow 250ms ease-out;
   :where(:hover, :focus-visible) {
-    box-shadow: 12px 16px 10px 0 ${HalfShadow};
+    box-shadow: 8px 18px 12px 0 ${SlightShadow};
   }
   gap: 2em;
   padding: 2em;
@@ -68,9 +67,9 @@ const ContactWrapper = styled.div`
     flex-direction: row;
     gap: 2.5em;
     padding: 2.5em;
-    box-shadow: 25px 25px 5px 0 ${HalfShadow};
+    box-shadow: 8px 18px 18px 0 ${SlightShadow};
     :where(:hover, :focus-visible) {
-      box-shadow: 22px 22px 5px 0 ${HalfShadow};
+      box-shadow: 8px 18px 12px 0 ${SlightShadow};
     }
   }
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
@@ -84,7 +83,7 @@ const ContactAndDividerWrapper = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 85%;
-  padding: 1em 0 3em 0;
+  padding: 1.25em 0 2em 0;
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     max-width: 85%;
   }
