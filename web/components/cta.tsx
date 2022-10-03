@@ -68,25 +68,26 @@ const CTASubtextWrapper = styled.div`
 const CTASubtext = styled.h2`
   width: fit-content;
   height: fit-content;
-  padding: 1em 0 0.5em 0;
   color: ${LightText};
-  font-size: 2em;
   text-align: left;
   font-weight: 400;
   letter-spacing: 0.015em;
+  max-width: 400px;
+  padding: 0 0 0.5em 0;
+  font-size: min(max(1em, 6vw), 2em);
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // if on tablet
+    padding: 1em 0 0.5em 0;
+    font-size: 2em;
+  }
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     // if on desktop
+    max-width: none;
     width: 475px;
     height: 150px;
     padding: 1em 0 0.25em 0.25em;
-  }
-
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    // if on phone
-    max-width: 400px;
-    padding: 0 0 0.5em 0;
-    font-size: min(max(1em, 6vw), 2em);
   }
 `;
 
@@ -103,7 +104,7 @@ const CTA = ({ width }: CTAProps): JSX.Element => (
             <CTASubtextWrapper>
               <CTASubtext>
                 I’m Alexis, a San Francisco based software engineer focused on
-                front end web development and accessibility.
+                front end web development and design.
               </CTASubtext>
             </CTASubtextWrapper>
             <CTAHeading>

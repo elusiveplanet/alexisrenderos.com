@@ -4,7 +4,7 @@ import { PrimaryBackgroundColor } from "../utils/colors";
 const GlobalStyle = createGlobalStyle`
   body {
     //CSS Reset
-    *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+    *:where(:not(html, iframe, canvas, img, svg, video, input[type="checkbox"]):not(svg *, symbol *)) {
       all: unset;
       display: revert;
     }

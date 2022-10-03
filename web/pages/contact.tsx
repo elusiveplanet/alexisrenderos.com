@@ -62,7 +62,7 @@ const ContactWrapper = styled.div`
     box-shadow: 8px 18px 12px 0 ${SlightShadow};
   }
   gap: 2em;
-  padding: 2em;
+  padding: 1.5em;
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     flex-direction: row;
     gap: 2.5em;
@@ -73,8 +73,8 @@ const ContactWrapper = styled.div`
     }
   }
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
-    gap: 5em;
-    padding: 5em;
+    gap: 4em;
+    padding: 4em;
   }
 `;
 
@@ -82,7 +82,7 @@ const ContactAndDividerWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 85%;
+  max-width: 87.5%;
   padding: 1.25em 0 2em 0;
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     max-width: 85%;
@@ -95,7 +95,7 @@ const SectionBreakWrapper = styled.div`
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 125%;
 `;
 
 const SectionBreakTopBuffer = styled.div`

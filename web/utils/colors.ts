@@ -1,6 +1,6 @@
 // Yellows
 export const SaffronYellow = "rgba(243, 200, 27, 1)";
-export const SaffronYellowSlightlyTransparent = "rgba(243, 200, 27, 0.75)";
+export const SaffronYellowSlightlyTransparent = "rgba(243, 200, 27, 0.65)";
 export const SaffronYellowTransparent = "rgba(243, 200, 27, 0.5)";
 export const NectarYellow = "rgba(244, 184, 10, 1)";
 
