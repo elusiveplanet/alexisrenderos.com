@@ -8,9 +8,10 @@ enum SocialLinkTarget {
 }
 
 export enum SocialLinkSize {
-  Small = 0,
-  Medium = 1,
-  Large = 2,
+  XSmall = 0,
+  Small = 1,
+  Medium = 2,
+  Large = 3,
 }
 
 export type SocialLink = {
@@ -24,18 +25,29 @@ type SocialLinkIconProps = {
 };
 
 const SocialLinkServiceIcon = styled.div`
-  &:hover {
+  transition: filter 0.5s ease;
+  :hover {
     filter: brightness(60%);
-    transition: all 0.5s ease;
+  }
+  :focus-within {
+    filter: brightness(60%);
   }
 `;
 
-const SocialLinkServiceIconSmall = styled(SocialLinkServiceIcon)`
-  --service-icon-dimension: min(max(2em, 6vw), 2.75em);
-  height: var(--service-icon-dimension);
-  width: var(--service-icon-dimension);
+const SocialLinkServiceIconExtraSmall = styled(SocialLinkServiceIcon)`
+  --service-icon-dimension-xs: min(max(1.2em, 3vw), 1.55em);
+  height: var(--service-icon-dimension-xs);
+  width: var(--service-icon-dimension-xs);
   margin: 0.1em 0.2em 0.1em 0;
-  padding: 0.5em calc(var(--service-icon-dimension) / 1.75) 0.5em 0;
+  padding: 0.5em calc(var(--service-icon-dimension-xs) / 2) 0.5em 0;
+`;
+
+const SocialLinkServiceIconSmall = styled(SocialLinkServiceIcon)`
+  --service-icon-dimension-s: min(max(2em, 6vw), 2.75em);
+  height: var(--service-icon-dimension-s);
+  width: var(--service-icon-dimension-s);
+  margin: 0.1em 0.2em 0.1em 0;
+  padding: 0.5em calc(var(--service-icon-dimension-s) / 1.75) 0.5em 0;
 `;
 
 const SocialLinkServiceIconMedium = styled(SocialLinkServiceIcon)`
@@ -57,7 +69,6 @@ export const SocialLinkIcon = ({ socialLink, size }: SocialLinkIconProps) => {
     <a href={socialLink.url}>
       <Image
         src={imageLocation}
-        layout="responsive"
         width={40}
         height={40}
         alt={`Alexis' ${socialLink.service || "Social Media Profile"}`}
@@ -67,6 +78,12 @@ export const SocialLinkIcon = ({ socialLink, size }: SocialLinkIconProps) => {
   );
 
   switch (size) {
+    case SocialLinkSize.XSmall:
+      return (
+        <SocialLinkServiceIconExtraSmall>
+          {socialLinkChild}
+        </SocialLinkServiceIconExtraSmall>
+      );
     case SocialLinkSize.Small:
       return (
         <SocialLinkServiceIconSmall>

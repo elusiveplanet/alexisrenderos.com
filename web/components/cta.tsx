@@ -1,17 +1,28 @@
 import styled from "styled-components";
-import { LightText, SaffronToNectarGradient } from "../utils/colors";
+import { AccentGradientFill, LightText } from "../utils/colors";
 import CtaButton from "./ctaButton";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 
 const CTAWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 1000px;
-  min-height: 380px;
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // if on desktop
+    min-width: 1000px;
+    min-height: 380px;
+  }
 `;
 
 const CTAInfoWrapper = styled.div`
   display: flex;
-  margin: 2.5em 0 0.5em;
+  margin: 0.5em 0;
+  flex-direction: column;
+
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // if on desktop
+    margin: 2.5em 0 0.5em;
+    flex-direction: row;
+  }
 `;
 
 const CTATitleWrapper = styled.div`
@@ -19,15 +30,31 @@ const CTATitleWrapper = styled.div`
 `;
 
 const CTAHeading = styled.h1`
-  background: ${SaffronToNectarGradient};
+  background: ${AccentGradientFill};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 6em;
+  font-size: min(max(2em, 12vw), 5em);
+  padding: 0.1em 0;
+  max-width: 600px;
   text-align: left;
   font-weight: 700;
   font-style: italic;
   line-height: 1em;
   letter-spacing: 0.015em;
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // if on tablet
+    font-size: 5.5em;
+    padding: 0;
+    max-width: none;
+  }
+
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // if on desktop
+    font-size: 6em;
+    padding: 0;
+    max-width: none;
+  }
 `;
 
 const CTASubtextWrapper = styled.div`
@@ -39,33 +66,73 @@ const CTASubtextWrapper = styled.div`
 `;
 
 const CTASubtext = styled.h2`
-  width: 475px;
-  height: 150px;
-  padding: 1em 0 0.25em 0.25em;
+  width: fit-content;
+  height: fit-content;
   color: ${LightText};
-  font-size: 2em;
   text-align: left;
   font-weight: 400;
   letter-spacing: 0.015em;
+  max-width: 400px;
+  padding: 0 0 0.5em 0;
+  font-size: min(max(1em, 6vw), 2em);
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // if on tablet
+    padding: 1em 0 0.5em 0;
+    font-size: 2em;
+  }
+
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // if on desktop
+    max-width: none;
+    width: 475px;
+    height: 150px;
+    padding: 1em 0 0.25em 0.25em;
+  }
 `;
 
-const CTA = (): JSX.Element => (
+type CTAProps = {
+  width: number;
+};
+
+const CTA = ({ width }: CTAProps): JSX.Element => (
   <CTAWrapper>
-    <CTAInfoWrapper>
-      <CTATitleWrapper>
-        <CTASubtextWrapper>
+    {width !== 0 &&
+      (width >= MIN_DESKTOP_WIDTH ? (
+        <CTAInfoWrapper>
+          <CTATitleWrapper>
+            <CTASubtextWrapper>
+              <CTASubtext>
+                I’m Alexis, a San Francisco based software engineer focused on
+                front end web development and design.
+              </CTASubtext>
+            </CTASubtextWrapper>
+            <CTAHeading>
+              I enable others <br />
+              to do their best work.
+            </CTAHeading>
+          </CTATitleWrapper>
+        </CTAInfoWrapper>
+      ) : (
+        <CTAInfoWrapper>
           <CTASubtext>
-            I’m Alexis, a San Francisco based software engineer focused on front
-            end web development and accessibility.
+            I’m Alexis, a San Francisco
+            <br /> based software engineer.
           </CTASubtext>
-        </CTASubtextWrapper>
-        <CTAHeading>
-          I enable others <br />
-          to do their best work.
-        </CTAHeading>
-      </CTATitleWrapper>
-    </CTAInfoWrapper>
-    <CtaButton text="Learn how I do it" target="learn-about-me" anchor arrow />
+          <CTAHeading>
+            I enable others
+            <br /> to do their
+            <br /> best work.
+          </CTAHeading>
+        </CTAInfoWrapper>
+      ))}
+
+    {width !== 0 &&
+      (width >= MIN_TABLET_WIDTH ? (
+        <CtaButton text="Learn how I do it" target="/about" arrow />
+      ) : (
+        <CtaButton text="Learn how I do it" target="/about" mobile arrow />
+      ))}
   </CTAWrapper>
 );
 

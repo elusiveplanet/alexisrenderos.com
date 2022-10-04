@@ -2,12 +2,12 @@
   displayOnPage: true
   url: https://www.mercuryevenings.com
   dates:
-    startMonth: January
+    startMonth: February
     startYear: 2022
     endMonth: Present
     endYear:
   location: San Francisco, California
-  title: Freelance Content Creator
+  title: Product Engineer
   description: So anyone can find great music from underrepresented artists, not spending hours searching for new releases.
 
 - company: Bolt
@@ -93,7 +93,7 @@
     endMonth: September
     endYear: 2021
   location: Ames, Iowa
-  title: Assistant General Manager / Chief Operator
+  title: Broadcast Manager / Chief Operator
   description: So KURE staff can focus on doing what they love, not on legal and administrative work.
 
 - company: Iowa State University

@@ -1,7 +1,6 @@
 import Head from "next/head";
-
-import { hotjar } from "react-hotjar";
 import { useEffect } from "react";
+import { hotjar } from "react-hotjar";
 
 const GlobalHead = () => {
   useEffect(() => {
@@ -13,6 +12,12 @@ const GlobalHead = () => {
       <title>Alexis Renderos 🪐</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="author" content="Alexis Renderos" />
+      <meta
+        name="description"
+        content="Alexis Renderos is a San Francisco based software engineer focused on front end web development and product design."
+      />
+      <meta name="keywords" content="Alexis Renderos, Software Engineer" />
       <link
         rel="preload"
         href="/fonts/gt-walsheim-bold-oblique-trial.woff2"
@@ -26,7 +31,7 @@ const GlobalHead = () => {
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"
-      />{" "}
+      />
       <link
         rel="preload"
         href="/fonts/gt-walsheim-regular-trial.woff2"
@@ -57,7 +62,7 @@ const GlobalHead = () => {
       <meta property="og:title" content="Alexis Renderos" />
       <meta
         property="og:description"
-        content="I enable others to do their best work."
+        content="I’m Alexis, a San Francisco based software engineer focused on front end web development and product design."
       />
       <meta
         property="og:image"
@@ -67,7 +72,7 @@ const GlobalHead = () => {
       <meta name="twitter:title" content="Alexis Renderos" />
       <meta
         name="twitter:description"
-        content="I enable others to do their best work."
+        content="I’m Alexis, a San Francisco based software engineer focused on front end web development and product design."
       />
       <meta
         name="twitter:image"

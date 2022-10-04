@@ -4,12 +4,23 @@ import simpleHash from "../helpers/simpleHash";
 import { DarkText, HalfShadow, SaffronYellow } from "../utils/colors";
 
 const ProjectCardCollectionWrapper = styled.div`
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  margin: 0 auto 10em auto;
-  width: max-content;
-  max-width: 800px;
-  padding: 2em;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2em 0;
+`;
+
+const ProjectCardWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1600px;
 `;
 
 const ProjectCardCollectionTitle = styled.h2`
@@ -29,12 +40,13 @@ type ProjectCardCollectionProps = {
 };
 
 const ProjectCardCollection = ({
-  projectList,
+  projectList = [],
 }: ProjectCardCollectionProps): JSX.Element => {
   const projectListLength = projectList.length;
 
   if (!projectList || projectListLength === 0) {
-    return {} as JSX.Element;
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return (<></>) as JSX.Element;
   }
 
   if (projectListLength === 1) {
@@ -44,12 +56,16 @@ const ProjectCardCollection = ({
   return (
     <ProjectCardCollectionWrapper>
       <ProjectCardCollectionTitle>Projects</ProjectCardCollectionTitle>
-      {projectList.map((projectEntry, index) => (
-        <ProjectCard
-          project={projectEntry}
-          key={simpleHash(projectEntry.name + projectEntry.description + index)}
-        />
-      ))}
+      <ProjectCardWrapper>
+        {projectList.map((projectEntry, index) => (
+          <ProjectCard
+            project={projectEntry}
+            key={simpleHash(
+              projectEntry.name + projectEntry.description + index
+            )}
+          />
+        ))}
+      </ProjectCardWrapper>
     </ProjectCardCollectionWrapper>
   );
 };

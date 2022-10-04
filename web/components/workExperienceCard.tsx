@@ -140,7 +140,7 @@ const WorkExperienceCardTextWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: max-content;
-  padding: 4em 1.5em;
+  padding: 3em 1.5em;
 `;
 
 const WorkExperienceCardWrapper = styled.div`
@@ -184,9 +184,9 @@ export const WorkExperienceCard = ({
         &mdash; {workExperience.dates.endMonth}
         {!!workExperience.dates.endYear && ` ${workExperience.dates.endYear}`}
       </WorkExperienceCardSubheadingTwo>
-      <WorkExperienceCardBody>
-        {workExperience.description}
-      </WorkExperienceCardBody>
+      {/*<WorkExperienceCardBody>*/}
+      {/*  {workExperience.description}*/}
+      {/*</WorkExperienceCardBody>*/}
     </WorkExperienceCardTextWrapper>
   </WorkExperienceCardWrapper>
 );
