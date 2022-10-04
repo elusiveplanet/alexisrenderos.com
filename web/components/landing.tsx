@@ -23,6 +23,10 @@ const LandingWrapper = styled.div.attrs<{
   min-height: 600px;
   width: 100%;
 
+  @media (min-width: ${MIN_TABLET_WIDTH * 0.667}px) {
+    min-height: 800px;
+  }
+
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
     min-height: 800px;
   }
@@ -40,15 +44,18 @@ const LandingBodyWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin: auto;
-  height: max-content;
+  height: 100%;
   width: fit-content;
 
-  padding-bottom: 10%;
+  padding-bottom: 2.5%;
   min-height: 500px;
+
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    padding-bottom: 0;
+  }
 
   @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
     width: 100%;
-    padding-bottom: 1em;
     flex-direction: row;
     align-items: center;
     min-height: 600px;

@@ -70,13 +70,13 @@ export const Input = styled(Field).attrs<{
   font-size: min(max(0.95em, 2.25vw), 1em);
   color: ${DarkText};
   background: ${CoolToneAlternateBackgroundColor};
-  outline: ${(props) =>
-    props.error === "true" ? `3px solid ${ErrorText}` : `none`};
+  box-shadow: ${(props) =>
+    props.error === "true" ? `0 0 0 3px ${ErrorText}` : `none`};
   border-radius: 4px;
   width: 100%;
   @media (min-width: ${MIN_TABLET_WIDTH}px) {
-    outline: ${(props) =>
-      props.error === "true" ? `4px solid ${ErrorText}` : `none`};
+    box-shadow: ${(props) =>
+      props.error === "true" ? `0 0 0 4px ${ErrorText}` : `none`};
   }
 `;
 

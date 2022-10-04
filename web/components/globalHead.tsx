@@ -1,10 +1,18 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { hotjar } from "react-hotjar";
+import ReactGA from "react-ga";
+import { useRouter } from "next/router";
 
 const GlobalHead = () => {
+  const router = useRouter();
   useEffect(() => {
     hotjar.initialize(3058994, 6);
+    ReactGA.initialize("G-J8P2GG0JDT", {
+      gaOptions: { siteSpeedSampleRate: 100 },
+    });
+
+    ReactGA.pageview(router.pathname);
   }, []);
 
   return (
