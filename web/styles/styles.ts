@@ -1,16 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import {
-  AccentText,
-  Black,
-  FullyTransparent,
-  IndigoToAzureGradient,
-  SaffronToNectarGradient,
-} from "../utils/colors";
+import { PrimaryBackgroundColor } from "../utils/colors";
 
 const GlobalStyle = createGlobalStyle`
   body {
     //CSS Reset
-    *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+    *:where(:not(html, iframe, canvas, img, svg, video, input[type="checkbox"]):not(svg *, symbol *)) {
       all: unset;
       display: revert;
     }
@@ -86,26 +80,9 @@ const GlobalStyle = createGlobalStyle`
       font-display: block;
     }
     margin: 0;
-    background: ${IndigoToAzureGradient};
+    background: ${PrimaryBackgroundColor};
     color: white;
     font-family: GT Walsheim, sans-serif;
-
-    a {
-      outline: none;
-      text-decoration: underline;
-      text-decoration-color: ${AccentText};
-      color: ${AccentText};
-      background: ${SaffronToNectarGradient} no-repeat right bottom / 0 var(--bg-h);
-      transition: background-size 350ms ease-in-out, color 500ms ease-in-out, text-decoration-color 500ms ease-in-out;
-      --bg-h: 100%;
-    }
-
-    a:where(:hover, :focus-visible) {
-      color: ${Black};
-      text-decoration-color: ${FullyTransparent};
-      background-size: 100% var(--bg-h);
-      background-position-x: left;
-    }
 
     h1 {
       font-size: 2.25em;

@@ -1,3 +1,20 @@
+- name: Personal Website
+  displayOnPage: true
+  url: https://alexisrenderos.com
+  code: https://github.com/renderos17/alexisrenderos.com
+  description: This website was built using React, TypeScript, and Next.js. Code viewable on GitHub. Designs viewable on Figma.
+  used:
+    - C++
+    - Python
+    - ROS
+    - OpenCV
+    - TensorFlow
+    - Keras
+    - Raspberry Pi
+    - Arduino
+    - Autodesk Inventor
+    - 3D Printing
+
 - name: Clark
   displayOnPage: true
   url: https://github.com/renderos17/Clark#clark-cad
@@ -17,10 +34,10 @@
     - 3D Printing
 
 - name: Lifedrinker
-  displayOnPage: false
+  displayOnPage: true
   url: https://github.com/renderos17/Lifedrinker
   code: https://github.com/renderos17/Lifedrinker
-  description: Convolutional Neural Network (CNN) taught to identify an object of interest at range using a live camera feed in conjunction with a Python-based OpenCV tracking algorithm to assist in the detecting, identifying, and tracking of a target.
+  description: Convolutional neural network taught to identify an object of interest at range using a live camera feed in conjunction with a Python-based OpenCV tracking algorithm.
   used:
     - Python
     - TensorFlow

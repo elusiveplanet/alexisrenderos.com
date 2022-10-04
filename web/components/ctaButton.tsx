@@ -1,26 +1,43 @@
 import styled from "styled-components";
-import { LightText } from "../utils/colors";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { LightText, RepeatingRainbowGradientFill } from "../utils/colors";
 import SvgTopRightArrow from "./icons/TopRightArrow";
-import { MIN_TABLET_WIDTH } from "../utils/utils";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/utils";
 
 const CtaButtonWrapper = styled.button`
   height: fit-content;
   width: fit-content;
-  margin: 1em 0;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    margin: 0.5em 0;
+  margin: 0.5em 0;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
+    // TODO: Needs to be properly scaled with styles
+    margin: 1em 0;
   }
 `;
 
 const CtaButtonBorderAnimated = styled.div.attrs<{
   edgeSize?: number;
   borderWidth?: number;
+  animationDisabled?: boolean;
 }>((props) => ({
   edgeSize: `${props.edgeSize || 1}em`,
   borderWidth: `${props.borderWidth || 0.25}em`,
-}))<{ edgeSize?: number; borderWidth?: number }>`
-  --border-width: ${(props) => props.borderWidth};
-  --edge-size: ${(props) => props.edgeSize};
+  animationDisabled: props.animationDisabled ?? false,
+}))<{ edgeSize?: number; borderWidth?: number; animationDisabled?: boolean }>`
+  --border-width: 0.2em;
+  --edge-size: 0.75em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet
+    --border-width: 0.225em;
+    --edge-size: 1em;
+  }
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop
+    --border-width: 0.225em;
+    --edge-size: 1.25em;
+  }
+
   position: relative;
   height: 100%;
   width: 100%;
@@ -33,30 +50,7 @@ const CtaButtonBorderAnimated = styled.div.attrs<{
     right: 0;
 
     filter: brightness(0%) invert(1);
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(255, 0, 0, 1) 0%,
-      rgba(255, 154, 0, 1) 5%,
-      rgba(208, 222, 33, 1) 10%,
-      rgba(79, 220, 74, 1) 15%,
-      rgba(63, 218, 216, 1) 20%,
-      rgba(47, 201, 226, 1) 25%,
-      rgba(28, 127, 238, 1) 30%,
-      rgba(95, 21, 242, 1) 35%,
-      rgba(186, 12, 248, 1) 40%,
-      rgba(251, 7, 217, 1) 45%,
-      rgba(255, 0, 0, 1) 50%,
-      rgba(255, 154, 0, 1) 55%,
-      rgba(208, 222, 33, 1) 60%,
-      rgba(79, 220, 74, 1) 65%,
-      rgba(63, 218, 216, 1) 70%,
-      rgba(47, 201, 226, 1) 75%,
-      rgba(28, 127, 238, 1) 80%,
-      rgba(95, 21, 242, 1) 85%,
-      rgba(186, 12, 248, 1) 90%,
-      rgba(251, 7, 217, 1) 95%,
-      rgba(255, 0, 0, 1) 100%
-    );
+    background: ${RepeatingRainbowGradientFill};
     background-size: 896px 896px;
     animation: slide 2s infinite linear forwards;
     transition: filter 250ms ease-in-out; // this makes the transition between hover states better
@@ -108,9 +102,13 @@ const CtaButtonBorderAnimated = styled.div.attrs<{
   :hover {
     :before {
       animation: slide 2s infinite linear forwards;
-      filter: brightness(100%) invert(1);
+      filter: ${(props) =>
+        props.animationDisabled
+          ? "brightness(0%) invert(1)"
+          : "brightness(100%) invert(1)"};
       transition: filter 250ms ease-in;
-      animation-play-state: running;
+      animation-play-state: ${(props) =>
+        props.animationDisabled ? "paused" : "running"};
     }
     svg {
       transform: translate(0%, -1%);
@@ -118,7 +116,11 @@ const CtaButtonBorderAnimated = styled.div.attrs<{
   }
 `;
 
-const CtaButtonContentWrapper = styled.div`
+const CtaButtonContentWrapper = styled.div.attrs<{
+  isSubmit?: boolean;
+}>((props) => ({
+  isSubmit: props.isSubmit || false,
+}))<{ isSubmit?: boolean }>`
   position: relative;
   z-index: 1;
   height: max-content;
@@ -126,63 +128,53 @@ const CtaButtonContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25em 3em;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    padding: 0.85em 1.75em;
+  padding: ${(props) => (props.isSubmit ? "0.75em 3em" : "0.85em 1.75em")};
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
+    // TODO: Needs to be properly scaled with styles
+    padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
+  }
+  @media (min-width: ${MIN_DESKTOP_WIDTH}px) {
+    // on desktop and up
+    padding: ${(props) => (props.isSubmit ? "1em 6em" : "1.25em 3em")};
   }
 `;
 
-const CtaButtonText = styled.div`
+const CtaButtonText = styled.div.attrs<{
+  isSubmit?: boolean;
+}>((props) => ({
+  isSubmit: props.isSubmit || false,
+}))<{ isSubmit?: boolean }>`
   font-weight: 700;
   font-style: normal;
-  font-size: 2em;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    font-size: 1.5em;
+  font-size: ${(props) => (props.isSubmit ? "1.15em" : "1.5em")};
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
+    font-size: ${(props) => (props.isSubmit ? "1.35em" : "2em")};
   }
   width: max-content;
 `;
 
 const CtaButtonArrow = styled(SvgTopRightArrow)`
-  height: 1.25em;
-  width: 1.25em;
-  padding-left: 1.25em;
-  padding-top: 0.15em;
-  @media (max-width: ${MIN_TABLET_WIDTH}px) {
-    height: 0.75em;
-    width: 0.75em;
-    padding-left: 0.6em;
-    padding-top: 0.075em;
+  height: 0.75em;
+  width: 0.75em;
+  padding-left: 0.6em;
+  padding-top: 0.075em;
+  @media (min-width: ${MIN_TABLET_WIDTH}px) {
+    // on tablet and up
+    // TODO: Needs to be properly scaled with styles
+    height: 1.25em;
+    width: 1.25em;
+    padding-left: 1.25em;
+    padding-top: 0.15em;
   }
 `;
 
-const smoothScroll = (target, delay) => {
-  setTimeout(() => {
-    const element = document.getElementById(target);
-    element.scrollIntoView({ behavior: "smooth" });
-  }, delay);
-};
-
-const handleOnClick = (anchor, target, delay = 750) => {
-  // First we must modify any current animation
-  // Run if it wasn't running before, but set a timeout to pause after a bit.
-  document.getElementById("cta-button").style.animationPlayState = "running";
-  setTimeout(() => {
-    document.getElementById("cta-button").style.animationPlayState = "paused";
-  }, delay / 4);
-
-  // Handle scroll
-  if (anchor) {
-    smoothScroll(target, delay);
-  } else {
-    setTimeout(() => {
-      window.open(target);
-    }, delay);
-  }
-};
-
 type CtaButtonProps = {
   text: string; // Title of button
-  target: string; // Think of this as href
+  target?: string; // Think of this as href
+  disabled?: boolean; // Used to disable clicks, for debouncing.
+  submit?: boolean; // Specify if it's being used as a submit button in a Formik instance.
   anchor?: boolean; // Specify if it's a link to somewhere that already exists so we can smooth scroll
   mobile?: boolean; // If true, will quick select mobile styling
   arrow?: boolean; // Want an arrow displayed? Pass true.
@@ -190,24 +182,116 @@ type CtaButtonProps = {
 
 const CtaButton = ({
   text,
-  target,
+  target = "",
+  disabled = false,
+  submit = false,
   anchor = false,
   mobile = false,
   arrow = false,
-}: CtaButtonProps) => (
-  <CtaButtonWrapper
-    type="button"
-    id="cta-button"
-    onClick={() => handleOnClick(anchor, target)}>
-    <CtaButtonBorderAnimated
-      edgeSize={!mobile ? 1.375 : 0.8}
-      borderWidth={!mobile ? 0.25 : 0.2}>
-      <CtaButtonContentWrapper>
-        <CtaButtonText>{text}</CtaButtonText>
-        {!!arrow && <CtaButtonArrow fill="none" stroke={`${LightText}`} />}
-      </CtaButtonContentWrapper>
-    </CtaButtonBorderAnimated>
-  </CtaButtonWrapper>
-);
+}: CtaButtonProps) => {
+  const router = useRouter();
+
+  const [animationDisabledState, setAnimationDisabledState] =
+    useState<boolean>(false);
+
+  const handleMouseLeave = (e) => {
+    setAnimationDisabledState((prev) => false);
+  };
+
+  const handleAnimationDelay = (delay = 750) => {
+    // We must modify any current animation
+    // Run if it wasn't running before, but set a timeout to pause after a bit.
+    document.getElementById("cta-button").style.animationPlayState = "running";
+    setTimeout(() => {
+      document.getElementById("cta-button").style.animationPlayState = "paused";
+      setAnimationDisabledState((prev) => true);
+      document
+        .getElementById("cta-button")
+        .addEventListener("mouseleave", (e) => handleMouseLeave(e));
+    }, delay);
+  };
+
+  const smoothScroll = (targetAnchor, delay = 0) => {
+    if (delay === 0) {
+      // No delay? No delay.
+      const element = document.getElementById(targetAnchor);
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      handleAnimationDelay(delay);
+      setTimeout(() => {
+        const element = document.getElementById(targetAnchor);
+        element.scrollIntoView({ behavior: "smooth" });
+      }, delay);
+    }
+  };
+
+  const routerPush = (targetPath, delay = 0) => {
+    if (delay === 0) {
+      // No delay? No delay.
+      router.push(targetPath);
+    } else {
+      handleAnimationDelay(delay);
+      setTimeout(() => {
+        router.push(targetPath);
+      }, delay);
+    }
+  };
+
+  const handleOnClick = (isAnchor, targetPath, isSubmit, delay = 1250) => {
+    // Handle scroll vs new page vs submit
+    if (isAnchor) {
+      smoothScroll(targetPath, mobile ? delay : 0);
+    } else if (!isSubmit) {
+      routerPush(targetPath, mobile ? delay : 0);
+    } else {
+      // It's a submit button, we shouldn't do anything other than disable the animation.
+      handleAnimationDelay(mobile ? delay : delay / 2);
+    }
+  };
+
+  const getEdgeSize = (isMobile, isSubmit): number => {
+    if (isMobile && isSubmit) {
+      return 0.75;
+    }
+    if (isMobile) {
+      return 0.8;
+    }
+    if (isSubmit) {
+      return 0.75;
+    }
+    return 1.375;
+  };
+
+  const getBorderWidth = (isMobile, isSubmit): number => {
+    if (isMobile && isSubmit) {
+      return 0.15;
+    }
+    if (isMobile) {
+      return 0.2;
+    }
+    if (isSubmit) {
+      return 0.15;
+    }
+    return 0.25;
+  };
+
+  return (
+    <CtaButtonWrapper
+      type={submit ? "submit" : "button"}
+      id="cta-button"
+      onClick={() => handleOnClick(anchor, target, submit)}
+      disabled={disabled}>
+      <CtaButtonBorderAnimated
+        edgeSize={getEdgeSize(mobile, submit)}
+        borderWidth={getBorderWidth(mobile, submit)}
+        animationDisabled={animationDisabledState}>
+        <CtaButtonContentWrapper isSubmit={submit}>
+          <CtaButtonText isSubmit={submit}>{text}</CtaButtonText>
+          {!!arrow && <CtaButtonArrow fill="none" stroke={`${LightText}`} />}
+        </CtaButtonContentWrapper>
+      </CtaButtonBorderAnimated>
+    </CtaButtonWrapper>
+  );
+};
 
 export default CtaButton;

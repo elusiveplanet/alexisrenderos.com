@@ -10,15 +10,14 @@ export enum SocialLinkCollectionDirection {
 const SocialLinkCollectionWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0.1em 0;
-  padding: 0.5em 0;
+  min-height: 25px;
 `;
 
 const SocialLinkCollectionWrapperColumn = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0.5em;
-  min-width: 68px;
+  min-width: 70px;
 `;
 
 type SocialLinkCollectionProps = {
@@ -35,7 +34,8 @@ export const SocialLinkCollection = ({
   const socialLinkListLength = socialLinkList.length;
 
   if (!socialLinkList || socialLinkListLength === 0) {
-    return {} as JSX.Element;
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return (<></>) as JSX.Element;
   }
 
   if (socialLinkListLength === 1) {
