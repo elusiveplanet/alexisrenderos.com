@@ -36,7 +36,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^12.3.1",
+    "@next/eslint-plugin-next": "^13.0.4",
     "@svgr/cli": "^6.2.1",
     "@svgr/core": "^6.2.1",
     "@swc/cli": "^0.1.57",
