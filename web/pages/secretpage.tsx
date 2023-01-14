@@ -11,15 +11,13 @@ const SecretPageBody = styled.div`
   justify-content: flex-start;
 `;
 
-export const SecretPage = (): JSX.Element => {
-  return (
-    <>
-      <JuiceboxHeader title="Alexis Renderos" />
-      <SecretPageBody>
-        <SecretCard />
-      </SecretPageBody>
-    </>
-  );
-};
+export const SecretPage = (): JSX.Element => (
+  <>
+    <JuiceboxHeader title="Alexis Renderos" />
+    <SecretPageBody>
+      <SecretCard />
+    </SecretPageBody>
+  </>
+);
 
 export default SecretPage;
