@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { DarkText } from "../utils/colors";
 import Image from "next/image";
 import { useState } from "react";
+import { DarkText } from "../utils/colors";
 
 const SecretCardBody = styled.div`
   display: flex;
@@ -33,10 +33,8 @@ const SecretImageWrapper = styled.div`
   width: 10em;
 `;
 
-export const SecretCard = () => {
+const SecretCard = () => {
   const [secretDialogState, setSecretDialogState] = useState(false);
-
-  console.log(secretDialogState);
 
   const handleSecretButton = () => {
     setSecretDialogState((prev) => !prev);
@@ -48,22 +46,22 @@ export const SecretCard = () => {
         <SecretButtonText>Test Text</SecretButtonText>
       </SecretButton>
       <p>{secretDialogState}</p>
-      <>
-        {!!secretDialogState && (
-          <>
-            <SecretImageWrapper>
-              <Image
-                src="/images/pixelHeart.webp"
-                layout="responsive"
-                width={40}
-                height={40}
-                alt="A red pixelated heart with a black background."
-              />
-            </SecretImageWrapper>
-            <p>Hi :)</p>
-          </>
-        )}
-      </>
+      {!!secretDialogState && (
+        <>
+          <SecretImageWrapper>
+            <Image
+              src="/images/pixelHeart.webp"
+              layout="responsive"
+              width={40}
+              height={40}
+              alt="A red pixelated heart with a black background."
+            />
+          </SecretImageWrapper>
+          <p>Hi :)</p>
+        </>
+      )}
     </SecretCardBody>
   );
 };
+
+export default SecretCard;
