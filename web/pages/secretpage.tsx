@@ -1,6 +1,6 @@
-import JuiceboxHeader from "../components/navbar";
 import styled from "styled-components";
-import { SecretCard } from "../components/secretCard";
+import JuiceboxHeader from "../components/navbar";
+import SecretCard from "../components/secretCard";
 
 const SecretPageBody = styled.div`
   min-height: 400px;
