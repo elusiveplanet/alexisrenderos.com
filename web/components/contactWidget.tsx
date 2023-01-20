@@ -58,7 +58,7 @@ const ContactWidget = () => {
       onSubmit={handleOnSubmit}
       validationSchema={formSchema}>
       {({ isSubmitting }) => (
-        <FormGroup id="airtable-backend-form" noValidate>
+        <FormGroup id="airtable-backend-form" {...{ netlify: "" }} noValidate>
           <InputRow>
             <InputWrapper>
               <InputGroup>

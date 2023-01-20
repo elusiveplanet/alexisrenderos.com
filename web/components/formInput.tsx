@@ -175,6 +175,7 @@ export const InputWithErrorHighlight = ({
         component={component}
         placeholder={placeholder}
         error={error.toString()}
+        {...{ "data-hj-allow": "" }}
       />
       {!!error && <InputErrorIcon>!</InputErrorIcon>}
     </InputWithErrorHighlightWrapper>
