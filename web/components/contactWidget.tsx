@@ -31,11 +31,13 @@ const ContactWidget = () => {
   const handleServerResponse = (ok, msg) => {
     setServerState({ ok, msg });
   };
+
   const handleOnSubmit = async (values, actions) => {
     try {
       const response = await axios.post(
-        "/api/createAirtableFormEntry/",
-        values
+        "https://getform.io/f/26b1c0de-07d0-49ac-8826-3269397e6dc7",
+        values,
+        { headers: { Accept: "application/json" } }
       );
       actions.setSubmitting(false);
       actions.resetForm();
