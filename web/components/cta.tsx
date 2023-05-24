@@ -104,7 +104,7 @@ const CTA = ({ width }: CTAProps): JSX.Element => (
             <CTASubtextWrapper>
               <CTASubtext>
                 I’m Alexis, a San Francisco based software engineer focused on
-                frontend web development and design.
+                fullstack web development and design.
               </CTASubtext>
             </CTASubtextWrapper>
             <CTAHeading>
